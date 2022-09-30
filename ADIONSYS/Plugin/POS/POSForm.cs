@@ -1,4 +1,6 @@
-﻿using ADIONSYS.Plugin.POS.Retail;
+﻿using ADIONSYS.Plugin.POS.Member;
+using ADIONSYS.Plugin.POS.Member.Add;
+using ADIONSYS.Plugin.POS.Retail;
 using ADIONSYS.Plugin.POS.Warehose;
 using ADIONSYS.Plugin.POS.Warehose.Product;
 using ADIONSYS.StartLoading;
@@ -80,7 +82,7 @@ namespace ADIONSYS.Plugin.POS
         private void BtnRetail_Click(object sender, EventArgs e)
         {
             hidemeun();
-            RetailForm RetailForm = new RetailForm();
+            RetailForm RetailForm = new();
             ShowForm(RetailForm);
 
         }
@@ -88,8 +90,15 @@ namespace ADIONSYS.Plugin.POS
         private void BtnWarehose_Click(object sender, EventArgs e)
         {
             hidemeun();
-            WarehoseForm WarehoseForm = new WarehoseForm();
+            WarehoseForm WarehoseForm = new();
             ShowForm(WarehoseForm);
+        }
+
+        private void BtnMember_Click(object sender, EventArgs e)
+        {
+            hidemeun();
+            MemberForm MemberForm = new();
+            ShowForm(MemberForm);
         }
     }
     

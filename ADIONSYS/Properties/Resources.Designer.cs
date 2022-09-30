@@ -343,6 +343,16 @@ namespace ADIONSYS.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_community_member_85 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-community-member-85", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_detail_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-detail-64", resourceCulture);
