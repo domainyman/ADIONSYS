@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ADIONSYS.Plugin.POS" GeneratedClassName="POSSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TransferNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TS-00000001</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

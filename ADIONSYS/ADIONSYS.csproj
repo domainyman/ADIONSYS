@@ -1,0 +1,91 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Resources\ADION-Logo-_white_.ico</ApplicationIcon>
+    <StartupObject>ADIONSYS.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Addon\**" />
+    <Compile Remove="Plugin\Setting\NewFolder1\**" />
+    <EmbeddedResource Remove="Addon\**" />
+    <EmbeddedResource Remove="Plugin\Setting\NewFolder1\**" />
+    <None Remove="Addon\**" />
+    <None Remove="Plugin\Setting\NewFolder1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ConvertFunction\WindowSize.cs" />
+    <Compile Remove="Plugin\User\AddUser\AddUser.cs" />
+    <Compile Remove="Plugin\User\AddUser\AddUser.Designer.cs" />
+    <Compile Remove="Plugin\User\Permission\PermissionSitting.cs" />
+    <Compile Remove="Plugin\User\Permission\PermissionSitting.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Plugin\User\AddUser\AddUser.resx" />
+    <EmbeddedResource Remove="Plugin\User\Permission\PermissionSitting.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Iconlogo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\ADION-Logo-_white_.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ApplicationSetting.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApplicationSetting.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Plugin\POS\POSSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>POSSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Transfer\BatchImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Transfer\ProductSNInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ApplicationSetting.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ApplicationSetting.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Plugin\POS\POSSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>POSSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

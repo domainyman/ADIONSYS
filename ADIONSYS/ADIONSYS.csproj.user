@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Plugin\Logout\LogoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\POSForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Retail\RetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Management\Purchese\BatchImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Management\Purchese\ProductSNInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Management\Purchese\PurcheseOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Management\Purchese\SupplierBrower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductInquire\EditProductDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductInquire\ProductDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductInquire\ProductdetailsSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\Brand\Create\CreateBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\Brand\Delete\DeleteBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\Brand\Edit\EditBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\CategorySet\Create\CreateCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\CategorySet\Delete\DeleteCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\CategorySet\Edit\EditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\ProductItem\Create\CreateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\ProductItem\Delete\DeleteProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\ProductItem\Edit\ChooseProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\ProductItem\Edit\EditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\ProductSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\StorageSet\Create\CreateStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\StorageSet\Delete\DeleteStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\StorageSet\Edit\ChooseStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\StorageSet\Edit\EditStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\SupplierSet\Create\CreateSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\SupplierSet\Delete\DeleteSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\SupplierSet\Edit\ChooseSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Product\ProductSet\SupplierSet\Edit\EditSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Initialize\InitializeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Situation\ConfirmDetil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Situation\SituationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Situation\SNSituation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Situation\TransferDetil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Situation\TransferEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Transfer\TransferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Warehose\WarehoseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\Setting\Database\ConnectDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\Setting\Password\Repassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\Setting\Database\SettingDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\Setting\Password\Reusername.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\Setting\Password\SettingAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\Setting\SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\Setting\Upload\UploadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\AddUser\AddAccount\AddAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\AddUser\AddUserSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\AddUser\DeleteAccount\DeleteAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\Permission\PermissionRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\Permission\PerRole\ManageSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\Permission\PerRole\PerRoleEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\Permission\PerRole\PerRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\UserSetting\ChangeUserRole\ChangeUserRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\UserSetting\ResetPassword\ResetUserPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\User\UserSetting\UserSettingFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StartLoading\LoginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StartLoading\MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StartLoading\SqlSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StartLoading\Startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Tool\MessageContinue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Tool\MessageInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="StartLoading\LoginPage.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
