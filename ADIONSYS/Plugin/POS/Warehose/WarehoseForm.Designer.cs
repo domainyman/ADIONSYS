@@ -44,8 +44,9 @@
             this.Btnstorage = new System.Windows.Forms.Button();
             this.StoragepanelGroup = new System.Windows.Forms.Panel();
             this.StoragePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnTransfer = new System.Windows.Forms.Button();
+            this.BtnRecord = new System.Windows.Forms.Button();
             this.BtnTransfersituation = new System.Windows.Forms.Button();
+            this.BtnTransfer = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.WarehoseContainer)).BeginInit();
@@ -79,7 +80,7 @@
             // 
             this.WarehoseContainer.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.WarehoseContainer.Panel2.Controls.Add(this.tableLayoutPanel3);
-            this.WarehoseContainer.Size = new System.Drawing.Size(823, 448);
+            this.WarehoseContainer.Size = new System.Drawing.Size(823, 547);
             this.WarehoseContainer.SplitterDistance = 120;
             this.WarehoseContainer.SplitterWidth = 1;
             this.WarehoseContainer.TabIndex = 0;
@@ -96,7 +97,7 @@
             this.SubLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SubLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.SubLayoutPanel.Name = "SubLayoutPanel";
-            this.SubLayoutPanel.Size = new System.Drawing.Size(120, 448);
+            this.SubLayoutPanel.Size = new System.Drawing.Size(120, 547);
             this.SubLayoutPanel.TabIndex = 0;
             // 
             // BtnProduct
@@ -292,10 +293,9 @@
             // StoragepanelGroup
             // 
             this.StoragepanelGroup.Controls.Add(this.StoragePanel);
-            this.StoragepanelGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.StoragepanelGroup.Location = new System.Drawing.Point(3, 363);
             this.StoragepanelGroup.Name = "StoragepanelGroup";
-            this.StoragepanelGroup.Size = new System.Drawing.Size(114, 80);
+            this.StoragepanelGroup.Size = new System.Drawing.Size(114, 120);
             this.StoragepanelGroup.TabIndex = 7;
             // 
             // StoragePanel
@@ -303,9 +303,10 @@
             this.StoragePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.StoragePanel.ColumnCount = 1;
             this.StoragePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.StoragePanel.Controls.Add(this.BtnTransfer, 0, 0);
+            this.StoragePanel.Controls.Add(this.BtnRecord, 0, 2);
             this.StoragePanel.Controls.Add(this.BtnTransfersituation, 0, 1);
-            this.StoragePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StoragePanel.Controls.Add(this.BtnTransfer, 0, 0);
+            this.StoragePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.StoragePanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.StoragePanel.Location = new System.Drawing.Point(0, 0);
             this.StoragePanel.Name = "StoragePanel";
@@ -313,24 +314,24 @@
             this.StoragePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.StoragePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.StoragePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.StoragePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.StoragePanel.Size = new System.Drawing.Size(114, 80);
+            this.StoragePanel.Size = new System.Drawing.Size(114, 120);
             this.StoragePanel.TabIndex = 1;
             // 
-            // BtnTransfer
+            // BtnRecord
             // 
-            this.BtnTransfer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnTransfer.FlatAppearance.BorderSize = 0;
-            this.BtnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTransfer.ForeColor = System.Drawing.Color.White;
-            this.BtnTransfer.Location = new System.Drawing.Point(3, 3);
-            this.BtnTransfer.Name = "BtnTransfer";
-            this.BtnTransfer.Size = new System.Drawing.Size(108, 34);
-            this.BtnTransfer.TabIndex = 0;
-            this.BtnTransfer.Tag = "Transfer";
-            this.BtnTransfer.Text = "Transfer";
-            this.BtnTransfer.UseVisualStyleBackColor = true;
-            this.BtnTransfer.Click += new System.EventHandler(this.BtnTransfer_Click);
+            this.BtnRecord.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnRecord.FlatAppearance.BorderSize = 0;
+            this.BtnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRecord.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnRecord.ForeColor = System.Drawing.Color.White;
+            this.BtnRecord.Location = new System.Drawing.Point(3, 83);
+            this.BtnRecord.Name = "BtnRecord";
+            this.BtnRecord.Size = new System.Drawing.Size(108, 34);
+            this.BtnRecord.TabIndex = 8;
+            this.BtnRecord.Tag = "Initialize";
+            this.BtnRecord.Text = "Record";
+            this.BtnRecord.UseVisualStyleBackColor = true;
+            this.BtnRecord.Click += new System.EventHandler(this.BtnRecord_Click);
             // 
             // BtnTransfersituation
             // 
@@ -348,6 +349,21 @@
             this.BtnTransfersituation.UseVisualStyleBackColor = true;
             this.BtnTransfersituation.Click += new System.EventHandler(this.BtnTransfersituation_Click);
             // 
+            // BtnTransfer
+            // 
+            this.BtnTransfer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnTransfer.FlatAppearance.BorderSize = 0;
+            this.BtnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTransfer.ForeColor = System.Drawing.Color.White;
+            this.BtnTransfer.Location = new System.Drawing.Point(3, 3);
+            this.BtnTransfer.Name = "BtnTransfer";
+            this.BtnTransfer.Size = new System.Drawing.Size(108, 34);
+            this.BtnTransfer.TabIndex = 0;
+            this.BtnTransfer.Tag = "Transfer";
+            this.BtnTransfer.Text = "Transfer";
+            this.BtnTransfer.UseVisualStyleBackColor = true;
+            this.BtnTransfer.Click += new System.EventHandler(this.BtnTransfer_Click);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -362,16 +378,16 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(702, 448);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(702, 547);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::ADIONSYS.Properties.Resources.ADION_Logo__white_;
-            this.pictureBox2.Location = new System.Drawing.Point(134, 87);
+            this.pictureBox2.Location = new System.Drawing.Point(134, 105);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(432, 274);
+            this.pictureBox2.Size = new System.Drawing.Size(432, 335);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -381,7 +397,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(823, 448);
+            this.ClientSize = new System.Drawing.Size(823, 547);
             this.Controls.Add(this.WarehoseContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WarehoseForm";
@@ -415,7 +431,6 @@
         private Panel StoragepanelGroup;
         private TableLayoutPanel StoragePanel;
         private Button BtnTransfer;
-
         private Panel ManagepanelGroup;
         private TableLayoutPanel tableLayoutPanel1;
         private Button button2;
@@ -425,5 +440,6 @@
         private Button BtnStockOut;
         private Button BtnStockIn;
         private Button BtnTransfersituation;
+        private Button BtnRecord;
     }
 }

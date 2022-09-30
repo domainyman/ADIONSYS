@@ -91,6 +91,9 @@
     <Compile Update="Plugin\POS\Warehose\Storage\Initialize\InitializeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Plugin\POS\Warehose\Storage\Record\RecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Plugin\POS\Warehose\Storage\Situation\ConfirmDetil.cs">
       <SubType>Form</SubType>
     </Compile>

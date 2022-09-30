@@ -16,6 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using ADIONSYS.Plugin.POS.Warehose.Storage.Transfer;
 using ADIONSYS.Plugin.POS.Warehose.Storage.Initialize;
 using ADIONSYS.Plugin.POS.Warehose.Storage.Situation;
+using ADIONSYS.Plugin.POS.Warehose.Storage.Record;
 
 namespace ADIONSYS.Plugin.POS.Warehose
 {
@@ -130,6 +131,12 @@ namespace ADIONSYS.Plugin.POS.Warehose
 
             SituationForm SituationForm = new();
             ShowForm(SituationForm);
+        }
+
+        private void BtnRecord_Click(object sender, EventArgs e)
+        {
+            RecordForm RecordForm = new();
+            ShowForm(RecordForm);
         }
     }
 }

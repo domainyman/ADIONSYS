@@ -44,7 +44,6 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductInquire
 
         private void Startup()
         {
-            //Fix it
             if (ProductGridView.ColumnCount > 0)
             {
                 ProductGridView.Columns[0].HeaderText = "ID";

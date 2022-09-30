@@ -50,9 +50,8 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductInquire
                 ProductDetailGridView.Columns[3].HeaderText = "Supplier";
                 ProductDetailGridView.Columns[4].HeaderText = "Cost";
                 ProductDetailGridView.Columns[4].DefaultCellStyle.Format = "N2";
-                ProductDetailGridView.Columns[5].HeaderText = "Qty";
-                //Fix it
-                ProductDetailGridView.Columns[6].HeaderText = "State";
+
+                ProductDetailGridView.Columns[5].HeaderText = "Status";
             }
             else
             {
@@ -67,7 +66,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductInquire
             //Fix it
             string result_hash_name = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT hash FROM productlibrary.product_sum WHERE product_id='" + product_id + "'");
             string droptablename = "productlibrary." + "\"" + result_hash_name + "\"";
-            string cmd = "SELECT product_id,sn,st.storage_name as storage ,su.supplier_name as Supplier,cost,qty,li.state " +
+            string cmd = "SELECT product_id,sn,st.storage_name as storage ,su.supplier_name as Supplier,cost,upper((SELECT status_name FROM productlibrary.status WHERE status_id = li.status))" +
                 "FROM " + droptablename + " li " +
                 "INNER JOIN productsupplier.supplier su ON li.supplier_id=su.supplier_id " +
                 "INNER JOIN productstorage.storage st ON li.storage_id = st.storage_id " +
