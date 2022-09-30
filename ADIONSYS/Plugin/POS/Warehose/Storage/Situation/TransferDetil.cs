@@ -252,17 +252,23 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Situation
                     int status = 1;
                     for (int i = 0; i < keyList.Count; i++)
                     {
-                        List<string> list = SN[keyList[i]];
+                        
                         string result_hash_name = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT hash FROM productlibrary.product_sum WHERE product_id=" + keyList[i] + "");
                         string DatabaseName = "productlibrary." + "\"" + result_hash_name + "\"";
-                        SQLConnect.Instance.PgSQL_Command("UPDATE " + DatabaseName + " SET status = '" + status + "' WHERE sn = '" + list[i] + "'");
+                        List<string> list = SN[keyList[i]];
+                        for (int j = 0; j < list.Count; j++)
+                        {
+                            SQLConnect.Instance.PgSQL_Command("UPDATE " + DatabaseName + " SET status = '" + status + "' WHERE sn = '" + list[j] + "'");
+                        }
+
                     }
-                        
+                    done = true;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageInfo MessageInfo = new MessageInfo(ex.Message);
+                MessageInfo.ShowDialog();
             }
             return done;
         }
@@ -271,6 +277,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Situation
         {
             try
             {
+
                 if (SQLConnect.Instance.ConnectState() == true)
                 {
                     string Code_NUM = Textcodeno.Text;
@@ -278,8 +285,18 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Situation
                     if (CheckID_status(Code_NUM) == 2)
                     {
                         int State = 4;
+                        bool stat = false;
                         string data = ConvertType.GetTimeStamp();
-                        SQLConnect.Instance.PgSQL_Command("UPDATE storagetransfer.transfer_status SET status_id = '" + State + "',upload_date = '" + data + "' WHERE transfer_id = '" + transfer_id + "'");
+                        if (Upload_item(SN) == true)
+                        {
+                            SQLConnect.Instance.PgSQL_Command("UPDATE storagetransfer.transfer_status SET status_id = '" + State + "',upload_date = '" + data + "' WHERE transfer_id = '" + transfer_id + "'");
+                            SQLConnect.Instance.PgSQL_Command("UPDATE storagetransfer.transfer SET state = '" + stat + "' WHERE transfer_id = '" + transfer_id + "'");
+                            SQLConnect.Instance.PgSQL_Command("UPDATE storagetransfer.transferitem SET state = '" + stat + "' WHERE transfer_id = (SELECT transferitem_id FROM storagetransfer.transfer WHERE transfer_id = '" + transfer_id + "')");
+                            MessageInfo MessageBox_text = new MessageInfo("Done");
+                            MessageBox_text.ShowDialog();
+                            this.Close();
+
+                        }
 
                     }
 

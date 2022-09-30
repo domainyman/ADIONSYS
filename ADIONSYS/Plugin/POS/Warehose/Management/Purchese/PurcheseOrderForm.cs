@@ -853,17 +853,18 @@ namespace ADIONSYS.Plugin.POS.Warehose.Management.Purchese
     }
 }
 
-//var flattenedList = SNDic.Values.SelectMany(x => x).ToList();
-//List<string> keyList = new List<string>(this.SNDic.Keys);
-//for (int i = 0; i < flattenedList.Count; i++)
-//{
-//    Console.WriteLine(flattenedList[i]);
-
-//}
+//Dictionary<int, List<int>> Dic = ChangeItemStatus_and_storageID(SQLToDTData(Transfers_id));
+//List<int> keyList = new List<int>(Dic.Keys);
 //for (int i = 0; i < keyList.Count; i++)
 //{
 //    Console.WriteLine(keyList[i]);
+//    Console.WriteLine(Dic[keyList[i]].Count);
 
-//    Console.WriteLine(SNDic[keyList[i]].Count);
+
+//}
+//var flattenedList = Dic.Values.SelectMany(x => x).ToList();
+//for (int i = 0; i < flattenedList.Count; i++)
+//{
+//    Console.WriteLine(flattenedList[i]);
 
 //}

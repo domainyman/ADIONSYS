@@ -22,6 +22,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Situation
         }
         private void Loadtable()
         {
+            bool state = true;
             if (SQLConnect.Instance.ConnectState() == true)
             {
                 SQLConnect.Instance.LoadDateView(SituationGridView, "SELECT st.transfer_id,upper((SELECT status_name FROM storagetransfer.status WHERE status_id = str.status_id))," +
@@ -30,14 +31,14 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Situation
                     "comment,created_on FROM storagetransfer.transfer st " +
                     "INNER JOIN storagetransfer.transfer_status str " +
                     "ON st.transfer_id = str.transfer_id " +
-                    "WHERE st.from_storage = (SELECT storage_id FROM productstorage.storage WHERE storage_name = '" + ApplicationSetting.Default.Location + "') ORDER BY st.transfer_number");
+                    "WHERE st.from_storage = (SELECT storage_id FROM productstorage.storage WHERE storage_name = '" + ApplicationSetting.Default.Location + "') AND state = '" + state + "' ORDER BY st.transfer_number");
                 SQLConnect.Instance.LoadDateView(ConfirmGridView, "SELECT st.transfer_id,upper((SELECT status_name FROM storagetransfer.status WHERE status_id = str.status_id))," +
                     " st.transfer_number,(SELECT storage_name FROM productstorage.storage WHERE storage_id = st.from_storage)," +
                     "(SELECT storage_name FROM productstorage.storage WHERE storage_id = st.to_storage)," +
                     "comment,created_on FROM storagetransfer.transfer st " +
                     "INNER JOIN storagetransfer.transfer_status str " +
                     "ON st.transfer_id = str.transfer_id " +
-                    "WHERE st.to_storage = (SELECT storage_id FROM productstorage.storage WHERE storage_name = '" + ApplicationSetting.Default.Location + "') ORDER BY st.transfer_number");
+                    "WHERE st.to_storage = (SELECT storage_id FROM productstorage.storage WHERE storage_name = '" + ApplicationSetting.Default.Location + "') AND state = '" + state + "'ORDER BY st.transfer_number");
 
             }
         }

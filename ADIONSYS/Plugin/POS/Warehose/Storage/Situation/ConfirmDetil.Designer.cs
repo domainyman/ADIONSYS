@@ -395,6 +395,7 @@
             this.TransDetailGridView.StandardTab = true;
             this.TransDetailGridView.TabIndex = 7;
             this.TransDetailGridView.VirtualMode = true;
+            this.TransDetailGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransDetailGridView_CellDoubleClick);
             // 
             // tableLayoutPanel10
             // 

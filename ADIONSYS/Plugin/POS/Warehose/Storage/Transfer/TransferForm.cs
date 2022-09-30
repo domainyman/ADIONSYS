@@ -687,7 +687,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Transfer
                             if (Addinvitem(codenumber, created_on, state) == true)
                             {
                                 int result_transferitem_id = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT transfer_id FROM storagetransfer.transferitem WHERE transfer_number='" + codenumber + "'");
-                                SQLConnect.Instance.PgSQL_Command("INSERT INTO storagetransfer.transfer(transfer_number,transferitem_id,from_storage,to_storage,username,status,state,comment,created_on) VALUES " +
+                                SQLConnect.Instance.PgSQL_Command("INSERT INTO storagetransfer.transfer(transfer_number,transferitem_id,from_storage,to_storage,username,state,comment,created_on) VALUES " +
                                     "('" + codenumber + "','" + result_transferitem_id + "','" + result_Fromstorage_id + "','" + result_Tostorage_id + "','" + username + "','" +
                                     "" +  state + "','" + comment + "','" + created_on + "')");
                                 SQLConnect.Instance.PgSQL_Command("INSERT INTO storagetransfer.transfer_status (transfer_id,status_id,grant_date) VALUES ((SELECT transfer_id FROM storagetransfer.transfer WHERE transfer_number= '"+ codenumber + "'),'"+ status + "','" + created_on + "')");
