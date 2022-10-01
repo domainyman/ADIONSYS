@@ -100,3 +100,5 @@ D:\VS\ADIONSYS\ADIONSYS\obj\Debug\net6.0-windows10.0.17763.0\ADIONSYS.Plugin.POS
 D:\VS\ADIONSYS\ADIONSYS\obj\Debug\net6.0-windows10.0.17763.0\ADIONSYS.Plugin.POS.Warehose.Storage.Record.RecordForm.resources
 D:\VS\ADIONSYS\ADIONSYS\obj\Debug\net6.0-windows10.0.17763.0\ADIONSYS.Plugin.POS.Member.Add.AddMember.resources
 D:\VS\ADIONSYS\ADIONSYS\obj\Debug\net6.0-windows10.0.17763.0\ADIONSYS.Plugin.POS.Member.MemberForm.resources
+D:\VS\ADIONSYS\ADIONSYS\obj\Debug\net6.0-windows10.0.17763.0\ADIONSYS.Plugin.POS.Member.Add.PaymentMethodAddForm.resources
+D:\VS\ADIONSYS\ADIONSYS\obj\Debug\net6.0-windows10.0.17763.0\ADIONSYS.Plugin.POS.Member.Add.PaymentTermsAddForm.resources

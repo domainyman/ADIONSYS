@@ -415,6 +415,52 @@ namespace ADIONSYS.Plugin.Setting
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO storagetransfer.status(status_name) VALUES('cancel')");
             }
         }
+
+        private void TableStorageMember()
+        {
+            List<string> result = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT nspname FROM pg_catalog.pg_namespace");
+            if (result.Contains("storagemember"))
+            {
+                MessageInfo MessageInfo = new MessageInfo("DataBase-Memberfer Library already exists .");
+                MessageInfo.ShowDialog();
+            }
+            else
+            {
+                SQLConnect.Instance.PgSQL_Command("CREATE SCHEMA IF NOT EXISTS storagemember");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagemember.member (" +
+                    "member_id bigserial PRIMARY KEY," +
+                    "member_number VARCHAR ( 50 ) UNIQUE NOT NULL," +
+                    "member_gender VARCHAR ( 50 )," +
+                    "birth DateTime NOT NULL," +
+                    "email VARCHAR ( 50 )," +
+                    "title VARCHAR ( 50 )," +
+                    "fax_no VARCHAR ( 50 )," +
+                    "tel_no VARCHAR ( 50 )," +
+                    "mem_comment VARCHAR ( 50 )," +
+                    "billing_company VARCHAR ( 50 )," +
+                    "billing_person VARCHAR ( 50 )," +
+                    "billing_address VARCHAR ( 50 )," +
+                    "billing_tel VARCHAR ( 50 )," +
+                    "ship_company VARCHAR ( 50 )," +
+                    "ship_person VARCHAR ( 50 )," +
+                    "ship_address VARCHAR ( 50 )," +
+                    "ship_tel VARCHAR ( 50 )," +
+                    "ship_comment VARCHAR ( 50 )," +
+                    "pay_comment VARCHAR ( 50 )," +
+                    "pay_terms VARCHAR ( 50 )," +
+                    "pay_method VARCHAR ( 50 )," +
+                    "state boolean NOT NULL," +
+                    "created_on TIMESTAMP NOT NULL)");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagemember.paymethod (" +
+                    "paymethod_id bigserial PRIMARY KEY," +
+                    "paymethod_name VARCHAR (255) UNIQUE NOT NULL)");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagemember.payterms (" +
+                    "payterms_id bigserial PRIMARY KEY," +
+                    "payterms_name VARCHAR (255) UNIQUE NOT NULL)");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.payterms(payterms_name) VALUES('CASH ON DELIVERY')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.paymethod(paymethod_name) VALUES('CASH')");
+            }
+        }
         private void AlterProduct()
         {
             Productcenum();

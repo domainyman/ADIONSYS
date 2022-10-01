@@ -7,6 +7,12 @@
     <Compile Update="Plugin\POS\Member\Add\AddMember.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Plugin\POS\Member\Add\PaymentMethodAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Member\Add\PaymentTermsAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Plugin\POS\Member\MemberForm.cs">
       <SubType>Form</SubType>
     </Compile>

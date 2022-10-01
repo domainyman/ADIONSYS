@@ -238,7 +238,6 @@
             this.Textcodeno.ReadOnly = true;
             this.Textcodeno.Size = new System.Drawing.Size(163, 24);
             this.Textcodeno.TabIndex = 2;
-            this.Textcodeno.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Textcodeno_KeyDown);
             // 
             // LBDate
             // 

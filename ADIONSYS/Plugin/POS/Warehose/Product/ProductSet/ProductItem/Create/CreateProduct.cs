@@ -31,16 +31,31 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductSet.ProductItem.Create
         {
             if (SQLConnect.Instance.ConnectState() == true)
             {
-                List<string> Categoryresult = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT category_name FROM productcategory.category");
-                CMBProductCategory.DataSource = Categoryresult;
-                CMBProductCategory.SelectedIndex = -1;
-                List<string> Brandresult = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT brand_name FROM productbrand.brand");
-                CMBBrand.DataSource = Brandresult;
-                CMBBrand.SelectedIndex = -1;
-                List<string> Supplierresult = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT supplier_name FROM productsupplier.supplier");
-                CMBSupplier.DataSource = Supplierresult;
-                CMBSupplier.SelectedIndex = -1;
+                cat();
+                brand();
+                supp();
             }
+        }
+
+        private void cat()
+        {
+            List<string> Categoryresult = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT category_name FROM productcategory.category");
+            CMBProductCategory.DataSource = Categoryresult;
+            CMBProductCategory.SelectedIndex = -1;
+        }
+
+        private void brand()
+        {
+            List<string> Brandresult = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT brand_name FROM productbrand.brand");
+            CMBBrand.DataSource = Brandresult;
+            CMBBrand.SelectedIndex = -1;
+        }
+
+        private void supp()
+        {
+            List<string> Supplierresult = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT supplier_name FROM productsupplier.supplier");
+            CMBSupplier.DataSource = Supplierresult;
+            CMBSupplier.SelectedIndex = -1;
         }
 
         private void butCancel_Click(object sender, EventArgs e)
@@ -183,7 +198,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductSet.ProductItem.Create
             CreateCategory CreateCategory = new CreateCategory();
             if(CreateCategory.ShowDialog() == DialogResult.Cancel )
             {
-                Startup();
+                cat();
             }
         }
 
@@ -192,7 +207,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductSet.ProductItem.Create
             CreateBrand CreateBrand = new CreateBrand();
             if (CreateBrand.ShowDialog() == DialogResult.Cancel)
             {
-                Startup();
+                brand();
             }
         }
 
@@ -201,7 +216,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductSet.ProductItem.Create
             CreateSupplier CreateSupplier = new CreateSupplier();
             if (CreateSupplier.ShowDialog() == DialogResult.Cancel)
             {
-                Startup();
+                supp();
             }
         }
 

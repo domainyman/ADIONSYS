@@ -67,7 +67,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(898, 600);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // RetailContainer
@@ -85,7 +85,7 @@
             // RetailContainer.Panel2
             // 
             this.RetailContainer.Panel2.Controls.Add(this.tableLayoutPanel3);
-            this.RetailContainer.Size = new System.Drawing.Size(794, 404);
+            this.RetailContainer.Size = new System.Drawing.Size(892, 554);
             this.RetailContainer.SplitterDistance = 120;
             this.RetailContainer.SplitterWidth = 1;
             this.RetailContainer.TabIndex = 1;
@@ -119,7 +119,7 @@
             this.SettingPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.SettingPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.SettingPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SettingPanel.Size = new System.Drawing.Size(120, 404);
+            this.SettingPanel.Size = new System.Drawing.Size(120, 554);
             this.SettingPanel.TabIndex = 3;
             // 
             // BtnFinance
@@ -277,6 +277,7 @@
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.AutoScroll = true;
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
@@ -289,16 +290,16 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(673, 404);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(771, 554);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::ADIONSYS.Properties.Resources.ADION_Logo__white_;
-            this.pictureBox2.Location = new System.Drawing.Point(129, 78);
+            this.pictureBox2.Location = new System.Drawing.Point(147, 106);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(414, 246);
+            this.pictureBox2.Size = new System.Drawing.Size(475, 340);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -314,7 +315,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(794, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(892, 34);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // LBPos
@@ -343,7 +344,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(898, 600);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "POSForm";

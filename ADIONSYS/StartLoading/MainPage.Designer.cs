@@ -85,7 +85,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 784);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(953, 878);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -105,7 +105,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1002, 24);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(947, 24);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // MiniSizebtn
@@ -116,7 +116,7 @@
             this.MiniSizebtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MiniSizebtn.FlatAppearance.BorderSize = 0;
             this.MiniSizebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MiniSizebtn.Location = new System.Drawing.Point(915, 3);
+            this.MiniSizebtn.Location = new System.Drawing.Point(860, 3);
             this.MiniSizebtn.Name = "MiniSizebtn";
             this.MiniSizebtn.Size = new System.Drawing.Size(24, 18);
             this.MiniSizebtn.TabIndex = 0;
@@ -131,7 +131,7 @@
             this.MaxSizebtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MaxSizebtn.FlatAppearance.BorderSize = 0;
             this.MaxSizebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MaxSizebtn.Location = new System.Drawing.Point(945, 3);
+            this.MaxSizebtn.Location = new System.Drawing.Point(890, 3);
             this.MaxSizebtn.Name = "MaxSizebtn";
             this.MaxSizebtn.Size = new System.Drawing.Size(24, 18);
             this.MaxSizebtn.TabIndex = 1;
@@ -146,7 +146,7 @@
             this.TopExitbtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TopExitbtn.FlatAppearance.BorderSize = 0;
             this.TopExitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TopExitbtn.Location = new System.Drawing.Point(975, 3);
+            this.TopExitbtn.Location = new System.Drawing.Point(920, 3);
             this.TopExitbtn.Name = "TopExitbtn";
             this.TopExitbtn.Size = new System.Drawing.Size(24, 18);
             this.TopExitbtn.TabIndex = 2;
@@ -159,7 +159,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(3, 3);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(906, 18);
+            this.TopPanel.Size = new System.Drawing.Size(851, 18);
             this.TopPanel.TabIndex = 3;
             // 
             // pictureBox1
@@ -191,7 +191,7 @@
             // 
             this.MainPanel.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.MainPanel.Panel2.Controls.Add(this.tableLayoutPanel3);
-            this.MainPanel.Size = new System.Drawing.Size(1002, 713);
+            this.MainPanel.Size = new System.Drawing.Size(947, 807);
             this.MainPanel.SplitterDistance = 100;
             this.MainPanel.SplitterWidth = 2;
             this.MainPanel.TabIndex = 1;
@@ -220,7 +220,7 @@
             this.MeunLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.MeunLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.MeunLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MeunLayoutPanel.Size = new System.Drawing.Size(100, 555);
+            this.MeunLayoutPanel.Size = new System.Drawing.Size(100, 649);
             this.MeunLayoutPanel.TabIndex = 0;
             // 
             // BtnMeun
@@ -270,7 +270,7 @@
             this.SubLayoutPanel.Controls.Add(this.BtnPlugin, 0, 1);
             this.SubLayoutPanel.Controls.Add(this.BtnSetting, 0, 2);
             this.SubLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SubLayoutPanel.Location = new System.Drawing.Point(0, 555);
+            this.SubLayoutPanel.Location = new System.Drawing.Point(0, 649);
             this.SubLayoutPanel.Name = "SubLayoutPanel";
             this.SubLayoutPanel.RowCount = 4;
             this.SubLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -355,6 +355,7 @@
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.AutoScroll = true;
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
@@ -367,16 +368,16 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(900, 713);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(845, 807);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::ADIONSYS.Properties.Resources.ADION_Logo__white_;
-            this.pictureBox2.Location = new System.Drawing.Point(171, 136);
+            this.pictureBox2.Location = new System.Drawing.Point(161, 154);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(556, 439);
+            this.pictureBox2.Size = new System.Drawing.Size(522, 498);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -394,11 +395,11 @@
             this.LBBottom.Controls.Add(this.LBConState, 3, 0);
             this.LBBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.LBBottom.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBBottom.Location = new System.Drawing.Point(3, 752);
+            this.LBBottom.Location = new System.Drawing.Point(3, 846);
             this.LBBottom.Name = "LBBottom";
             this.LBBottom.RowCount = 1;
             this.LBBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.LBBottom.Size = new System.Drawing.Size(1002, 29);
+            this.LBBottom.Size = new System.Drawing.Size(947, 29);
             this.LBBottom.TabIndex = 2;
             // 
             // LBLocation
@@ -407,7 +408,7 @@
             this.LBLocation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBLocation.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBLocation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LBLocation.Location = new System.Drawing.Point(455, 3);
+            this.LBLocation.Location = new System.Drawing.Point(400, 3);
             this.LBLocation.Margin = new System.Windows.Forms.Padding(3);
             this.LBLocation.MaximumSize = new System.Drawing.Size(152, 23);
             this.LBLocation.Name = "LBLocation";
@@ -424,7 +425,7 @@
             this.Buttomlb.Margin = new System.Windows.Forms.Padding(3);
             this.Buttomlb.Name = "Buttomlb";
             this.Buttomlb.Padding = new System.Windows.Forms.Padding(3);
-            this.Buttomlb.Size = new System.Drawing.Size(446, 23);
+            this.Buttomlb.Size = new System.Drawing.Size(391, 23);
             this.Buttomlb.TabIndex = 0;
             this.Buttomlb.Text = "Power By ADION";
             this.Buttomlb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -435,7 +436,7 @@
             this.LBuser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBuser.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBuser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LBuser.Location = new System.Drawing.Point(605, 3);
+            this.LBuser.Location = new System.Drawing.Point(550, 3);
             this.LBuser.Margin = new System.Windows.Forms.Padding(3);
             this.LBuser.MaximumSize = new System.Drawing.Size(152, 23);
             this.LBuser.Name = "LBuser";
@@ -450,7 +451,7 @@
             this.LBConState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LBConState.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBConState.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LBConState.Location = new System.Drawing.Point(805, 3);
+            this.LBConState.Location = new System.Drawing.Point(750, 3);
             this.LBConState.Margin = new System.Windows.Forms.Padding(3);
             this.LBConState.Name = "LBConState";
             this.LBConState.Size = new System.Drawing.Size(194, 23);
@@ -476,7 +477,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1008, 784);
+            this.ClientSize = new System.Drawing.Size(953, 878);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

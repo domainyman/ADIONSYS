@@ -60,13 +60,6 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Transfer
             }
         }
 
-        private void Textcodeno_KeyDown(object sender, KeyEventArgs e)
-        {
-            if ((e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete) && Textcodeno.Text.Length == 3)
-            {
-                e.SuppressKeyPress = true;
-            }
-        }
 
         private int Storage_id()
         {
@@ -143,7 +136,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Transfer
                 SearchGridView.Columns[3].DefaultCellStyle.Format = "N2";
                 SearchGridView.Columns[4].HeaderText = "QTY";
                 SearchGridView.Columns[4].MinimumWidth = 50;
-                SearchGridView.Columns[5].HeaderText = "Comment";
+                SearchGridView.Columns[5].HeaderText = "Description";
                 SearchGridView.Columns[6].Visible = false;
                 SearchGridView.Columns[7].Visible = false;
                 SearchGridView.Columns[8].Visible = false;
