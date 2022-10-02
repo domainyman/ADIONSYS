@@ -160,6 +160,7 @@ namespace ADIONSYS.Plugin.Setting
                     "state boolean NOT NULL," +
                     "comment VARCHAR ( 50 ) ," +
                     "hash VARCHAR ( 50 ) NOT NULL," +
+                    "upload_date TIMESTAMP ," +
                     "created_on TIMESTAMP NOT NULL)");
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS productlibrary.status (" +
                     "status_id bigserial PRIMARY KEY," +
@@ -246,13 +247,8 @@ namespace ADIONSYS.Plugin.Setting
                     "comment VARCHAR ( 50 )," +
                     "state boolean NOT NULL," +
                     "hash VARCHAR ( 50 ) ," +
+                    "upload_date TIMESTAMP ," +
                     "created_on TIMESTAMP NOT NULL)");
-                //SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS productsupplier.product_supplier (product_id INT NOT NULL," +
-                //    "supplier_id INT NOT NULL," +
-                //    "grant_date TIMESTAMP," +
-                //    "PRIMARY KEY (product_id, supplier_id)," +
-                //    "FOREIGN KEY (supplier_id)REFERENCES productsupplier.supplier (supplier_id)," +
-                //    "FOREIGN KEY (product_id) REFERENCES productlibrary.product_sum (product_id))");
                 string data = ConvertType.GetTimeStamp();
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO productsupplier.supplier(supplier_name,code,address,off_tel,contact,state,created_on) VALUES('OTHER','OTH','N/A','000000','OTHER','true','" + data + "')");
             }
@@ -279,13 +275,8 @@ namespace ADIONSYS.Plugin.Setting
                     "comment VARCHAR ( 50 )," +
                     "state boolean NOT NULL," +
                     "hash VARCHAR ( 50 ) ," +
+                    "upload_date TIMESTAMP ," +
                     "created_on TIMESTAMP NOT NULL)");
-                //SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS productstorage.product_storage (product_id INT NOT NULL," +
-                //    "storage_id INT NOT NULL," +
-                //    "grant_date TIMESTAMP," +
-                //    "PRIMARY KEY (product_id, storage_id)," +
-                //    "FOREIGN KEY (storage_id)REFERENCES productstorage.storage (storage_id)," +
-                //    "FOREIGN KEY (product_id) REFERENCES productlibrary.product_sum (product_id))");
                 string data = ConvertType.GetTimeStamp();
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO productstorage.storage(storage_name,code,state,hash,created_on) VALUES('Summary','Summary','true','SUMMARY','" + data + "')");
             }
@@ -311,6 +302,7 @@ namespace ADIONSYS.Plugin.Setting
                     "comment VARCHAR ( 50 )," +
                     "invoicedate DATE NOT NULL," +
                     "created_on TIMESTAMP NOT NULL," +
+                    "upload_date TIMESTAMP ," +
                     "state boolean NOT NULL)");
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS tableinvoice.invoiceitem (" +
                     "invoice_id bigserial PRIMARY KEY," +
@@ -350,6 +342,7 @@ namespace ADIONSYS.Plugin.Setting
                     "purchese_day DATE NOT NULL," +
                     "selling_no VARCHAR ( 50 )," +
                     "selling_day TIMESTAMP," +
+                    "upload_date TIMESTAMP ," +
                     "created_on TIMESTAMP NOT NULL)");
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS productstorage_code.storageproduct_sumcode (" +
                     "product_id bigserial PRIMARY KEY," +
@@ -365,6 +358,7 @@ namespace ADIONSYS.Plugin.Setting
                     "state boolean NOT NULL," +
                     "comment VARCHAR ( 50 ) ," +
                     "hash VARCHAR ( 50 ) NOT NULL," +
+                    "upload_date TIMESTAMP ," +
                     "created_on TIMESTAMP NOT NULL)");
             }
         }
@@ -429,9 +423,9 @@ namespace ADIONSYS.Plugin.Setting
                 SQLConnect.Instance.PgSQL_Command("CREATE SCHEMA IF NOT EXISTS storagemember");
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagemember.member (" +
                     "member_id bigserial PRIMARY KEY," +
-                    "member_number VARCHAR ( 50 ) UNIQUE NOT NULL," +
+                    "member_number VARCHAR ( 50 ) NOT NULL," +
                     "member_gender VARCHAR ( 50 )," +
-                    "birth DateTime NOT NULL," +
+                    "birth VARCHAR ( 50 ) ," +
                     "email VARCHAR ( 50 )," +
                     "title VARCHAR ( 50 )," +
                     "fax_no VARCHAR ( 50 )," +
@@ -450,6 +444,7 @@ namespace ADIONSYS.Plugin.Setting
                     "pay_terms VARCHAR ( 50 )," +
                     "pay_method VARCHAR ( 50 )," +
                     "state boolean NOT NULL," +
+                    "upload_date TIMESTAMP ," +
                     "created_on TIMESTAMP NOT NULL)");
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagemember.paymethod (" +
                     "paymethod_id bigserial PRIMARY KEY," +

@@ -1,4 +1,5 @@
 ﻿using ADIONSYS.Plugin.POS.Member.Add;
+using ADIONSYS.Plugin.POS.Member.MemberInquire;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,12 @@ namespace ADIONSYS.Plugin.POS.Member
         {
             AddMember AddMember = new();
             ShowForm(AddMember);
+        }
+
+        private void BtnInquire_Click(object sender, EventArgs e)
+        {
+            MemberInquireForm MemberInquireForm = new();
+            ShowForm(MemberInquireForm);
         }
     }
 }

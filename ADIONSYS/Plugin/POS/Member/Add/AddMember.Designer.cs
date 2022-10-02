@@ -71,7 +71,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.LBmessageBox = new System.Windows.Forms.Label();
             this.CMBPaymeth = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.butCancel = new System.Windows.Forms.Button();
@@ -85,9 +84,10 @@
             this.textShip_ContactPerson = new System.Windows.Forms.TextBox();
             this.textShipCompany = new System.Windows.Forms.TextBox();
             this.textDescription = new System.Windows.Forms.TextBox();
-            this.textBirth = new System.Windows.Forms.TextBox();
             this.BtnAddTerms = new System.Windows.Forms.Button();
             this.CMBgender = new System.Windows.Forms.ComboBox();
+            this.maskedTextBoxbirth = new System.Windows.Forms.MaskedTextBox();
+            this.LBmessageBox = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -251,7 +251,7 @@
             this.LBdateofbirth.Name = "LBdateofbirth";
             this.LBdateofbirth.Size = new System.Drawing.Size(140, 20);
             this.LBdateofbirth.TabIndex = 11;
-            this.LBdateofbirth.Text = "Date of Birth  : *";
+            this.LBdateofbirth.Text = "Date of Birth  : ";
             this.LBdateofbirth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LBBillCompany
@@ -489,7 +489,6 @@
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 14);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 20);
-            this.tableLayoutPanel1.Controls.Add(this.LBmessageBox, 2, 23);
             this.tableLayoutPanel1.Controls.Add(this.CMBPaymeth, 6, 21);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.textShip_Tel, 6, 15);
@@ -510,10 +509,11 @@
             this.tableLayoutPanel1.Controls.Add(this.textContactname, 3, 11);
             this.tableLayoutPanel1.Controls.Add(this.textDescription, 3, 7);
             this.tableLayoutPanel1.Controls.Add(this.textEmail, 3, 6);
-            this.tableLayoutPanel1.Controls.Add(this.textBirth, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.textname, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.BtnAddTerms, 2, 22);
             this.tableLayoutPanel1.Controls.Add(this.CMBgender, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.maskedTextBoxbirth, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.LBmessageBox, 3, 23);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -736,19 +736,6 @@
             this.label1.Text = "Payment Information";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LBmessageBox
-            // 
-            this.LBmessageBox.AutoSize = true;
-            this.LBmessageBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LBmessageBox.ForeColor = System.Drawing.Color.White;
-            this.LBmessageBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LBmessageBox.Location = new System.Drawing.Point(175, 685);
-            this.LBmessageBox.Margin = new System.Windows.Forms.Padding(5);
-            this.LBmessageBox.Name = "LBmessageBox";
-            this.LBmessageBox.Size = new System.Drawing.Size(25, 62);
-            this.LBmessageBox.TabIndex = 68;
-            this.LBmessageBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // CMBPaymeth
             // 
             this.CMBPaymeth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -929,19 +916,6 @@
             this.textDescription.Size = new System.Drawing.Size(245, 25);
             this.textDescription.TabIndex = 44;
             // 
-            // textBirth
-            // 
-            this.textBirth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBirth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBirth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBirth.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBirth.ForeColor = System.Drawing.Color.White;
-            this.textBirth.Location = new System.Drawing.Point(208, 143);
-            this.textBirth.Name = "textBirth";
-            this.textBirth.PlaceholderText = "DD/MM/YYYY";
-            this.textBirth.Size = new System.Drawing.Size(245, 25);
-            this.textBirth.TabIndex = 60;
-            // 
             // BtnAddTerms
             // 
             this.BtnAddTerms.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -971,6 +945,32 @@
             this.CMBgender.Name = "CMBgender";
             this.CMBgender.Size = new System.Drawing.Size(245, 26);
             this.CMBgender.TabIndex = 73;
+            // 
+            // maskedTextBoxbirth
+            // 
+            this.maskedTextBoxbirth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.maskedTextBoxbirth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maskedTextBoxbirth.Culture = new System.Globalization.CultureInfo("");
+            this.maskedTextBoxbirth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.maskedTextBoxbirth.ForeColor = System.Drawing.Color.White;
+            this.maskedTextBoxbirth.Location = new System.Drawing.Point(208, 143);
+            this.maskedTextBoxbirth.Mask = "00/00/0000";
+            this.maskedTextBoxbirth.Name = "maskedTextBoxbirth";
+            this.maskedTextBoxbirth.Size = new System.Drawing.Size(245, 24);
+            this.maskedTextBoxbirth.TabIndex = 74;
+            // 
+            // LBmessageBox
+            // 
+            this.LBmessageBox.AutoSize = true;
+            this.LBmessageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LBmessageBox.ForeColor = System.Drawing.Color.White;
+            this.LBmessageBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LBmessageBox.Location = new System.Drawing.Point(210, 685);
+            this.LBmessageBox.Margin = new System.Windows.Forms.Padding(5);
+            this.LBmessageBox.Name = "LBmessageBox";
+            this.LBmessageBox.Size = new System.Drawing.Size(241, 62);
+            this.LBmessageBox.TabIndex = 68;
+            this.LBmessageBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddMember
             // 
@@ -1044,7 +1044,6 @@
         private TextBox textPay_des;
         private Label label10;
         private Label label12;
-        private TextBox textBirth;
         private Label label11;
         private TableLayoutPanel tableLayoutPanel2;
         private Button btnCreate;
@@ -1060,5 +1059,7 @@
         private Button BtnAddTerms;
         private ComboBox CMBPaymeth;
         private ComboBox CMBPayTerms;
+        private MaskedTextBox maskedTextBoxbirth;
+        private Label label13;
     }
 }

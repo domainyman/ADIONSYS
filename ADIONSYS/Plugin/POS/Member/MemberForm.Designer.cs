@@ -33,7 +33,7 @@
             this.BtnAdd = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
             this.MemberPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnInquire = new System.Windows.Forms.Button();
             this.BtnMember = new System.Windows.Forms.Button();
             this.MemberpanelGroup = new System.Windows.Forms.Panel();
             this.SubLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -112,7 +112,7 @@
             this.MemberPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.MemberPanel.ColumnCount = 1;
             this.MemberPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MemberPanel.Controls.Add(this.BtnDelete, 0, 2);
+            this.MemberPanel.Controls.Add(this.BtnInquire, 0, 2);
             this.MemberPanel.Controls.Add(this.BtnAdd, 0, 0);
             this.MemberPanel.Controls.Add(this.BtnEdit, 0, 1);
             this.MemberPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -126,19 +126,20 @@
             this.MemberPanel.Size = new System.Drawing.Size(114, 120);
             this.MemberPanel.TabIndex = 0;
             // 
-            // BtnDelete
+            // BtnInquire
             // 
-            this.BtnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnDelete.FlatAppearance.BorderSize = 0;
-            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDelete.ForeColor = System.Drawing.Color.White;
-            this.BtnDelete.Location = new System.Drawing.Point(3, 83);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(108, 34);
-            this.BtnDelete.TabIndex = 8;
-            this.BtnDelete.Tag = "Setting";
-            this.BtnDelete.Text = "Delete";
-            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnInquire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnInquire.FlatAppearance.BorderSize = 0;
+            this.BtnInquire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnInquire.ForeColor = System.Drawing.Color.White;
+            this.BtnInquire.Location = new System.Drawing.Point(3, 83);
+            this.BtnInquire.Name = "BtnInquire";
+            this.BtnInquire.Size = new System.Drawing.Size(108, 34);
+            this.BtnInquire.TabIndex = 8;
+            this.BtnInquire.Tag = "Setting";
+            this.BtnInquire.Text = "Inquire";
+            this.BtnInquire.UseVisualStyleBackColor = true;
+            this.BtnInquire.Click += new System.EventHandler(this.BtnInquire_Click);
             // 
             // BtnMember
             // 
@@ -237,7 +238,7 @@
         private Panel ProductpanelGroup;
         private FlowLayoutPanel SubLayoutPanel;
         private SplitContainer WarehoseContainer;
-        private Button BtnDelete;
+        private Button BtnInquire;
         private TableLayoutPanel MemberPanel;
         private Panel MemberpanelGroup;
         private SplitContainer MemberContainer;
