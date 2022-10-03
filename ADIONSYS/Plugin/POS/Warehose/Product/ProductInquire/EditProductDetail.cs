@@ -164,20 +164,18 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductInquire
                     string comment = this.textComment.Text;
                     string result_hash_name = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT hash FROM productlibrary.product_sum WHERE product_id='" + prod_id + "'");
                     string droptablename = "productlibrary." + "\"" + result_hash_name + "\"";
-                    Task SQLComment = Task.Run(() => SQLConnect.Instance.PgSQL_Command("UPDATE " + droptablename + " SET comment = '" + comment + "' WHERE product_id = '" + item_id + "'"));
-                    SQLComment.Wait();
+                    SQLConnect.Instance.PgSQL_Command("UPDATE " + droptablename + " SET comment = '" + comment + "' WHERE product_id = '" + item_id + "'");
                     if (this.CMState.SelectedItem == this.CMState.Items[0])
                     {
                         bool state = true;
-                        Task SQL_State = Task.Run(() => SQLConnect.Instance.PgSQL_Command("UPDATE " + droptablename + " SET state = '" + state + "' WHERE product_id = '" + item_id + "'"));
-                        SQL_State.Wait();
+                        SQLConnect.Instance.PgSQL_Command("UPDATE " + droptablename + " SET state = '" + state + "' WHERE product_id = '" + item_id + "'");
+
                         savelabel();
                     }
                     else if (this.CMState.SelectedItem == this.CMState.Items[1])
                     {
                         bool state = false;
-                        Task SQL_State = Task.Run(() => SQLConnect.Instance.PgSQL_Command("UPDATE " + droptablename + " SET state = '" + state + "' WHERE product_id = '" + item_id + "'"));
-                        SQL_State.Wait();
+                        SQLConnect.Instance.PgSQL_Command("UPDATE " + droptablename + " SET state = '" + state + "' WHERE product_id = '" + item_id + "'");
                         savelabel();
                     }   
                 }

@@ -1,4 +1,5 @@
-﻿using ADIONSYS.Plugin.POS.Member.Edit;
+﻿using ADIONSYS.Plugin.POS.Member.Add;
+using ADIONSYS.Plugin.POS.Member.Edit;
 using ADIONSYS.Tool;
 using System;
 using System.Collections.Generic;
@@ -97,6 +98,16 @@ namespace ADIONSYS.Plugin.POS.Member.MemberInquire
                 }
 
             }
+        }
+
+        private void BtnAddMeth_Click(object sender, EventArgs e)
+        {
+            AddMember AddMember = new();
+            if (AddMember.ShowDialog() == DialogResult.Cancel)
+            {
+                Loadtable();
+            }
+
         }
     }
 }

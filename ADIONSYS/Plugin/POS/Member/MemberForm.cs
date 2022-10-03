@@ -27,11 +27,6 @@ namespace ADIONSYS.Plugin.POS.Member
             form.BringToFront();
             form.Show();
         }
-        private void BtnAdd_Click(object sender, EventArgs e)
-        {
-            AddMember AddMember = new();
-            ShowForm(AddMember);
-        }
 
         private void BtnInquire_Click(object sender, EventArgs e)
         {

@@ -36,8 +36,10 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnAddMeth = new System.Windows.Forms.Button();
             this.LBProduct = new System.Windows.Forms.Label();
             this.textProduct = new System.Windows.Forms.TextBox();
+            this.LBAdd = new System.Windows.Forms.Label();
             this.MemberGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.LBrecord = new System.Windows.Forms.Label();
@@ -108,13 +110,16 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 4;
+            this.tableLayoutPanel4.ColumnCount = 5;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel4.Controls.Add(this.BtnAddMeth, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.LBProduct, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.textProduct, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.LBAdd, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(23, 88);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -122,6 +127,19 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(970, 51);
             this.tableLayoutPanel4.TabIndex = 4;
+            // 
+            // BtnAddMeth
+            // 
+            this.BtnAddMeth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnAddMeth.FlatAppearance.BorderSize = 0;
+            this.BtnAddMeth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAddMeth.Image = global::ADIONSYS.Properties.Resources.icons8_add_30;
+            this.BtnAddMeth.Location = new System.Drawing.Point(783, 3);
+            this.BtnAddMeth.Name = "BtnAddMeth";
+            this.BtnAddMeth.Size = new System.Drawing.Size(34, 45);
+            this.BtnAddMeth.TabIndex = 72;
+            this.BtnAddMeth.UseVisualStyleBackColor = true;
+            this.BtnAddMeth.Click += new System.EventHandler(this.BtnAddMeth_Click);
             // 
             // LBProduct
             // 
@@ -150,9 +168,21 @@
             this.textProduct.Margin = new System.Windows.Forms.Padding(5, 11, 5, 6);
             this.textProduct.Name = "textProduct";
             this.textProduct.PlaceholderText = "Member Name";
-            this.textProduct.Size = new System.Drawing.Size(390, 25);
+            this.textProduct.Size = new System.Drawing.Size(470, 25);
             this.textProduct.TabIndex = 1;
             this.textProduct.TextChanged += new System.EventHandler(this.textProduct_TextChanged);
+            // 
+            // LBAdd
+            // 
+            this.LBAdd.AutoSize = true;
+            this.LBAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LBAdd.Location = new System.Drawing.Point(635, 5);
+            this.LBAdd.Margin = new System.Windows.Forms.Padding(5);
+            this.LBAdd.Name = "LBAdd";
+            this.LBAdd.Size = new System.Drawing.Size(140, 41);
+            this.LBAdd.TabIndex = 2;
+            this.LBAdd.Text = "Create New Member : ";
+            this.LBAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MemberGridView
             // 
@@ -306,5 +336,7 @@
         private Label LBTotal;
         private Label LBMark;
         private DataGridView MemberGridView;
+        private Label LBAdd;
+        private Button BtnAddMeth;
     }
 }

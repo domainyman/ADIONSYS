@@ -62,15 +62,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CMBPaymeth = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.butCancel = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
             this.textShip_Tel = new System.Windows.Forms.TextBox();
             this.textContacttel = new System.Windows.Forms.TextBox();
             this.texttel = new System.Windows.Forms.TextBox();
             this.textfaxnumber = new System.Windows.Forms.TextBox();
             this.texttitle = new System.Windows.Forms.TextBox();
             this.LBtestMemberID = new System.Windows.Forms.Label();
-            this.LBstatebool = new System.Windows.Forms.Label();
             this.BtnAddMeth = new System.Windows.Forms.Button();
             this.CMBPayTerms = new System.Windows.Forms.ComboBox();
             this.textPay_des = new System.Windows.Forms.TextBox();
@@ -88,12 +88,19 @@
             this.maskedTextBoxbirth = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.LBmessageBox = new System.Windows.Forms.Label();
+            this.LBcreated_on = new System.Windows.Forms.Label();
+            this.LBupload_date = new System.Windows.Forms.Label();
+            this.textcreate_date = new System.Windows.Forms.Label();
+            this.textupload = new System.Windows.Forms.Label();
+            this.CMBState = new System.Windows.Forms.ComboBox();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // textCompany
@@ -106,7 +113,7 @@
             this.textCompany.Location = new System.Drawing.Point(208, 332);
             this.textCompany.Name = "textCompany";
             this.textCompany.PlaceholderText = "Options";
-            this.textCompany.Size = new System.Drawing.Size(263, 25);
+            this.textCompany.Size = new System.Drawing.Size(249, 25);
             this.textCompany.TabIndex = 25;
             // 
             // LBName
@@ -140,7 +147,7 @@
             this.LBfax.AutoSize = true;
             this.LBfax.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBfax.ForeColor = System.Drawing.Color.White;
-            this.LBfax.Location = new System.Drawing.Point(479, 165);
+            this.LBfax.Location = new System.Drawing.Point(465, 165);
             this.LBfax.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.LBfax.Name = "LBfax";
             this.LBfax.Size = new System.Drawing.Size(140, 22);
@@ -191,7 +198,7 @@
             this.LBOffTelnumber.AutoSize = true;
             this.LBOffTelnumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBOffTelnumber.ForeColor = System.Drawing.Color.White;
-            this.LBOffTelnumber.Location = new System.Drawing.Point(479, 199);
+            this.LBOffTelnumber.Location = new System.Drawing.Point(465, 199);
             this.LBOffTelnumber.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.LBOffTelnumber.Name = "LBOffTelnumber";
             this.LBOffTelnumber.Size = new System.Drawing.Size(140, 22);
@@ -204,7 +211,7 @@
             this.LBState.AutoSize = true;
             this.LBState.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBState.ForeColor = System.Drawing.Color.White;
-            this.LBState.Location = new System.Drawing.Point(479, 29);
+            this.LBState.Location = new System.Drawing.Point(465, 29);
             this.LBState.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.LBState.Name = "LBState";
             this.LBState.Size = new System.Drawing.Size(140, 22);
@@ -217,7 +224,7 @@
             this.LBShortCode.AutoSize = true;
             this.LBShortCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBShortCode.ForeColor = System.Drawing.Color.White;
-            this.LBShortCode.Location = new System.Drawing.Point(479, 63);
+            this.LBShortCode.Location = new System.Drawing.Point(465, 63);
             this.LBShortCode.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.LBShortCode.Name = "LBShortCode";
             this.LBShortCode.Size = new System.Drawing.Size(140, 22);
@@ -230,7 +237,7 @@
             this.LBTitle.AutoSize = true;
             this.LBTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBTitle.ForeColor = System.Drawing.Color.White;
-            this.LBTitle.Location = new System.Drawing.Point(479, 131);
+            this.LBTitle.Location = new System.Drawing.Point(465, 131);
             this.LBTitle.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.LBTitle.Name = "LBTitle";
             this.LBTitle.Size = new System.Drawing.Size(140, 22);
@@ -295,7 +302,7 @@
             this.LBContact.AutoSize = true;
             this.LBContact.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBContact.ForeColor = System.Drawing.Color.White;
-            this.LBContact.Location = new System.Drawing.Point(479, 335);
+            this.LBContact.Location = new System.Drawing.Point(465, 335);
             this.LBContact.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.LBContact.Name = "LBContact";
             this.LBContact.Size = new System.Drawing.Size(140, 22);
@@ -334,7 +341,7 @@
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(479, 505);
+            this.label7.Location = new System.Drawing.Point(465, 505);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(140, 22);
@@ -386,7 +393,7 @@
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(479, 709);
+            this.label12.Location = new System.Drawing.Point(465, 709);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(140, 22);
@@ -415,7 +422,7 @@
             this.panel1.Location = new System.Drawing.Point(22, 25);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(450, 30);
+            this.panel1.Size = new System.Drawing.Size(436, 30);
             this.panel1.TabIndex = 64;
             // 
             // LBtop
@@ -428,7 +435,7 @@
             this.LBtop.Location = new System.Drawing.Point(0, 0);
             this.LBtop.Margin = new System.Windows.Forms.Padding(2);
             this.LBtop.Name = "LBtop";
-            this.LBtop.Size = new System.Drawing.Size(450, 30);
+            this.LBtop.Size = new System.Drawing.Size(436, 30);
             this.LBtop.TabIndex = 0;
             this.LBtop.Text = "Edit Member Infomation";
             this.LBtop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -440,7 +447,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(23, 298);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(448, 28);
+            this.panel2.Size = new System.Drawing.Size(434, 28);
             this.panel2.TabIndex = 65;
             // 
             // label3
@@ -453,7 +460,7 @@
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(448, 28);
+            this.label3.Size = new System.Drawing.Size(434, 28);
             this.label3.TabIndex = 41;
             this.label3.Text = "Billing Information";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -465,7 +472,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(23, 468);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(448, 28);
+            this.panel3.Size = new System.Drawing.Size(434, 28);
             this.panel3.TabIndex = 66;
             // 
             // label4
@@ -478,7 +485,7 @@
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(448, 28);
+            this.label4.Size = new System.Drawing.Size(434, 28);
             this.label4.TabIndex = 42;
             this.label4.Text = "Shippment Information";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -490,7 +497,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(23, 672);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(448, 28);
+            this.panel4.Size = new System.Drawing.Size(434, 28);
             this.panel4.TabIndex = 67;
             // 
             // label1
@@ -503,7 +510,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(448, 28);
+            this.label1.Size = new System.Drawing.Size(434, 28);
             this.label1.TabIndex = 43;
             this.label1.Text = "Payment Information";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -517,25 +524,59 @@
             this.CMBPaymeth.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CMBPaymeth.ForeColor = System.Drawing.Color.White;
             this.CMBPaymeth.FormattingEnabled = true;
-            this.CMBPaymeth.Location = new System.Drawing.Point(662, 706);
+            this.CMBPaymeth.Location = new System.Drawing.Point(648, 706);
             this.CMBPaymeth.Name = "CMBPaymeth";
-            this.CMBPaymeth.Size = new System.Drawing.Size(263, 26);
+            this.CMBPaymeth.Size = new System.Drawing.Size(249, 26);
             this.CMBPaymeth.TabIndex = 69;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.butCancel, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnCreate, 1, 0);
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Controls.Add(this.btnEdit, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.BtnDelete, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.butCancel, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(662, 774);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(263, 76);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(430, 72);
             this.tableLayoutPanel2.TabIndex = 63;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(190)))), ((int)(((byte)(140)))));
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(289, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(138, 66);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BtnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnDelete.FlatAppearance.BorderSize = 0;
+            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDelete.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnDelete.ForeColor = System.Drawing.Color.White;
+            this.BtnDelete.Location = new System.Drawing.Point(3, 3);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(137, 66);
+            this.BtnDelete.TabIndex = 2;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // butCancel
             // 
@@ -546,27 +587,12 @@
             this.butCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butCancel.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.butCancel.ForeColor = System.Drawing.Color.White;
-            this.butCancel.Location = new System.Drawing.Point(3, 3);
+            this.butCancel.Location = new System.Drawing.Point(146, 3);
             this.butCancel.Name = "butCancel";
-            this.butCancel.Size = new System.Drawing.Size(125, 70);
+            this.butCancel.Size = new System.Drawing.Size(137, 66);
             this.butCancel.TabIndex = 0;
             this.butCancel.Text = "Cancel";
             this.butCancel.UseVisualStyleBackColor = false;
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(190)))), ((int)(((byte)(140)))));
-            this.btnCreate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCreate.FlatAppearance.BorderSize = 0;
-            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreate.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(134, 3);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(126, 70);
-            this.btnCreate.TabIndex = 1;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = false;
             // 
             // textShip_Tel
             // 
@@ -575,10 +601,10 @@
             this.textShip_Tel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textShip_Tel.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textShip_Tel.ForeColor = System.Drawing.Color.White;
-            this.textShip_Tel.Location = new System.Drawing.Point(662, 502);
+            this.textShip_Tel.Location = new System.Drawing.Point(648, 502);
             this.textShip_Tel.Name = "textShip_Tel";
             this.textShip_Tel.PlaceholderText = "Options";
-            this.textShip_Tel.Size = new System.Drawing.Size(263, 25);
+            this.textShip_Tel.Size = new System.Drawing.Size(249, 25);
             this.textShip_Tel.TabIndex = 50;
             // 
             // textContacttel
@@ -588,10 +614,10 @@
             this.textContacttel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textContacttel.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textContacttel.ForeColor = System.Drawing.Color.White;
-            this.textContacttel.Location = new System.Drawing.Point(662, 332);
+            this.textContacttel.Location = new System.Drawing.Point(648, 332);
             this.textContacttel.Name = "textContacttel";
             this.textContacttel.PlaceholderText = "Options";
-            this.textContacttel.Size = new System.Drawing.Size(263, 25);
+            this.textContacttel.Size = new System.Drawing.Size(249, 25);
             this.textContacttel.TabIndex = 27;
             // 
             // texttel
@@ -601,10 +627,10 @@
             this.texttel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.texttel.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.texttel.ForeColor = System.Drawing.Color.White;
-            this.texttel.Location = new System.Drawing.Point(662, 196);
+            this.texttel.Location = new System.Drawing.Point(648, 196);
             this.texttel.Name = "texttel";
             this.texttel.PlaceholderText = "Options";
-            this.texttel.Size = new System.Drawing.Size(263, 25);
+            this.texttel.Size = new System.Drawing.Size(249, 25);
             this.texttel.TabIndex = 21;
             // 
             // textfaxnumber
@@ -614,10 +640,10 @@
             this.textfaxnumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textfaxnumber.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textfaxnumber.ForeColor = System.Drawing.Color.White;
-            this.textfaxnumber.Location = new System.Drawing.Point(662, 162);
+            this.textfaxnumber.Location = new System.Drawing.Point(648, 162);
             this.textfaxnumber.Name = "textfaxnumber";
             this.textfaxnumber.PlaceholderText = "Options";
-            this.textfaxnumber.Size = new System.Drawing.Size(263, 25);
+            this.textfaxnumber.Size = new System.Drawing.Size(249, 25);
             this.textfaxnumber.TabIndex = 22;
             // 
             // texttitle
@@ -627,10 +653,10 @@
             this.texttitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.texttitle.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.texttitle.ForeColor = System.Drawing.Color.White;
-            this.texttitle.Location = new System.Drawing.Point(662, 128);
+            this.texttitle.Location = new System.Drawing.Point(648, 128);
             this.texttitle.Name = "texttitle";
             this.texttitle.PlaceholderText = "Options";
-            this.texttitle.Size = new System.Drawing.Size(263, 25);
+            this.texttitle.Size = new System.Drawing.Size(249, 25);
             this.texttitle.TabIndex = 29;
             // 
             // LBtestMemberID
@@ -638,26 +664,12 @@
             this.LBtestMemberID.AutoSize = true;
             this.LBtestMemberID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBtestMemberID.ForeColor = System.Drawing.Color.White;
-            this.LBtestMemberID.Location = new System.Drawing.Point(664, 63);
+            this.LBtestMemberID.Location = new System.Drawing.Point(650, 63);
             this.LBtestMemberID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.LBtestMemberID.Name = "LBtestMemberID";
-            this.LBtestMemberID.Size = new System.Drawing.Size(259, 22);
+            this.LBtestMemberID.Size = new System.Drawing.Size(245, 22);
             this.LBtestMemberID.TabIndex = 39;
-            this.LBtestMemberID.Text = "Automatic Generation";
             this.LBtestMemberID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LBstatebool
-            // 
-            this.LBstatebool.AutoSize = true;
-            this.LBstatebool.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LBstatebool.ForeColor = System.Drawing.Color.White;
-            this.LBstatebool.Location = new System.Drawing.Point(664, 29);
-            this.LBstatebool.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.LBstatebool.Name = "LBstatebool";
-            this.LBstatebool.Size = new System.Drawing.Size(259, 22);
-            this.LBstatebool.TabIndex = 38;
-            this.LBstatebool.Text = "Automatic Generation";
-            this.LBstatebool.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnAddMeth
             // 
@@ -665,11 +677,12 @@
             this.BtnAddMeth.FlatAppearance.BorderSize = 0;
             this.BtnAddMeth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAddMeth.Image = global::ADIONSYS.Properties.Resources.icons8_add_30;
-            this.BtnAddMeth.Location = new System.Drawing.Point(627, 706);
+            this.BtnAddMeth.Location = new System.Drawing.Point(613, 706);
             this.BtnAddMeth.Name = "BtnAddMeth";
             this.BtnAddMeth.Size = new System.Drawing.Size(29, 28);
             this.BtnAddMeth.TabIndex = 71;
             this.BtnAddMeth.UseVisualStyleBackColor = true;
+            this.BtnAddMeth.Click += new System.EventHandler(this.BtnAddMeth_Click_1);
             // 
             // CMBPayTerms
             // 
@@ -682,7 +695,7 @@
             this.CMBPayTerms.FormattingEnabled = true;
             this.CMBPayTerms.Location = new System.Drawing.Point(208, 740);
             this.CMBPayTerms.Name = "CMBPayTerms";
-            this.CMBPayTerms.Size = new System.Drawing.Size(263, 26);
+            this.CMBPayTerms.Size = new System.Drawing.Size(249, 26);
             this.CMBPayTerms.TabIndex = 70;
             // 
             // textPay_des
@@ -695,7 +708,7 @@
             this.textPay_des.Location = new System.Drawing.Point(208, 706);
             this.textPay_des.Name = "textPay_des";
             this.textPay_des.PlaceholderText = "Options";
-            this.textPay_des.Size = new System.Drawing.Size(263, 25);
+            this.textPay_des.Size = new System.Drawing.Size(249, 25);
             this.textPay_des.TabIndex = 54;
             // 
             // textShip_des
@@ -708,7 +721,7 @@
             this.textShip_des.Location = new System.Drawing.Point(208, 604);
             this.textShip_des.Name = "textShip_des";
             this.textShip_des.PlaceholderText = "Options";
-            this.textShip_des.Size = new System.Drawing.Size(263, 25);
+            this.textShip_des.Size = new System.Drawing.Size(249, 25);
             this.textShip_des.TabIndex = 53;
             // 
             // textShip_Address
@@ -721,7 +734,7 @@
             this.textShip_Address.Location = new System.Drawing.Point(208, 570);
             this.textShip_Address.Name = "textShip_Address";
             this.textShip_Address.PlaceholderText = "Options";
-            this.textShip_Address.Size = new System.Drawing.Size(263, 25);
+            this.textShip_Address.Size = new System.Drawing.Size(249, 25);
             this.textShip_Address.TabIndex = 35;
             // 
             // textShip_ContactPerson
@@ -734,7 +747,7 @@
             this.textShip_ContactPerson.Location = new System.Drawing.Point(208, 536);
             this.textShip_ContactPerson.Name = "textShip_ContactPerson";
             this.textShip_ContactPerson.PlaceholderText = "Options";
-            this.textShip_ContactPerson.Size = new System.Drawing.Size(263, 25);
+            this.textShip_ContactPerson.Size = new System.Drawing.Size(249, 25);
             this.textShip_ContactPerson.TabIndex = 48;
             // 
             // textShipCompany
@@ -747,7 +760,7 @@
             this.textShipCompany.Location = new System.Drawing.Point(208, 502);
             this.textShipCompany.Name = "textShipCompany";
             this.textShipCompany.PlaceholderText = "Options";
-            this.textShipCompany.Size = new System.Drawing.Size(263, 25);
+            this.textShipCompany.Size = new System.Drawing.Size(249, 25);
             this.textShipCompany.TabIndex = 49;
             // 
             // textAddress
@@ -760,7 +773,7 @@
             this.textAddress.Location = new System.Drawing.Point(208, 400);
             this.textAddress.Name = "textAddress";
             this.textAddress.PlaceholderText = "Address";
-            this.textAddress.Size = new System.Drawing.Size(263, 25);
+            this.textAddress.Size = new System.Drawing.Size(249, 25);
             this.textAddress.TabIndex = 18;
             // 
             // textContactname
@@ -773,7 +786,7 @@
             this.textContactname.Location = new System.Drawing.Point(208, 366);
             this.textContactname.Name = "textContactname";
             this.textContactname.PlaceholderText = "Contact Person";
-            this.textContactname.Size = new System.Drawing.Size(263, 25);
+            this.textContactname.Size = new System.Drawing.Size(249, 25);
             this.textContactname.TabIndex = 26;
             // 
             // textDescription
@@ -786,7 +799,7 @@
             this.textDescription.Location = new System.Drawing.Point(208, 230);
             this.textDescription.Name = "textDescription";
             this.textDescription.PlaceholderText = "Options";
-            this.textDescription.Size = new System.Drawing.Size(263, 25);
+            this.textDescription.Size = new System.Drawing.Size(249, 25);
             this.textDescription.TabIndex = 44;
             // 
             // textEmail
@@ -799,7 +812,7 @@
             this.textEmail.Location = new System.Drawing.Point(208, 196);
             this.textEmail.Name = "textEmail";
             this.textEmail.PlaceholderText = "Options";
-            this.textEmail.Size = new System.Drawing.Size(263, 25);
+            this.textEmail.Size = new System.Drawing.Size(249, 25);
             this.textEmail.TabIndex = 23;
             // 
             // textname
@@ -813,7 +826,7 @@
             this.textname.Location = new System.Drawing.Point(208, 94);
             this.textname.Name = "textname";
             this.textname.PlaceholderText = "Name";
-            this.textname.Size = new System.Drawing.Size(263, 25);
+            this.textname.Size = new System.Drawing.Size(249, 25);
             this.textname.TabIndex = 16;
             // 
             // BtnAddTerms
@@ -827,6 +840,7 @@
             this.BtnAddTerms.Size = new System.Drawing.Size(29, 28);
             this.BtnAddTerms.TabIndex = 72;
             this.BtnAddTerms.UseVisualStyleBackColor = true;
+            this.BtnAddTerms.Click += new System.EventHandler(this.BtnAddTerms_Click_1);
             // 
             // CMBgender
             // 
@@ -842,7 +856,7 @@
             "Male"});
             this.CMBgender.Location = new System.Drawing.Point(208, 128);
             this.CMBgender.Name = "CMBgender";
-            this.CMBgender.Size = new System.Drawing.Size(263, 26);
+            this.CMBgender.Size = new System.Drawing.Size(249, 26);
             this.CMBgender.TabIndex = 73;
             // 
             // maskedTextBoxbirth
@@ -855,7 +869,7 @@
             this.maskedTextBoxbirth.Location = new System.Drawing.Point(208, 162);
             this.maskedTextBoxbirth.Mask = "00/00/0000";
             this.maskedTextBoxbirth.Name = "maskedTextBoxbirth";
-            this.maskedTextBoxbirth.Size = new System.Drawing.Size(263, 24);
+            this.maskedTextBoxbirth.Size = new System.Drawing.Size(249, 24);
             this.maskedTextBoxbirth.TabIndex = 74;
             // 
             // tableLayoutPanel1
@@ -872,14 +886,11 @@
             this.tableLayoutPanel1.Controls.Add(this.textCompany, 3, 10);
             this.tableLayoutPanel1.Controls.Add(this.LBName, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.LBgender, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.LBfax, 4, 5);
             this.tableLayoutPanel1.Controls.Add(this.Statelevel, 0, 15);
             this.tableLayoutPanel1.Controls.Add(this.LBdateofbirth, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.LBEmail, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.LBOffTelnumber, 4, 6);
             this.tableLayoutPanel1.Controls.Add(this.LBState, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.LBShortCode, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.LBTitle, 4, 4);
             this.tableLayoutPanel1.Controls.Add(this.LBcomment, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.LBAddress, 1, 12);
             this.tableLayoutPanel1.Controls.Add(this.LBContactperson, 1, 11);
@@ -898,14 +909,9 @@
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 14);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 20);
             this.tableLayoutPanel1.Controls.Add(this.CMBPaymeth, 6, 21);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.textShip_Tel, 6, 15);
             this.tableLayoutPanel1.Controls.Add(this.textContacttel, 6, 10);
-            this.tableLayoutPanel1.Controls.Add(this.texttel, 6, 6);
-            this.tableLayoutPanel1.Controls.Add(this.textfaxnumber, 6, 5);
-            this.tableLayoutPanel1.Controls.Add(this.texttitle, 6, 4);
             this.tableLayoutPanel1.Controls.Add(this.LBtestMemberID, 6, 2);
-            this.tableLayoutPanel1.Controls.Add(this.LBstatebool, 6, 1);
             this.tableLayoutPanel1.Controls.Add(this.BtnAddMeth, 5, 21);
             this.tableLayoutPanel1.Controls.Add(this.CMBPayTerms, 3, 22);
             this.tableLayoutPanel1.Controls.Add(this.textPay_des, 3, 21);
@@ -921,12 +927,25 @@
             this.tableLayoutPanel1.Controls.Add(this.BtnAddTerms, 2, 22);
             this.tableLayoutPanel1.Controls.Add(this.CMBgender, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.maskedTextBoxbirth, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.LBmessageBox, 3, 23);
+            this.tableLayoutPanel1.Controls.Add(this.LBmessageBox, 3, 24);
+            this.tableLayoutPanel1.Controls.Add(this.LBcreated_on, 1, 23);
+            this.tableLayoutPanel1.Controls.Add(this.LBupload_date, 4, 23);
+            this.tableLayoutPanel1.Controls.Add(this.textcreate_date, 3, 23);
+            this.tableLayoutPanel1.Controls.Add(this.textupload, 6, 23);
+            this.tableLayoutPanel1.Controls.Add(this.LBTitle, 4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.LBfax, 4, 5);
+            this.tableLayoutPanel1.Controls.Add(this.LBOffTelnumber, 4, 6);
+            this.tableLayoutPanel1.Controls.Add(this.texttitle, 6, 4);
+            this.tableLayoutPanel1.Controls.Add(this.textfaxnumber, 6, 5);
+            this.tableLayoutPanel1.Controls.Add(this.texttel, 6, 6);
+            this.tableLayoutPanel1.Controls.Add(this.CMBState, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel5, 4, 24);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 25;
+            this.tableLayoutPanel1.RowCount = 26;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
@@ -951,7 +970,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(950, 864);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(922, 896);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // LBmessageBox
@@ -960,21 +979,96 @@
             this.LBmessageBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBmessageBox.ForeColor = System.Drawing.Color.White;
             this.LBmessageBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LBmessageBox.Location = new System.Drawing.Point(210, 777);
+            this.LBmessageBox.Location = new System.Drawing.Point(210, 811);
             this.LBmessageBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.LBmessageBox.Name = "LBmessageBox";
-            this.LBmessageBox.Size = new System.Drawing.Size(259, 70);
+            this.LBmessageBox.Size = new System.Drawing.Size(245, 70);
             this.LBmessageBox.TabIndex = 68;
             this.LBmessageBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // LBcreated_on
+            // 
+            this.LBcreated_on.AutoSize = true;
+            this.LBcreated_on.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LBcreated_on.ForeColor = System.Drawing.Color.White;
+            this.LBcreated_on.Location = new System.Drawing.Point(25, 777);
+            this.LBcreated_on.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.LBcreated_on.Name = "LBcreated_on";
+            this.LBcreated_on.Size = new System.Drawing.Size(140, 22);
+            this.LBcreated_on.TabIndex = 75;
+            this.LBcreated_on.Text = "Created Date : ";
+            this.LBcreated_on.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LBupload_date
+            // 
+            this.LBupload_date.AutoSize = true;
+            this.LBupload_date.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LBupload_date.ForeColor = System.Drawing.Color.White;
+            this.LBupload_date.Location = new System.Drawing.Point(465, 777);
+            this.LBupload_date.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.LBupload_date.Name = "LBupload_date";
+            this.LBupload_date.Size = new System.Drawing.Size(140, 22);
+            this.LBupload_date.TabIndex = 76;
+            this.LBupload_date.Text = "Upload Date : ";
+            this.LBupload_date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textcreate_date
+            // 
+            this.textcreate_date.AutoSize = true;
+            this.textcreate_date.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textcreate_date.ForeColor = System.Drawing.Color.White;
+            this.textcreate_date.Location = new System.Drawing.Point(210, 777);
+            this.textcreate_date.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.textcreate_date.Name = "textcreate_date";
+            this.textcreate_date.Size = new System.Drawing.Size(245, 22);
+            this.textcreate_date.TabIndex = 77;
+            this.textcreate_date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textupload
+            // 
+            this.textupload.AutoSize = true;
+            this.textupload.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textupload.ForeColor = System.Drawing.Color.White;
+            this.textupload.Location = new System.Drawing.Point(650, 777);
+            this.textupload.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.textupload.Name = "textupload";
+            this.textupload.Size = new System.Drawing.Size(245, 22);
+            this.textupload.TabIndex = 78;
+            this.textupload.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CMBState
+            // 
+            this.CMBState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CMBState.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CMBState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CMBState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CMBState.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CMBState.ForeColor = System.Drawing.Color.White;
+            this.CMBState.FormattingEnabled = true;
+            this.CMBState.Location = new System.Drawing.Point(648, 26);
+            this.CMBState.Name = "CMBState";
+            this.CMBState.Size = new System.Drawing.Size(249, 26);
+            this.CMBState.TabIndex = 79;
+            // 
+            // panel5
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel5, 3);
+            this.panel5.Controls.Add(this.tableLayoutPanel2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(465, 810);
+            this.panel5.Margin = new System.Windows.Forms.Padding(5);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(430, 72);
+            this.panel5.TabIndex = 80;
+            // 
             // EditMember
             // 
-            this.AcceptButton = this.btnCreate;
+            this.AcceptButton = this.btnEdit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.CancelButton = this.butCancel;
-            this.ClientSize = new System.Drawing.Size(950, 864);
+            this.ClientSize = new System.Drawing.Size(922, 896);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
@@ -989,6 +1083,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1036,7 +1131,7 @@
         private TextBox texttel;
         private TextBox textfaxnumber;
         private TextBox texttitle;
-        private Label label2;
+        private Label LBcreated_on;
         private Label LBstatebool;
         private Button BtnAddMeth;
         private ComboBox CMBPayTerms;
@@ -1056,5 +1151,13 @@
         private Label LBmessageBox;
         private Label LBtop;
         private Label LBtestMemberID;
+        private Label textcreate_date;
+        private Label LBupload_date;
+        private Label textupload;
+        private Button btnEdit;
+        private ComboBox comboBox1;
+        private ComboBox CMBState;
+        private Panel panel5;
+        private Button BtnDelete;
     }
 }

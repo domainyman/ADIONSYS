@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ADIONSYS.Plugin.POS.Member.Edit
 {
@@ -20,6 +21,7 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
         {
             MemberID=member_id;
             InitializeComponent();
+            Loading();
             ShowData();
 
 
@@ -27,34 +29,53 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
 
         private void Loading()
         {
+            CMBState.Items.Add("Activated");
+            CMBState.Items.Add("Inactivated");
             Paymeth();
             PayTerms();
         }
 
         private void ShowData()
         {
-            List<string> Show = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT member_number,member_gender,birth,email FROM storagemember.member WHERE member_id = '" + MemberID + "'");
+            List<string> Show = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT member_number,member_gender,birth,email,title,fax_no,tel_no,mem_comment," +
+                "billing_company,billing_person,billing_address,billing_tel," +
+                "ship_company,ship_person,ship_address,ship_tel,ship_comment," +
+                "pay_comment,pay_terms,pay_method FROM storagemember.member WHERE member_id = '" + MemberID + "'");
+            bool result_state = SQLConnect.Instance.PgSQL_SELECTDataBool("SELECT state FROM storagemember.member WHERE member_id='" + MemberID + "'");
+            List<DateTime> result_DateTime = SQLConnect.Instance.PgSQL_SELECTDataDateTime("SELECT upload_date,created_on FROM storagemember.member WHERE member_id='" + MemberID + "'");
             LBtestMemberID.Text = MemberID.ToString();
             textname.Text = Show[0];
-            CMBgender.Text = Show[1];
-            //maskedTextBoxbirth.Text = Show[2];
+            CMBgender.SelectedItem = Show[1];
+            maskedTextBoxbirth.Text = Show[2];
             textEmail.Text = Show[3];
-            texttitle.Text = string.Empty;
-            textfaxnumber.Text = string.Empty;
-            texttel.Text = string.Empty;
-            textDescription.Text = string.Empty;
-            textCompany.Text = string.Empty;
-            textContactname.Text = string.Empty;
-            textAddress.Text = string.Empty;
-            textContacttel.Text = string.Empty;
-            textShipCompany.Text = string.Empty;
-            textShip_ContactPerson.Text = string.Empty;
-            textShip_Address.Text = string.Empty;
-            textShip_Tel.Text = string.Empty;
-            textShip_des.Text = string.Empty;
-            textPay_des.Text = string.Empty;
-            CMBPaymeth.Text = string.Empty;
-            CMBPayTerms.Text = string.Empty;
+            texttitle.Text = Show[4];
+            textfaxnumber.Text = Show[5];
+            texttel.Text = Show[6];
+            textDescription.Text = Show[7];
+            textCompany.Text = Show[8];
+            textContactname.Text = Show[9];
+            textAddress.Text = Show[10];
+            textContacttel.Text = Show[11];
+            textShipCompany.Text = Show[12];
+            textShip_ContactPerson.Text = Show[13];
+            textShip_Address.Text = Show[14];
+            textShip_Tel.Text = Show[15];
+            textShip_des.Text = Show[16];
+            textPay_des.Text = Show[17];
+            CMBPayTerms.SelectedItem = Show[18];
+            CMBPaymeth.SelectedItem = Show[19];
+            if (result_state == true)
+            {
+                CMBState.SelectedItem = CMBState.Items[0];
+            }
+            else
+            {
+                CMBState.SelectedItem = CMBState.Items[1];
+            }
+            textcreate_date.Text = result_DateTime[1].ToString();
+            textupload.Text = result_DateTime[0].ToString();
+
+
         }
         private void butCancel_Click(object sender, EventArgs e)
         {
@@ -73,6 +94,8 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
             CMBPayTerms.DataSource = PayTermsresult;
             CMBPayTerms.SelectedIndex = -1;
         }
+
+
 
         private void BtnAddMeth_Click(object sender, EventArgs e)
         {
@@ -118,8 +141,25 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
             Loading();
         }
 
+        private void BtnAddMeth_Click_1(object sender, EventArgs e)
+        {
+            PaymentMethodAddForm PaymentMethodAddForm = new();
+            if (PaymentMethodAddForm.ShowDialog() == DialogResult.Cancel)
+            {
+                Paymeth();
+            }
+        }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void BtnAddTerms_Click_1(object sender, EventArgs e)
+        {
+            PaymentTermsAddForm PaymentTermsAddForm = new();
+            if (PaymentTermsAddForm.ShowDialog() == DialogResult.Cancel)
+            {
+                PayTerms();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             string name = textname.Text;
             string gender = CMBgender.Text;
@@ -146,25 +186,27 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
             string Pay_Meth = CMBPaymeth.Text;
             string Pay_Terms = CMBPayTerms.Text;
             bool state = true;
-            string created_on = ConvertType.GetTimeStamp();
+            if (CMBState.SelectedItem == CMBState.Items[0])
+            {
+                state = true;
+            }
+            else if (CMBState.SelectedItem == CMBState.Items[1])
+            {
+                state = false;
+            }
             string upload_data = ConvertType.GetTimeStamp();
             try
             {
                 if (SQLConnect.Instance.ConnectState() == true && name != string.Empty)
                 {
-                    SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.member" +
-                        "(member_number,member_gender,birth,email,title,fax_no,tel_no,mem_comment," +
-                        "billing_company,billing_person,billing_address,billing_tel," +
-                        "ship_company,ship_person,ship_address,ship_tel,ship_comment," +
-                        "pay_comment,pay_terms,pay_method,state,upload_date,created_on) VALUES " +
-                                    "('" + name + "','" + gender + "','" + birth + "','" + email + "','" + title + "','" + fax + "','" + tel + "','" + des +
-                                    "','" + company + "','" + Contactname + "','" + Address + "','" + Contacttel +
-                                    "','" + Ship_Company + "','" + Ship_ContactPerson + "','" + Ship_Address + "','" + Ship_Tel + "','" + Ship_des +
-                                    "','" + Pay_des + "','" + Pay_Meth + "','" + Pay_Terms + "','" + state + "','" + created_on + "','" + upload_data + "')");
+                    SQLConnect.Instance.PgSQL_Command("UPDATE storagemember.member SET member_number = '" + name + "', member_gender = '" + gender + "',birth = '" + birth + "',email='"+email + "',title='"+ title + "',fax_no='"+ fax + "',tel_no='" + tel + "',mem_comment='"+ des+ "'," +
+                        "billing_company='"+ company+ "',billing_person='"+ Contactname + "',billing_address='"+ Address+ "',billing_tel='"+ Contacttel+ "'," +
+                        "ship_company='"+ Ship_Company+ "',ship_person='" + Ship_ContactPerson + "',ship_address='"+ Ship_Address+ "',ship_tel='"+ Ship_Tel + "',ship_comment='"+ Ship_des + "'," +
+                        "pay_comment='"+ Pay_des + "',pay_terms='"+ Pay_Terms + "',pay_method='"+ Pay_Meth + "',state='"+ state + "',upload_date= '"+upload_data+ "' WHERE member_id = '" + MemberID + "'");
                     this.LBmessageBox.Text = "Saved!";
                     this.LBmessageBox.ForeColor = Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(190)))), ((int)(((byte)(140)))));
                     this.LBmessageBox.Image = global::ADIONSYS.Properties.Resources.check_mark_3_24;
-                    clear();
+                    
                 }
                 else
                 {
@@ -177,6 +219,19 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
             {
                 MessageInfo MessageInfo = new MessageInfo(ex.Message);
                 MessageInfo.ShowDialog();
+            }
+
+            
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            bool state = false;
+            MessageContinue MessageContinue = new MessageContinue("Are You Sure? " + " " + " You won't be able to revert this !");
+            if (MessageContinue.ShowDialog() == DialogResult.Continue)
+            {
+                SQLConnect.Instance.PgSQL_Command("DELETE FROM storagemember.member WHERE member_id='" + MemberID + "'");
+                this.Close();
             }
 
         }

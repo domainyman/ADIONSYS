@@ -130,7 +130,7 @@ namespace ADIONSYS.Plugin.POS.Member.Add
                                     "('" + name + "','" + gender + "','" + birth + "','" + email + "','" + title + "','" + fax + "','" + tel + "','" + des + 
                                     "','" + company + "','" + Contactname + "','" + Address + "','" + Contacttel +
                                     "','" + Ship_Company + "','" + Ship_ContactPerson + "','" + Ship_Address + "','" + Ship_Tel + "','" + Ship_des +
-                                    "','" + Pay_des + "','" + Pay_Meth + "','" + Pay_Terms + "','" + state + "','" + created_on + "','" + upload_data + "')");
+                                    "','" + Pay_des + "','" + Pay_Terms + "','" + Pay_Meth + "','" + state + "','" + upload_data + "','" + created_on + "')");
                     this.LBmessageBox.Text = "Saved!";
                     this.LBmessageBox.ForeColor = Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(190)))), ((int)(((byte)(140)))));
                     this.LBmessageBox.Image = global::ADIONSYS.Properties.Resources.check_mark_3_24;
@@ -148,9 +148,9 @@ namespace ADIONSYS.Plugin.POS.Member.Add
                 MessageInfo MessageInfo = new MessageInfo(ex.Message);
                 MessageInfo.ShowDialog();
             }
-
+        
         }
-
+        
 
     }
 }

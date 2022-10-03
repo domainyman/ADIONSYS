@@ -30,23 +30,21 @@
         {
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnAdd = new System.Windows.Forms.Button();
-            this.BtnEdit = new System.Windows.Forms.Button();
-            this.MemberPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnInquire = new System.Windows.Forms.Button();
             this.BtnMember = new System.Windows.Forms.Button();
-            this.MemberpanelGroup = new System.Windows.Forms.Panel();
             this.SubLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.MemberContainer = new System.Windows.Forms.SplitContainer();
+            this.MemberPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnInquire = new System.Windows.Forms.Button();
+            this.MemberpanelGroup = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
-            this.MemberPanel.SuspendLayout();
-            this.MemberpanelGroup.SuspendLayout();
             this.SubLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MemberContainer)).BeginInit();
             this.MemberContainer.Panel1.SuspendLayout();
             this.MemberContainer.Panel2.SuspendLayout();
             this.MemberContainer.SuspendLayout();
+            this.MemberPanel.SuspendLayout();
+            this.MemberpanelGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -77,70 +75,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(679, 510);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // BtnAdd
-            // 
-            this.BtnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnAdd.FlatAppearance.BorderSize = 0;
-            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdd.ForeColor = System.Drawing.Color.White;
-            this.BtnAdd.Location = new System.Drawing.Point(3, 3);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(108, 34);
-            this.BtnAdd.TabIndex = 6;
-            this.BtnAdd.Tag = "Product Inquire";
-            this.BtnAdd.Text = "Add";
-            this.BtnAdd.UseVisualStyleBackColor = true;
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
-            // 
-            // BtnEdit
-            // 
-            this.BtnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnEdit.FlatAppearance.BorderSize = 0;
-            this.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEdit.ForeColor = System.Drawing.Color.White;
-            this.BtnEdit.Location = new System.Drawing.Point(3, 43);
-            this.BtnEdit.Name = "BtnEdit";
-            this.BtnEdit.Size = new System.Drawing.Size(108, 34);
-            this.BtnEdit.TabIndex = 7;
-            this.BtnEdit.Tag = "Setting";
-            this.BtnEdit.Text = "Edit";
-            this.BtnEdit.UseVisualStyleBackColor = true;
-            // 
-            // MemberPanel
-            // 
-            this.MemberPanel.AutoSize = true;
-            this.MemberPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MemberPanel.ColumnCount = 1;
-            this.MemberPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MemberPanel.Controls.Add(this.BtnInquire, 0, 2);
-            this.MemberPanel.Controls.Add(this.BtnAdd, 0, 0);
-            this.MemberPanel.Controls.Add(this.BtnEdit, 0, 1);
-            this.MemberPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MemberPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.MemberPanel.Location = new System.Drawing.Point(0, 0);
-            this.MemberPanel.Name = "MemberPanel";
-            this.MemberPanel.RowCount = 3;
-            this.MemberPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.MemberPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.MemberPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.MemberPanel.Size = new System.Drawing.Size(114, 120);
-            this.MemberPanel.TabIndex = 0;
-            // 
-            // BtnInquire
-            // 
-            this.BtnInquire.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnInquire.FlatAppearance.BorderSize = 0;
-            this.BtnInquire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnInquire.ForeColor = System.Drawing.Color.White;
-            this.BtnInquire.Location = new System.Drawing.Point(3, 83);
-            this.BtnInquire.Name = "BtnInquire";
-            this.BtnInquire.Size = new System.Drawing.Size(108, 34);
-            this.BtnInquire.TabIndex = 8;
-            this.BtnInquire.Tag = "Setting";
-            this.BtnInquire.Text = "Inquire";
-            this.BtnInquire.UseVisualStyleBackColor = true;
-            this.BtnInquire.Click += new System.EventHandler(this.BtnInquire_Click);
-            // 
             // BtnMember
             // 
             this.BtnMember.Dock = System.Windows.Forms.DockStyle.Top;
@@ -159,15 +93,6 @@
             this.BtnMember.Text = "Member";
             this.BtnMember.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnMember.UseVisualStyleBackColor = true;
-            // 
-            // MemberpanelGroup
-            // 
-            this.MemberpanelGroup.Controls.Add(this.MemberPanel);
-            this.MemberpanelGroup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MemberpanelGroup.Location = new System.Drawing.Point(3, 58);
-            this.MemberpanelGroup.Name = "MemberpanelGroup";
-            this.MemberpanelGroup.Size = new System.Drawing.Size(114, 120);
-            this.MemberpanelGroup.TabIndex = 5;
             // 
             // SubLayoutPanel
             // 
@@ -201,6 +126,47 @@
             this.MemberContainer.SplitterWidth = 1;
             this.MemberContainer.TabIndex = 1;
             // 
+            // MemberPanel
+            // 
+            this.MemberPanel.AutoSize = true;
+            this.MemberPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MemberPanel.ColumnCount = 1;
+            this.MemberPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.MemberPanel.Controls.Add(this.BtnInquire, 0, 0);
+            this.MemberPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MemberPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.MemberPanel.Location = new System.Drawing.Point(0, 0);
+            this.MemberPanel.Name = "MemberPanel";
+            this.MemberPanel.RowCount = 1;
+            this.MemberPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.MemberPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.MemberPanel.Size = new System.Drawing.Size(114, 40);
+            this.MemberPanel.TabIndex = 0;
+            // 
+            // BtnInquire
+            // 
+            this.BtnInquire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnInquire.FlatAppearance.BorderSize = 0;
+            this.BtnInquire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnInquire.ForeColor = System.Drawing.Color.White;
+            this.BtnInquire.Location = new System.Drawing.Point(3, 3);
+            this.BtnInquire.Name = "BtnInquire";
+            this.BtnInquire.Size = new System.Drawing.Size(108, 34);
+            this.BtnInquire.TabIndex = 8;
+            this.BtnInquire.Tag = "Setting";
+            this.BtnInquire.Text = "Inquire";
+            this.BtnInquire.UseVisualStyleBackColor = true;
+            this.BtnInquire.Click += new System.EventHandler(this.BtnInquire_Click);
+            // 
+            // MemberpanelGroup
+            // 
+            this.MemberpanelGroup.Controls.Add(this.MemberPanel);
+            this.MemberpanelGroup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MemberpanelGroup.Location = new System.Drawing.Point(3, 58);
+            this.MemberpanelGroup.Name = "MemberpanelGroup";
+            this.MemberpanelGroup.Size = new System.Drawing.Size(114, 40);
+            this.MemberpanelGroup.TabIndex = 5;
+            // 
             // MemberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -215,14 +181,14 @@
             this.Text = "MemberForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.MemberPanel.ResumeLayout(false);
-            this.MemberpanelGroup.ResumeLayout(false);
-            this.MemberpanelGroup.PerformLayout();
             this.SubLayoutPanel.ResumeLayout(false);
             this.MemberContainer.Panel1.ResumeLayout(false);
             this.MemberContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MemberContainer)).EndInit();
             this.MemberContainer.ResumeLayout(false);
+            this.MemberPanel.ResumeLayout(false);
+            this.MemberpanelGroup.ResumeLayout(false);
+            this.MemberpanelGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -231,16 +197,14 @@
 
         private PictureBox pictureBox2;
         private TableLayoutPanel tableLayoutPanel3;
-        private Button BtnAdd;
-        private Button BtnEdit;
         private TableLayoutPanel ProductPanel;
         private Button BtnMember;
         private Panel ProductpanelGroup;
         private FlowLayoutPanel SubLayoutPanel;
         private SplitContainer WarehoseContainer;
-        private Button BtnInquire;
-        private TableLayoutPanel MemberPanel;
-        private Panel MemberpanelGroup;
         private SplitContainer MemberContainer;
+        private Panel MemberpanelGroup;
+        private TableLayoutPanel MemberPanel;
+        private Button BtnInquire;
     }
 }
