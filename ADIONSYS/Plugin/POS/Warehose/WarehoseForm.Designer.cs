@@ -38,8 +38,6 @@
             this.BtnManagement = new System.Windows.Forms.Button();
             this.ManagepanelGroup = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnStockOut = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.BtnStockIn = new System.Windows.Forms.Button();
             this.Btnstorage = new System.Windows.Forms.Button();
             this.StoragepanelGroup = new System.Windows.Forms.Panel();
@@ -204,7 +202,7 @@
             this.ManagepanelGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.ManagepanelGroup.Location = new System.Drawing.Point(3, 185);
             this.ManagepanelGroup.Name = "ManagepanelGroup";
-            this.ManagepanelGroup.Size = new System.Drawing.Size(114, 124);
+            this.ManagepanelGroup.Size = new System.Drawing.Size(114, 40);
             this.ManagepanelGroup.TabIndex = 8;
             // 
             // tableLayoutPanel1
@@ -212,48 +210,18 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.BtnStockOut, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.BtnStockIn, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(114, 124);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(114, 40);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // BtnStockOut
-            // 
-            this.BtnStockOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnStockOut.FlatAppearance.BorderSize = 0;
-            this.BtnStockOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnStockOut.ForeColor = System.Drawing.Color.White;
-            this.BtnStockOut.Location = new System.Drawing.Point(3, 43);
-            this.BtnStockOut.Name = "BtnStockOut";
-            this.BtnStockOut.Size = new System.Drawing.Size(108, 34);
-            this.BtnStockOut.TabIndex = 0;
-            this.BtnStockOut.Tag = "Stock - Out";
-            this.BtnStockOut.Text = "Stock- Out";
-            this.BtnStockOut.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(3, 83);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 34);
-            this.button2.TabIndex = 7;
-            this.button2.Tag = "Inventory ";
-            this.button2.Text = "Inventory ";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // BtnStockIn
             // 
@@ -266,7 +234,7 @@
             this.BtnStockIn.Size = new System.Drawing.Size(108, 34);
             this.BtnStockIn.TabIndex = 6;
             this.BtnStockIn.Tag = "Stock - In";
-            this.BtnStockIn.Text = "Stock - In";
+            this.BtnStockIn.Text = "Warehousing";
             this.BtnStockIn.UseVisualStyleBackColor = true;
             this.BtnStockIn.Click += new System.EventHandler(this.BtnWarehouseVOC_Click);
             // 
@@ -279,7 +247,7 @@
             this.Btnstorage.ForeColor = System.Drawing.Color.White;
             this.Btnstorage.Image = global::ADIONSYS.Properties.Resources.icons8_transfer_24;
             this.Btnstorage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btnstorage.Location = new System.Drawing.Point(4, 316);
+            this.Btnstorage.Location = new System.Drawing.Point(4, 232);
             this.Btnstorage.Margin = new System.Windows.Forms.Padding(4);
             this.Btnstorage.Name = "Btnstorage";
             this.Btnstorage.Size = new System.Drawing.Size(113, 40);
@@ -293,7 +261,7 @@
             // StoragepanelGroup
             // 
             this.StoragepanelGroup.Controls.Add(this.StoragePanel);
-            this.StoragepanelGroup.Location = new System.Drawing.Point(3, 363);
+            this.StoragepanelGroup.Location = new System.Drawing.Point(3, 279);
             this.StoragepanelGroup.Name = "StoragepanelGroup";
             this.StoragepanelGroup.Size = new System.Drawing.Size(114, 120);
             this.StoragepanelGroup.TabIndex = 7;

@@ -65,6 +65,7 @@ namespace ADIONSYS.Plugin.POS.Member.Add
         private void clear()
         {
             textname.Text = string.Empty;
+            textcus_sc.Text = string.Empty;
             CMBgender.Text = string.Empty;
             maskedTextBoxbirth.Text = string.Empty;
             textEmail.Text = string.Empty;
@@ -92,6 +93,7 @@ namespace ADIONSYS.Plugin.POS.Member.Add
         private void btnCreate_Click(object sender, EventArgs e)
         {
             string name = textname.Text;
+            string scode = textcus_sc.Text;
             string gender = CMBgender.Text;
             string birth = maskedTextBoxbirth.Text;
             if(birth == "  /  /")
@@ -123,11 +125,11 @@ namespace ADIONSYS.Plugin.POS.Member.Add
                 if (SQLConnect.Instance.ConnectState() == true && name != string.Empty )
                 {
                     SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.member" +
-                        "(member_number,member_gender,birth,email,title,fax_no,tel_no,mem_comment," +
+                        "(customer_sc,member_number,member_gender,birth,email,title,fax_no,tel_no,mem_comment," +
                         "billing_company,billing_person,billing_address,billing_tel," +
                         "ship_company,ship_person,ship_address,ship_tel,ship_comment," +
                         "pay_comment,pay_terms,pay_method,state,upload_date,created_on) VALUES " +
-                                    "('" + name + "','" + gender + "','" + birth + "','" + email + "','" + title + "','" + fax + "','" + tel + "','" + des + 
+                                    "('" + scode + "','" + name + "','" + gender + "','" + birth + "','" + email + "','" + title + "','" + fax + "','" + tel + "','" + des + 
                                     "','" + company + "','" + Contactname + "','" + Address + "','" + Contacttel +
                                     "','" + Ship_Company + "','" + Ship_ContactPerson + "','" + Ship_Address + "','" + Ship_Tel + "','" + Ship_des +
                                     "','" + Pay_des + "','" + Pay_Terms + "','" + Pay_Meth + "','" + state + "','" + upload_data + "','" + created_on + "')");
@@ -150,7 +152,33 @@ namespace ADIONSYS.Plugin.POS.Member.Add
             }
         
         }
-        
 
+        private void textcus_sc_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (SQLConnect.Instance.ConnectState() == true)
+                {
+                    List<string> PayTermsresult = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT member_number FROM storagemember.member");
+                    if (PayTermsresult.Contains(textname.Text))
+                    {
+                        this.LBmessageBox.Text = "Customer Code already exists!";
+                        this.LBmessageBox.ForeColor = Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(97)))), ((int)(((byte)(106)))));
+                        this.LBmessageBox.Image = global::ADIONSYS.Properties.Resources.x_mark_24;
+                        btnCreate.Enabled = false;
+                    }
+                    else
+                    {
+                        btnCreate.Enabled = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageInfo MessageInfo = new MessageInfo(ex.Message);
+                MessageInfo.ShowDialog();
+            }
+        }
     }
-}
+    }

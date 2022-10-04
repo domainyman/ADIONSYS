@@ -23,15 +23,78 @@ namespace ADIONSYS.Plugin.POS {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("TS-00000001")]
         public string TransferNumber {
             get {
                 return ((string)(this["TransferNumber"]));
             }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("IN-00000001")]
+        public string InvoiceNumber {
+            get {
+                return ((string)(this["InvoiceNumber"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RT-00000001")]
+        public string ReturnNumber {
+            get {
+                return ((string)(this["ReturnNumber"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("CD-00000001")]
+        public string CreditNumber {
+            get {
+                return ((string)(this["CreditNumber"]));
+            }
             set {
-                this["TransferNumber"] = value;
+                this["CreditNumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PC-00000001")]
+        public string PurchaseNumber {
+            get {
+                return ((string)(this["PurchaseNumber"]));
+            }
+            set {
+                this["PurchaseNumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ExpenseNumber {
+            get {
+                return ((string)(this["ExpenseNumber"]));
+            }
+            set {
+                this["ExpenseNumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RMA-0000001")]
+        public string RMANumber {
+            get {
+                return ((string)(this["RMANumber"]));
+            }
+            set {
+                this["RMANumber"] = value;
             }
         }
     }

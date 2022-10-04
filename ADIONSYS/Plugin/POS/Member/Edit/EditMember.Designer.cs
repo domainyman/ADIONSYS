@@ -94,6 +94,8 @@
             this.textupload = new System.Windows.Forms.Label();
             this.CMBState = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textcus_sc = new System.Windows.Forms.TextBox();
+            this.LBCustomer_sc = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -940,6 +942,8 @@
             this.tableLayoutPanel1.Controls.Add(this.texttel, 6, 6);
             this.tableLayoutPanel1.Controls.Add(this.CMBState, 6, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 4, 24);
+            this.tableLayoutPanel1.Controls.Add(this.textcus_sc, 6, 3);
+            this.tableLayoutPanel1.Controls.Add(this.LBCustomer_sc, 4, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -1061,6 +1065,32 @@
             this.panel5.Size = new System.Drawing.Size(430, 72);
             this.panel5.TabIndex = 80;
             // 
+            // textcus_sc
+            // 
+            this.textcus_sc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textcus_sc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textcus_sc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textcus_sc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textcus_sc.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textcus_sc.ForeColor = System.Drawing.Color.White;
+            this.textcus_sc.Location = new System.Drawing.Point(648, 94);
+            this.textcus_sc.Name = "textcus_sc";
+            this.textcus_sc.PlaceholderText = "Short Code  ( Must be entered)";
+            this.textcus_sc.Size = new System.Drawing.Size(249, 25);
+            this.textcus_sc.TabIndex = 82;
+            // 
+            // LBCustomer_sc
+            // 
+            this.LBCustomer_sc.AutoSize = true;
+            this.LBCustomer_sc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LBCustomer_sc.Location = new System.Drawing.Point(463, 94);
+            this.LBCustomer_sc.Margin = new System.Windows.Forms.Padding(3);
+            this.LBCustomer_sc.Name = "LBCustomer_sc";
+            this.LBCustomer_sc.Size = new System.Drawing.Size(144, 28);
+            this.LBCustomer_sc.TabIndex = 81;
+            this.LBCustomer_sc.Text = "Customer Code :  * ";
+            this.LBCustomer_sc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // EditMember
             // 
             this.AcceptButton = this.btnEdit;
@@ -1159,5 +1189,7 @@
         private ComboBox CMBState;
         private Panel panel5;
         private Button BtnDelete;
+        private TextBox textcus_sc;
+        private Label LBCustomer_sc;
     }
 }

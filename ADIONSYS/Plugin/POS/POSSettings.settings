@@ -2,8 +2,26 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ADIONSYS.Plugin.POS" GeneratedClassName="POSSettings">
   <Profiles />
   <Settings>
-    <Setting Name="TransferNumber" Type="System.String" Scope="User">
+    <Setting Name="TransferNumber" Type="System.String" Scope="Application">
       <Value Profile="(Default)">TS-00000001</Value>
+    </Setting>
+    <Setting Name="InvoiceNumber" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">IN-00000001</Value>
+    </Setting>
+    <Setting Name="ReturnNumber" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RT-00000001</Value>
+    </Setting>
+    <Setting Name="CreditNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CD-00000001</Value>
+    </Setting>
+    <Setting Name="PurchaseNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PC-00000001</Value>
+    </Setting>
+    <Setting Name="ExpenseNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RMANumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RMA-0000001</Value>
     </Setting>
   </Settings>
 </SettingsFile>

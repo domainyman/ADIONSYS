@@ -25,6 +25,9 @@
     <Compile Update="Plugin\POS\POSForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Plugin\POS\Retail\ClientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Plugin\POS\Retail\RetailForm.cs">
       <SubType>Form</SubType>
     </Compile>

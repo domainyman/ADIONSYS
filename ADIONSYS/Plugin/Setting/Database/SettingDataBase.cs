@@ -423,6 +423,7 @@ namespace ADIONSYS.Plugin.Setting
                 SQLConnect.Instance.PgSQL_Command("CREATE SCHEMA IF NOT EXISTS storagemember");
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagemember.member (" +
                     "member_id bigserial PRIMARY KEY," +
+                    "customer_sc VARCHAR ( 50 ) UNIQUE NOT NULL," +
                     "member_number VARCHAR ( 50 ) NOT NULL," +
                     "member_gender VARCHAR ( 50 )," +
                     "birth VARCHAR ( 50 ) ," +

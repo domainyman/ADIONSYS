@@ -40,7 +40,7 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
             List<string> Show = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT member_number,member_gender,birth,email,title,fax_no,tel_no,mem_comment," +
                 "billing_company,billing_person,billing_address,billing_tel," +
                 "ship_company,ship_person,ship_address,ship_tel,ship_comment," +
-                "pay_comment,pay_terms,pay_method FROM storagemember.member WHERE member_id = '" + MemberID + "'");
+                "pay_comment,pay_terms,pay_method,customer_sc FROM storagemember.member WHERE member_id = '" + MemberID + "'");
             bool result_state = SQLConnect.Instance.PgSQL_SELECTDataBool("SELECT state FROM storagemember.member WHERE member_id='" + MemberID + "'");
             List<DateTime> result_DateTime = SQLConnect.Instance.PgSQL_SELECTDataDateTime("SELECT upload_date,created_on FROM storagemember.member WHERE member_id='" + MemberID + "'");
             LBtestMemberID.Text = MemberID.ToString();
@@ -64,6 +64,7 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
             textPay_des.Text = Show[17];
             CMBPayTerms.SelectedItem = Show[18];
             CMBPaymeth.SelectedItem = Show[19];
+            textcus_sc.Text = Show[20];
             if (result_state == true)
             {
                 CMBState.SelectedItem = CMBState.Items[0];
@@ -117,6 +118,7 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
 
         private void clear()
         {
+            textcus_sc.Text = string.Empty;
             textname.Text = string.Empty;
             CMBgender.Text = string.Empty;
             maskedTextBoxbirth.Text = string.Empty;
@@ -162,6 +164,7 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
         private void btnEdit_Click(object sender, EventArgs e)
         {
             string name = textname.Text;
+            string s_code = textcus_sc.Text;
             string gender = CMBgender.Text;
             string birth = maskedTextBoxbirth.Text;
             if (birth == "  /  /")
@@ -197,9 +200,9 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
             string upload_data = ConvertType.GetTimeStamp();
             try
             {
-                if (SQLConnect.Instance.ConnectState() == true && name != string.Empty)
+                if (SQLConnect.Instance.ConnectState() == true && name != string.Empty && s_code != string.Empty)
                 {
-                    SQLConnect.Instance.PgSQL_Command("UPDATE storagemember.member SET member_number = '" + name + "', member_gender = '" + gender + "',birth = '" + birth + "',email='"+email + "',title='"+ title + "',fax_no='"+ fax + "',tel_no='" + tel + "',mem_comment='"+ des+ "'," +
+                    SQLConnect.Instance.PgSQL_Command("UPDATE storagemember.member SET customer_sc= '" + s_code + "', member_number = '" + name + "', member_gender = '" + gender + "',birth = '" + birth + "',email='"+email + "',title='"+ title + "',fax_no='"+ fax + "',tel_no='" + tel + "',mem_comment='"+ des+ "'," +
                         "billing_company='"+ company+ "',billing_person='"+ Contactname + "',billing_address='"+ Address+ "',billing_tel='"+ Contacttel+ "'," +
                         "ship_company='"+ Ship_Company+ "',ship_person='" + Ship_ContactPerson + "',ship_address='"+ Ship_Address+ "',ship_tel='"+ Ship_Tel + "',ship_comment='"+ Ship_des + "'," +
                         "pay_comment='"+ Pay_des + "',pay_terms='"+ Pay_Terms + "',pay_method='"+ Pay_Meth + "',state='"+ state + "',upload_date= '"+upload_data+ "' WHERE member_id = '" + MemberID + "'");

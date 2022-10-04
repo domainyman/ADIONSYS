@@ -88,6 +88,8 @@
             this.CMBgender = new System.Windows.Forms.ComboBox();
             this.maskedTextBoxbirth = new System.Windows.Forms.MaskedTextBox();
             this.LBmessageBox = new System.Windows.Forms.Label();
+            this.LBCustomer_sc = new System.Windows.Forms.Label();
+            this.textcus_sc = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -277,7 +279,7 @@
             this.textname.ForeColor = System.Drawing.Color.White;
             this.textname.Location = new System.Drawing.Point(208, 83);
             this.textname.Name = "textname";
-            this.textname.PlaceholderText = "Name";
+            this.textname.PlaceholderText = "Name ( Must be entered)";
             this.textname.Size = new System.Drawing.Size(245, 25);
             this.textname.TabIndex = 16;
             // 
@@ -514,6 +516,8 @@
             this.tableLayoutPanel1.Controls.Add(this.CMBgender, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.maskedTextBoxbirth, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.LBmessageBox, 3, 23);
+            this.tableLayoutPanel1.Controls.Add(this.LBCustomer_sc, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textcus_sc, 6, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -972,6 +976,33 @@
             this.LBmessageBox.TabIndex = 68;
             this.LBmessageBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // LBCustomer_sc
+            // 
+            this.LBCustomer_sc.AutoSize = true;
+            this.LBCustomer_sc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LBCustomer_sc.Location = new System.Drawing.Point(459, 83);
+            this.LBCustomer_sc.Margin = new System.Windows.Forms.Padding(3);
+            this.LBCustomer_sc.Name = "LBCustomer_sc";
+            this.LBCustomer_sc.Size = new System.Drawing.Size(144, 24);
+            this.LBCustomer_sc.TabIndex = 75;
+            this.LBCustomer_sc.Text = "Customer Code :  * ";
+            this.LBCustomer_sc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textcus_sc
+            // 
+            this.textcus_sc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textcus_sc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textcus_sc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textcus_sc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textcus_sc.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textcus_sc.ForeColor = System.Drawing.Color.White;
+            this.textcus_sc.Location = new System.Drawing.Point(644, 83);
+            this.textcus_sc.Name = "textcus_sc";
+            this.textcus_sc.PlaceholderText = "Short Code  ( Must be entered)";
+            this.textcus_sc.Size = new System.Drawing.Size(245, 25);
+            this.textcus_sc.TabIndex = 76;
+            this.textcus_sc.Leave += new System.EventHandler(this.textcus_sc_Leave);
+            // 
             // AddMember
             // 
             this.AcceptButton = this.btnCreate;
@@ -1062,5 +1093,7 @@
         private ComboBox CMBPayTerms;
         private MaskedTextBox maskedTextBoxbirth;
         private Label label13;
+        private Label LBCustomer_sc;
+        private TextBox textcus_sc;
     }
 }
