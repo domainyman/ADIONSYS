@@ -229,12 +229,15 @@ namespace ADIONSYS.Plugin.POS.Member.Edit
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            bool state = false;
-            MessageContinue MessageContinue = new MessageContinue("Are You Sure? " + " " + " You won't be able to revert this !");
-            if (MessageContinue.ShowDialog() == DialogResult.Continue)
+            if (MemberID != 1)
             {
-                SQLConnect.Instance.PgSQL_Command("DELETE FROM storagemember.member WHERE member_id='" + MemberID + "'");
-                this.Close();
+                bool state = false;
+                MessageContinue MessageContinue = new MessageContinue("Are You Sure? " + " " + " You won't be able to revert this !");
+                if (MessageContinue.ShowDialog() == DialogResult.Continue)
+                {
+                    SQLConnect.Instance.PgSQL_Command("DELETE FROM storagemember.member WHERE member_id='" + MemberID + "'");
+                    this.Close();
+                }
             }
 
         }

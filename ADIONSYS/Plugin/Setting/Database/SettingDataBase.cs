@@ -71,6 +71,7 @@ namespace ADIONSYS.Plugin.Setting
             TableInvoice();
             TableStorageProduct();
             TableStorageTransfer();
+            TableStorageMember();
             AlterProduct();
 
 
@@ -424,7 +425,7 @@ namespace ADIONSYS.Plugin.Setting
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagemember.member (" +
                     "member_id bigserial PRIMARY KEY," +
                     "customer_sc VARCHAR ( 50 ) UNIQUE NOT NULL," +
-                    "member_number VARCHAR ( 50 ) NOT NULL," +
+                    "member_number VARCHAR ( 50 ) UNIQUE NOT NULL," +
                     "member_gender VARCHAR ( 50 )," +
                     "birth VARCHAR ( 50 ) ," +
                     "email VARCHAR ( 50 )," +
@@ -455,6 +456,8 @@ namespace ADIONSYS.Plugin.Setting
                     "payterms_name VARCHAR (255) UNIQUE NOT NULL)");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.payterms(payterms_name) VALUES('CASH ON DELIVERY')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.paymethod(paymethod_name) VALUES('CASH')");
+                string data = ConvertType.GetTimeStamp();
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.member(member_number,customer_sc,state,upload_date,created_on) VALUES('WALK IN','WALKIN','true','"+ data + "','" + data + "')");
             }
         }
         private void AlterProduct()

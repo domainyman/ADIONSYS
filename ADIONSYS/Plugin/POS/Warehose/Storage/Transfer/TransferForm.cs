@@ -207,7 +207,6 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Transfer
             string hash_database = storageschemaname + ".\"" + result_hash_name + "\"";
             int storage_qty = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT COALESCE(SUM(qty),0) FROM " + hash_database + " WHERE storage_id='" + sid + "'");
             int qty = storage_qty;
-            Console.WriteLine(qty);
             return qty;
         }
 
