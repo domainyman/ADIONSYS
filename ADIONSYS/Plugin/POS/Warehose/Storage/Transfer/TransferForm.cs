@@ -344,14 +344,23 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Transfer
 
         private void UploadDicSN(int product_id, int qty, int sid)
         {
-            
-            string result_hash_name = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT hash FROM productlibrary.product_sum WHERE product_id=" + product_id + "");
-            int SNBaseCount = SNDic[result_hash_name].Count;
-            int renewqty = SNBaseCount + qty;
-            string storageschemaname = "\"" + "productlibrary" + "\"";
-            string hash_database = storageschemaname + ".\"" + result_hash_name + "\"";
-            List<string> list = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT sn FROM " + hash_database + " WHERE storage_id = " + sid + " AND state = true AND status = 1 ORDER BY purchese_day ASC LIMIT " + renewqty);
-            SNDic[result_hash_name] = list;
+            foreach (DataGridViewRow Row_Data in ConfirmGridView1.Rows)
+            {
+                int Row_id = Convert.ToInt32(Row_Data.Cells[1].Value);
+                if (Row_id == product_id)
+                {
+                    string result_hash_name = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT hash FROM productlibrary.product_sum WHERE product_id=" + product_id + "");
+                    int SNBaseCount = SNDic[result_hash_name].Count;
+                    int renewqty = SNBaseCount + qty;
+                    if (renewqty <= Check_qty(product_id))
+                    {
+                        string storageschemaname = "\"" + "productlibrary" + "\"";
+                        string hash_database = storageschemaname + ".\"" + result_hash_name + "\"";
+                        List<string> list = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT sn FROM " + hash_database + " WHERE storage_id = " + sid + " AND state = true AND status = 1 ORDER BY purchese_day ASC LIMIT " + renewqty);
+                        SNDic[result_hash_name] = list;
+                    }
+                }
+            }
         }
 
         private void DeleteDicSN(int product_id)

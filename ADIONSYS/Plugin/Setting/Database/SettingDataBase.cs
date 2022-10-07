@@ -456,8 +456,15 @@ namespace ADIONSYS.Plugin.Setting
                     "payterms_name VARCHAR (255) UNIQUE NOT NULL)");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.payterms(payterms_name) VALUES('CASH ON DELIVERY')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.paymethod(paymethod_name) VALUES('CASH')");
+                string block = string.Empty;
                 string data = ConvertType.GetTimeStamp();
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.member(member_number,customer_sc,state,upload_date,created_on) VALUES('WALK IN','WALKIN','true','"+ data + "','" + data + "')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.member(customer_sc,member_number,member_gender,birth,email,title,fax_no,tel_no,mem_comment," +
+                    "billing_company,billing_person,billing_address,billing_tel," +
+                    "ship_company,ship_person,ship_address,ship_tel,ship_comment," +
+                    "pay_comment,pay_terms,pay_method,state,upload_date,created_on) VALUES('WALKIN','WALK IN','" + block + "','" + block + "','" + block + "','" + block + "','" + block + "','" + block + "','" + block + "'," +
+                    "'" + block + "','" + block + "','" + block + "','" + block + "'," +
+                    "'" + block + "','" + block + "','" + block + "','" + block + "','" + block + "'," +
+                    "'" + block + "','" + block + "','" + block + "','true','" + data + "','" + data + "')");
             }
         }
         private void AlterProduct()

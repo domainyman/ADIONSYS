@@ -361,6 +361,44 @@ namespace ADIONSYS
             }
         }
 
+
+        public decimal PgSQL_SELECTDataDecimalsingle(string Cmd)
+        {
+            decimal result = 0;
+            try
+            {
+                NpgsqlConnection npgsqlConnection = new NpgsqlConnection(ApplicationSetting.Default.DataBaseAddress);
+                npgsqlConnection.Open();
+                if (npgsqlConnection.State == ConnectionState.Open)
+                {
+                    NpgsqlCommand cmd = new NpgsqlCommand(Cmd, npgsqlConnection);
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                result = reader.GetDecimal(i);
+                            }
+                        }
+                    }
+                    npgsqlConnection.Close();
+                    return result;
+                }
+                else
+                {
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageInfo MessageBox_text = new MessageInfo(ex.Message);
+                MessageBox_text.ShowDialog();
+                return result;
+            }
+        }
+
         public List<DateTime> PgSQL_SELECTDataDateTime(string Cmd)
         {
             List<DateTime> result = new List<DateTime>();

@@ -61,6 +61,8 @@
             this.LBBarcode = new System.Windows.Forms.Label();
             this.LBQty = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.TextProduct_id = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.LBprod_name = new System.Windows.Forms.Label();
             this.textpro_name = new System.Windows.Forms.Label();
             this.LBsrp = new System.Windows.Forms.Label();
@@ -78,6 +80,7 @@
             this.LBShipping = new System.Windows.Forms.Label();
             this.LBinvoiceitem = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.textmethod = new System.Windows.Forms.Label();
             this.texttax = new System.Windows.Forms.Label();
             this.LBTax = new System.Windows.Forms.Label();
             this.LBmethod = new System.Windows.Forms.Label();
@@ -485,20 +488,24 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 7;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnCount = 8;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 116F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.25F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.25F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.LBprod_name, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.textpro_name, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.LBsrp, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.textsrp, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.LBStock, 4, 0);
-            this.tableLayoutPanel5.Controls.Add(this.textstock, 5, 0);
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Controls.Add(this.TextProduct_id, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.LBprod_name, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textpro_name, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.LBsrp, 4, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textsrp, 5, 0);
+            this.tableLayoutPanel5.Controls.Add(this.LBStock, 6, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textstock, 7, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(23, 123);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -507,14 +514,37 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(1281, 34);
             this.tableLayoutPanel5.TabIndex = 79;
             // 
+            // TextProduct_id
+            // 
+            this.TextProduct_id.AutoSize = true;
+            this.TextProduct_id.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextProduct_id.Location = new System.Drawing.Point(89, 3);
+            this.TextProduct_id.Margin = new System.Windows.Forms.Padding(3);
+            this.TextProduct_id.Name = "TextProduct_id";
+            this.TextProduct_id.Size = new System.Drawing.Size(49, 28);
+            this.TextProduct_id.TabIndex = 81;
+            this.TextProduct_id.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Margin = new System.Windows.Forms.Padding(3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 28);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "Product ID :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LBprod_name
             // 
             this.LBprod_name.AutoSize = true;
             this.LBprod_name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LBprod_name.Location = new System.Drawing.Point(3, 3);
+            this.LBprod_name.Location = new System.Drawing.Point(144, 3);
             this.LBprod_name.Margin = new System.Windows.Forms.Padding(3);
             this.LBprod_name.Name = "LBprod_name";
-            this.LBprod_name.Size = new System.Drawing.Size(144, 28);
+            this.LBprod_name.Size = new System.Drawing.Size(110, 28);
             this.LBprod_name.TabIndex = 0;
             this.LBprod_name.Text = "Product Name : ";
             this.LBprod_name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -523,10 +553,10 @@
             // 
             this.textpro_name.AutoSize = true;
             this.textpro_name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textpro_name.Location = new System.Drawing.Point(153, 3);
+            this.textpro_name.Location = new System.Drawing.Point(260, 3);
             this.textpro_name.Margin = new System.Windows.Forms.Padding(3);
             this.textpro_name.Name = "textpro_name";
-            this.textpro_name.Size = new System.Drawing.Size(357, 28);
+            this.textpro_name.Size = new System.Drawing.Size(269, 28);
             this.textpro_name.TabIndex = 1;
             this.textpro_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -534,7 +564,7 @@
             // 
             this.LBsrp.AutoSize = true;
             this.LBsrp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LBsrp.Location = new System.Drawing.Point(516, 3);
+            this.LBsrp.Location = new System.Drawing.Point(535, 3);
             this.LBsrp.Margin = new System.Windows.Forms.Padding(3);
             this.LBsrp.Name = "LBsrp";
             this.LBsrp.Size = new System.Drawing.Size(138, 28);
@@ -546,10 +576,10 @@
             // 
             this.textsrp.AutoSize = true;
             this.textsrp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textsrp.Location = new System.Drawing.Point(660, 3);
+            this.textsrp.Location = new System.Drawing.Point(679, 3);
             this.textsrp.Margin = new System.Windows.Forms.Padding(3);
             this.textsrp.Name = "textsrp";
-            this.textsrp.Size = new System.Drawing.Size(102, 28);
+            this.textsrp.Size = new System.Drawing.Size(269, 28);
             this.textsrp.TabIndex = 3;
             this.textsrp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -557,7 +587,7 @@
             // 
             this.LBStock.AutoSize = true;
             this.LBStock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LBStock.Location = new System.Drawing.Point(768, 3);
+            this.LBStock.Location = new System.Drawing.Point(954, 3);
             this.LBStock.Margin = new System.Windows.Forms.Padding(3);
             this.LBStock.Name = "LBStock";
             this.LBStock.Size = new System.Drawing.Size(47, 28);
@@ -569,10 +599,10 @@
             // 
             this.textstock.AutoSize = true;
             this.textstock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textstock.Location = new System.Drawing.Point(821, 3);
+            this.textstock.Location = new System.Drawing.Point(1007, 3);
             this.textstock.Margin = new System.Windows.Forms.Padding(3);
             this.textstock.Name = "textstock";
-            this.textstock.Size = new System.Drawing.Size(94, 28);
+            this.textstock.Size = new System.Drawing.Size(271, 28);
             this.textstock.TabIndex = 5;
             this.textstock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -698,6 +728,8 @@
             this.ConfirmGridView1.StandardTab = true;
             this.ConfirmGridView1.TabIndex = 81;
             this.ConfirmGridView1.VirtualMode = true;
+            this.ConfirmGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConfirmGridView1_CellContentClick);
+            this.ConfirmGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConfirmGridView1_CellDoubleClick);
             // 
             // tableLayoutPanel6
             // 
@@ -794,6 +826,7 @@
             this.BtnAddDescription.TabIndex = 75;
             this.BtnAddDescription.Text = "Insert";
             this.BtnAddDescription.UseVisualStyleBackColor = false;
+            this.BtnAddDescription.Click += new System.EventHandler(this.BtnAddDescription_Click);
             // 
             // LBShipping
             // 
@@ -832,6 +865,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel7.Controls.Add(this.textmethod, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.texttax, 7, 0);
             this.tableLayoutPanel7.Controls.Add(this.LBTax, 6, 0);
             this.tableLayoutPanel7.Controls.Add(this.LBmethod, 0, 0);
@@ -848,6 +882,17 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1281, 29);
             this.tableLayoutPanel7.TabIndex = 84;
+            // 
+            // textmethod
+            // 
+            this.textmethod.AutoSize = true;
+            this.textmethod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textmethod.Location = new System.Drawing.Point(69, 3);
+            this.textmethod.Margin = new System.Windows.Forms.Padding(3);
+            this.textmethod.Name = "textmethod";
+            this.textmethod.Size = new System.Drawing.Size(191, 23);
+            this.textmethod.TabIndex = 9;
+            this.textmethod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // texttax
             // 
@@ -982,6 +1027,8 @@
             this.textDeposit.PlaceholderText = "Deposit";
             this.textDeposit.Size = new System.Drawing.Size(194, 25);
             this.textDeposit.TabIndex = 47;
+            this.textDeposit.TextChanged += new System.EventHandler(this.textDeposit_TextChanged);
+            this.textDeposit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textDeposit_KeyPress);
             // 
             // lbdeposit
             // 
@@ -1134,6 +1181,7 @@
             this.textBalance.PlaceholderText = "Balance";
             this.textBalance.Size = new System.Drawing.Size(194, 25);
             this.textBalance.TabIndex = 48;
+            this.textBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBalance_KeyPress);
             // 
             // RetailForm
             // 
@@ -1239,5 +1287,9 @@
         private Label label1;
         private Button button1;
         private Button BtnToConfirm;
+        private Label label2;
+        private Label TextProduct_id;
+        private Label texrmethod;
+        private Label textmethod;
     }
 }

@@ -493,7 +493,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Management.Purchese
                     string amount = TotalAmount().ToString();
                     bool state = true;
                     int baseqty = 1;
-                    if (suppliername != string.Empty && storageLocation != string.Empty && invoicenumber != string.Empty && invoicedate != string.Empty && CheckINV(invoicenumber) == true)
+                    if (suppliername != string.Empty && storageLocation != string.Empty && invoicenumber != string.Empty && invoicedate != string.Empty && CheckINV(invoicenumber) == true  && storageLocation != "Summary" )
                     {
                         if (CheckDicKeyGroup() == true && CheckDicSNGroup() == true)
                         {

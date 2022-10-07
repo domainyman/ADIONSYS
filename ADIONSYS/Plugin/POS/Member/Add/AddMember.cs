@@ -95,34 +95,106 @@ namespace ADIONSYS.Plugin.POS.Member.Add
             string name = textname.Text;
             string scode = textcus_sc.Text;
             string gender = CMBgender.Text;
+            if (gender == string.Empty)
+            {
+                gender = string.Empty;
+            }
             string birth = maskedTextBoxbirth.Text;
             if(birth == "  /  /")
             {
                 birth = string.Empty ;
             }
             string email = textEmail.Text;
+            if (email == string.Empty )
+            {
+                email = string.Empty;
+            }
             string title = texttitle.Text;
+            if (title == string.Empty )
+            {
+                title = string.Empty;
+            }
             string fax = textfaxnumber.Text;
+            if (fax == string.Empty)
+            {
+                fax = string.Empty;
+            }
             string tel = texttel.Text;
+            if (tel == string.Empty)
+            {
+                tel = string.Empty;
+            }
             string des = textDescription.Text;
+            if (des == string.Empty)
+            {
+                des = string.Empty;
+            }
             string company = textCompany.Text;
+            if (company == string.Empty)
+            {
+                company = string.Empty;
+            }
             string Contactname = textContactname.Text;
+            if (Contactname == string.Empty)
+            {
+                Contactname = string.Empty;
+            }
             string Address = textAddress.Text;
+            if (Address == string.Empty)
+            {
+                Address = string.Empty;
+            }
             string Contacttel = textContacttel.Text;
+            if (Contacttel == string.Empty)
+            {
+                Contacttel = string.Empty;
+            }
             string Ship_Company = textShipCompany.Text;
+            if (Ship_Company == string.Empty)
+            {
+                Ship_Company = string.Empty;
+            }
             string Ship_ContactPerson = textShip_ContactPerson.Text;
+            if (Ship_ContactPerson == string.Empty)
+            {
+                Ship_ContactPerson = string.Empty;
+            }
             string Ship_Address = textShip_Address.Text;
+            if (Ship_Address == string.Empty)
+            {
+                Ship_Address = string.Empty;
+            }
             string Ship_Tel = textShip_Tel.Text;
+            if (Ship_Tel == string.Empty)
+            {
+                Ship_Tel = string.Empty;
+            }
             string Ship_des = textShip_des.Text;
+            if (Ship_des == string.Empty)
+            {
+                Ship_des = string.Empty;
+            }
             string Pay_des = textPay_des.Text;
+            if (Pay_des == string.Empty)
+            {
+                Pay_des = string.Empty;
+            }
             string Pay_Meth = CMBPaymeth.Text;
+            if (Pay_Meth == string.Empty)
+            {
+                CMBPaymeth.SelectedItem = CMBPaymeth.Items[0];
+            }
             string Pay_Terms = CMBPayTerms.Text;
+            if (Pay_Terms == string.Empty)
+            {
+                CMBPayTerms.SelectedItem = CMBPayTerms.Items[0];
+            }
             bool state = true;
             string created_on = ConvertType.GetTimeStamp();
             string upload_data = ConvertType.GetTimeStamp();
             try
             {
-                if (SQLConnect.Instance.ConnectState() == true && name != string.Empty )
+                if (SQLConnect.Instance.ConnectState() == true && name != string.Empty && scode != string.Empty)
                 {
                     SQLConnect.Instance.PgSQL_Command("INSERT INTO storagemember.member" +
                         "(customer_sc,member_number,member_gender,birth,email,title,fax_no,tel_no,mem_comment," +
