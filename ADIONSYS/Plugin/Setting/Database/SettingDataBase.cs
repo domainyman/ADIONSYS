@@ -72,6 +72,7 @@ namespace ADIONSYS.Plugin.Setting
             TableStorageProduct();
             TableStorageTransfer();
             TableStorageMember();
+            TableSalesinvoice();
             AlterProduct();
 
 
@@ -169,6 +170,7 @@ namespace ADIONSYS.Plugin.Setting
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO productlibrary.status(status_name) VALUES('normal')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO productlibrary.status(status_name) VALUES('transfer')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO productlibrary.status(status_name) VALUES('rma')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO productlibrary.status(status_name) VALUES('sold')");
             }
 
         }
@@ -465,6 +467,76 @@ namespace ADIONSYS.Plugin.Setting
                     "'" + block + "','" + block + "','" + block + "','" + block + "'," +
                     "'" + block + "','" + block + "','" + block + "','" + block + "','" + block + "'," +
                     "'" + block + "','" + block + "','" + block + "','true','" + data + "','" + data + "')");
+            }
+        }
+
+        private void TableSalesinvoice()
+        {
+            List<string> result = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT nspname FROM pg_catalog.pg_namespace");
+            if (result.Contains("salesinvoice"))
+            {
+                MessageInfo MessageInfo = new MessageInfo("DataBase-Salesinvoice Library already exists .");
+                MessageInfo.ShowDialog();
+            }
+            else
+            {
+                SQLConnect.Instance.PgSQL_Command("CREATE SCHEMA IF NOT EXISTS salesinvoice");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.salesinvoicesum (" +
+                    "invoice_id bigserial PRIMARY KEY," +
+                    "invoice_number VARCHAR ( 50 ) UNIQUE NOT NULL," +
+                    "invoiceitem_id INT NOT NULL," +
+                    "client_id INT NOT NULL," +
+                    "shipping_id INT ," +
+                    "username_id INT NOT NULL," +
+                    "storage_id INT NOT NULL," +
+                    "total_qty INT ," +
+                    "total decimal ," +
+                    "deposit decimal ," +
+                    "balance decimal ," +
+                    "deposit_pay_method VARCHAR ( 50 ) ," +
+                    "balance_pay_method VARCHAR ( 50 ) ," +
+                    "comment VARCHAR ( 50 )," +
+                    "upload_date TIMESTAMP ," +
+                    "created_on TIMESTAMP NOT NULL)");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.salesinvoiceitem (" +
+                    "invoice_id bigserial PRIMARY KEY," +
+                    "invoice_number VARCHAR (255) UNIQUE NOT NULL," +
+                    "created_on TIMESTAMP NOT NULL," +
+                    "product_id_1 INT ," +
+                    "product_cost_1 decimal ," +
+                    "product_srp_1 decimal ," +
+                    "item_id_1 INT ," +
+                    "item_sn_1 VARCHAR (255))");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.status (" +
+                    "status_id bigserial PRIMARY KEY," +
+                    "status_name VARCHAR (255) UNIQUE NOT NULL)");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.salesinvoice_status (" +
+                    "invoice_id INT NOT NULL," +
+                    "status_id INT NOT NULL," +
+                    "grant_date TIMESTAMP," +
+                    "upload_date TIMESTAMP," +
+                    "state boolean NOT NULL," +
+                    "PRIMARY KEY (invoice_id, status_id)," +
+                    "FOREIGN KEY (invoice_id)REFERENCES salesinvoice.salesinvoicesum (invoice_id)," +
+                    "FOREIGN KEY (status_id) REFERENCES salesinvoice.status (status_id))");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.pay_status (" +
+                    "pay_status_id bigserial PRIMARY KEY," +
+                    "pay_status_name VARCHAR (255) UNIQUE NOT NULL)");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.pay_salesinvoice_status (" +
+                    "invoice_id INT NOT NULL," +
+                    "status_id INT NOT NULL," +
+                    "grant_date TIMESTAMP," +
+                    "upload_date TIMESTAMP," +
+                    "state boolean NOT NULL," +
+                    "PRIMARY KEY (invoice_id, status_id)," +
+                    "FOREIGN KEY (invoice_id)REFERENCES salesinvoice.salesinvoicesum (invoice_id)," +
+                    "FOREIGN KEY (status_id) REFERENCES salesinvoice.status (status_id))");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('normal')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('shipping')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('void')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('booking')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(status_name) VALUES('paid ')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(status_name) VALUES('unpaid')");
             }
         }
         private void AlterProduct()

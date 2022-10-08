@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Windows.Graphics.Printing;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace ADIONSYS.Plugin.POS.Retail
 {
@@ -486,7 +487,18 @@ namespace ADIONSYS.Plugin.POS.Retail
             textpro_name.Text = string.Empty;
             textsrp.Text = string.Empty;
             textstock.Text = string.Empty;
+
+        }
+
+        private void ClearAll()
+        {
+            ClearProd_table();
             textBarCode.Text = string.Empty;
+            textQty.Text = string.Empty;
+            textSearch.Text = string.Empty;
+            ConfirmdataTable.Clear();
+            SearchGridView.DataSource = null;
+            SNDic.Clear();
         }
 
         private int Reuser_id()
@@ -529,9 +541,9 @@ namespace ADIONSYS.Plugin.POS.Retail
                 
                 int pro_id = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT product_id FROM productlibrary.product_sum WHERE ean_0='" + textBarCode.Text + "' OR ean_1 ='" + textBarCode.Text + "' OR ean_2 ='" + textBarCode.Text + "'"); ;
                 TextProduct_id.Text = pro_id.ToString();
-                string pro_name = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT name FROM productlibrary.product_sum WHERE ean_0='" + textBarCode.Text + "' OR ean_1 ='" + textBarCode.Text + "' OR ean_2 ='" + textBarCode.Text + "'"); ;
+                string pro_name = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT name FROM productlibrary.product_sum WHERE ean_0='" + textBarCode.Text + "' OR ean_1 ='" + textBarCode.Text + "' OR ean_2 ='" + textBarCode.Text + "'");
                 textpro_name.Text = pro_name;
-                decimal pro_srp = SQLConnect.Instance.PgSQL_SELECTDataDecimalsingle("SELECT srp FROM productlibrary.product_sum WHERE ean_0='" + textBarCode.Text + "' OR ean_1 ='" + textBarCode.Text + "' OR ean_2 ='" + textBarCode.Text + "'"); ;
+                decimal pro_srp = SQLConnect.Instance.PgSQL_SELECTDataDecimalsingle("SELECT srp FROM productlibrary.product_sum WHERE ean_0='" + textBarCode.Text + "' OR ean_1 ='" + textBarCode.Text + "' OR ean_2 ='" + textBarCode.Text + "'");
                 textsrp.Text = pro_srp.ToString();
                 int pro_qty = Prod_qty(pro_id);
                 textstock.Text = pro_qty.ToString();
@@ -675,6 +687,340 @@ namespace ADIONSYS.Plugin.POS.Retail
         private void BtnAddDescription_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private string AutoNumber()
+        {
+            string invoice_number = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT invoice_number FROM salesinvoice.salesinvoicesum ORDER BY created_on DESC LIMIT 1");
+            string result;
+            if (invoice_number == null || invoice_number == string.Empty)
+            {
+                result = POSSettings.Default.InvoiceNumber;
+                return result;
+            }
+            else
+            {
+                string[] sArray = invoice_number.Split('-');
+                int number = int.Parse(sArray[1]);
+                int retnumber = number + 1;
+                result = sArray[0] + "-" + retnumber.ToString();
+                return result;
+            }
+
+        }
+
+        private bool CheckINV(string inv)
+        {
+            bool done = false;
+            try
+            {
+                if (SQLConnect.Instance.ConnectState() == true)
+                {
+                    List<string> result = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT invoice_number FROM salesinvoice.salesinvoicesum");
+                    if (result.Contains(inv))
+                    {
+                        return done;
+                    }
+                    else
+                    {
+                        done = true;
+                        return done;
+                    }
+                }
+                else
+                {
+                    return done;
+                }
+            }
+            catch
+            {
+                return done;
+            }
+        }
+        private List<string> DicKeyName()
+        {
+            List<string> keyList = new List<string>(this.SNDic.Keys);
+            return keyList;
+        }
+
+        private List<bool> CheckDicSNPCS(List<string> keyList)
+        {
+            List<bool> dicSNBool = new List<bool>();
+            List<string> CheckList = keyList;
+            for (int i = 0; i < CheckList.Count; i++)
+            {
+                int product_id = (int)ConfirmGridView1.Rows[i].Cells[1].Value;
+                string result_hash_name = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT hash FROM productlibrary.product_sum WHERE product_id=" + product_id + "");
+                int RowCount = (int)ConfirmGridView1.Rows[i].Cells[5].Value;
+                int ListCount = SNDic[result_hash_name].Count;
+                if (ListCount == RowCount)
+                {
+                    dicSNBool.Add(true);
+                }
+                else
+                {
+                    dicSNBool.Add(false);
+                }
+            }
+            return dicSNBool;
+        }
+
+        private bool CheckDicSNGroup()
+        {
+            List<string> keyList = DicKeyName();
+            List<bool> SNBool = CheckDicSNPCS(keyList);
+            bool CheckSN;
+            if (SNBool.Contains(false))
+            {
+                CheckSN = false;
+            }
+            else
+            {
+                CheckSN = true;
+            }
+            return CheckSN;
+        }
+
+        private bool CheckDicKeyGroup()
+        {
+            List<string> keyList = DicKeyName();
+            int keycount = keyList.Count;
+            int Viewcount = ConfirmGridView1.Rows.Count;
+            bool CheckDicKey;
+            if (keycount == Viewcount)
+            {
+                CheckDicKey = true;
+            }
+            else
+            {
+                CheckDicKey = false;
+            }
+            return CheckDicKey;
+        }
+
+        private int DicValList(List<string> keyList)
+        {
+            List<int> lst = new List<int>();
+            List<string> CheckList = keyList;
+            for (int i = 0; i < CheckList.Count; i++)
+            {
+                string result_hash_name = CheckList[i];
+                int ListCount = SNDic[result_hash_name].Count;
+                lst.Add(ListCount);
+            }
+            int Sumlst = lst.Sum();
+            return Sumlst;
+        }
+
+        private int Itemcolumn(string table, int head, int own)
+        {
+            string tablename = table;
+            List<string> result = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT column_name FROM information_schema.columns WHERE table_name = '" + tablename + "'");
+            int resultCount = result.Count;
+            int headle = head;
+            int itemcolumn = own;
+            int itempcs = (resultCount - headle) / itemcolumn;
+            return itempcs;
+        }
+
+        private int Addcolumnpcs(int need, int have)
+        {
+            int addcolumn = need - have;
+            return addcolumn;
+        }
+
+        private void Addinvoiceitemcolumn(int have, int add)
+        {
+            int havepcs = have;
+            int addpcs = add;
+            for (int i = 0; i < addpcs; i++)
+            {
+                havepcs++;
+                SQLConnect.Instance.PgSQL_Command("ALTER TABLE salesinvoice.salesinvoiceitem ADD product_id_" + havepcs + " INT");
+                SQLConnect.Instance.PgSQL_Command("ALTER TABLE salesinvoice.salesinvoiceitem ADD product_cost_" + havepcs + " decimal");
+                SQLConnect.Instance.PgSQL_Command("ALTER TABLE salesinvoice.salesinvoiceitem ADD product_srp_" + havepcs + " decimal");
+                SQLConnect.Instance.PgSQL_Command("ALTER TABLE salesinvoice.salesinvoiceitem ADD item_id_" + havepcs + " INT");
+                SQLConnect.Instance.PgSQL_Command("ALTER TABLE salesinvoice.salesinvoiceitem ADD item_sn_" + havepcs + " VARCHAR (255)");
+            }
+        }
+
+        private int CheckNeedDicItemPcs()
+        {
+            List<string> KeyBook = DicKeyName();
+            int ValPcs = DicValList(KeyBook);
+            return ValPcs;
+        }
+
+        private void Possessinvoiceitemcolumn(string table, int head, int own)
+        {
+            int need = CheckNeedDicItemPcs();
+            int itempcs = Itemcolumn(table, head, own);
+            if (need > itempcs)
+            {
+                int addpcs = Addcolumnpcs(need, itempcs);
+                Addinvoiceitemcolumn(itempcs, addpcs);
+            }
+        }
+
+        private bool Addinvitem(string inv, string date)
+        {
+            bool step = false;
+            try
+            {
+
+                123131
+                if (SQLConnect.Instance.ConnectState() == true)
+                {
+                    List<string> KeyList = DicKeyName();
+                    int SumPcs = DicValList(KeyList);
+                    SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.salesinvoiceitem(invoice_number,created_on) VALUES ('" + inv + "','" + date + "')");
+                    int result_invoice_id = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT invoice_id FROM salesinvoice.salesinvoiceitem WHERE invoice_number='" + inv + "'");
+                    int DataBaseStep = 1;
+                    for (int i = 0; i < KeyList.Count; i++)
+                    {
+                        int product_id = (int)ConfirmGridView1.Rows[i].Cells[1].Value;
+                        
+                        string result_hash_name = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT hash FROM productlibrary.product_sum WHERE product_id=" + product_id + "");
+                        List<string> list = SNDic[result_hash_name];
+
+                        for (int q = 0; q < list.Count; q++)
+                        {
+                            string schemaname = "productlibrary";
+                            string droptablename = "\"" + schemaname + "\"" + "." + "\"" + result_hash_name + "\"";
+                            int item_id = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT product_id FROM " + droptablename + " WHERE sn='" + list[q] + "'");
+                            decimal cost = SQLConnect.Instance.PgSQL_SELECTDataDecimalsingle("SELECT cost FROM " + droptablename + " WHERE product_id='" + item_id + "'");
+                            decimal srp = SQLConnect.Instance.PgSQL_SELECTDataDecimalsingle("SELECT srp FROM productlibrary.product_sum WHERE product_id='" + product_id + "'");
+                            SQLConnect.Instance.PgSQL_Command("UPDATE salesinvoice.salesinvoiceitem SET product_id_" + DataBaseStep + "='" + product_id + "',product_cost_" + DataBaseStep + "='" + cost + "',product_srp_" + DataBaseStep + "='" + srp + "', item_id_" + DataBaseStep + "='" + item_id + "', item_sn_" + DataBaseStep + "='" + list[q] + "' WHERE invoice_id = '" + result_invoice_id + "'");
+                            DataBaseStep++;
+                        }
+                        step = true;
+                    }
+                    return step;
+                }
+                else
+                {
+                    return step;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageInfo MessageInfo = new MessageInfo(ex.Message);
+                MessageInfo.ShowDialog();
+            }
+            return step;
+
+
+        }
+
+
+        private bool Upload_item_status()
+        {
+            bool done = false;
+            try
+            {
+                int status = 4;
+                List<string> DicKey = DicKeyName();
+                for (int i = 0; i < DicKey.Count; i++)
+                {
+                    string result_hash_name = DicKey[i];
+                    List<string> ListVal = SNDic[result_hash_name];
+                    for (int q = 0; q < ListVal.Count; q++)
+                    {
+                        string schemaname = "productlibrary";
+                        string droptablename = "\"" + schemaname + "\"" + "." + "\"" + result_hash_name + "\"";
+
+                        SQLConnect.Instance.PgSQL_Command("UPDATE " + droptablename + " SET status='" + status + "' WHERE sn='" + ListVal[q] + "'");
+                    }
+                }
+                done = true;
+                return done;
+            }
+            catch (Exception ex)
+            {
+                MessageInfo MessageBox_text = new MessageInfo(ex.Message);
+                MessageBox_text.ShowDialog();
+            }
+
+            return done;
+
+        }
+
+        private void BtnEnter_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                if (SQLConnect.Instance.ConnectState() == true && ConfirmGridView1.Rows.Count > 0 )
+                {
+                    string codenumber = AutoNumber();
+                    int client_id = Convert.ToInt32(LBClientID.Text);
+                    int Storage_id = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT storage_id FROM productstorage.storage WHERE storage_name='" + textStorage.Text + "'");
+                    int salesman_id = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT user_id FROM username.accounts WHERE username='" + ApplicationSetting.Default.User + "'");
+                    int shipping_id = 0;
+                    string comment = string.Empty;
+                    string created_on = ConvertType.GetTimeStamp();
+                    int status = 1;
+                    decimal total = Convert.ToDecimal(texttotalamount.Text);
+                    decimal Deposit = Convert.ToDecimal(textDeposit.Text);
+                    decimal Balance = Convert.ToDecimal(textBalance.Text);
+                    int qty_total = Convert.ToInt32(texttotalqty.Text);
+                    string deposit_pay_method = string.Empty;
+                    string balance_pay_method = string.Empty;
+                    //fix it 
+                    //int paystatus = textstatus.Text;
+                    if (CheckBShipping.Checked)
+                    {
+                        status = 2;
+                    }
+                    bool state = true;
+
+                    if (codenumber != string.Empty && CheckINV(codenumber) == true)
+                    {
+                        
+                        if (CheckDicKeyGroup() == true && CheckDicSNGroup() == true)
+                        {
+                            Possessinvoiceitemcolumn("salesinvoiceitem", 3, 3);
+                            if (Addinvitem(codenumber, created_on) == true)
+                            {
+
+                                int result_transferitem_id = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT invoice_id FROM salesinvoice.salesinvoiceitem WHERE invoice_number='" + codenumber + "'");
+                                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.salesinvoicesum(invoice_number,invoiceitem_id,client_id,shipping_id,username_id,storage_id,total_qty,total,deposit,balance,deposit_pay_method,balance_pay_method,comment,upload_date,created_on) VALUES " +
+                                    "('" + codenumber + "','" + result_transferitem_id + "','" + client_id + "','" + shipping_id + "','" + salesman_id + "','" +
+                                    "" + Storage_id + "','" + qty_total + "','" + total + "','" + Deposit + "','" + Balance + "','" + deposit_pay_method + "','" + balance_pay_method + "','" + comment + "','" + created_on + "','" + created_on + "')");
+                                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.salesinvoice_status (invoice_id,status_id,grant_date,upload_date,state) VALUES ((SELECT invoice_id FROM salesinvoice.salesinvoicesum WHERE invoice_number= '" + codenumber + "'),'" + status + "','" + created_on + "','" + created_on + "','" + state +  "')");
+                                if (Upload_item_status() == true)
+                                {
+                                    MessageInfo MessageBox_text = new MessageInfo("Saved");
+                                    MessageBox_text.ShowDialog();
+                                    ClearAll();
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageInfo MessageBox_text = new MessageInfo(ex.Message);
+                MessageBox_text.ShowDialog();
+            }
+
+
+        }
+
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+
+        private void textBalance_TextChanged(object sender, EventArgs e)
+        {
+            //fix it
         }
     }
 }

@@ -646,7 +646,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Storage.Transfer
         {
             string transfer_number = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT transfer_number FROM storagetransfer.transfer ORDER BY created_on DESC LIMIT 1");
             string result;
-            if (transfer_number == null)
+            if (transfer_number == null || transfer_number == string.Empty)
             {
                 result = POSSettings.Default.TransferNumber;
                 return result;
