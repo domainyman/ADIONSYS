@@ -489,12 +489,13 @@ namespace ADIONSYS.Plugin.Setting
                     "shipping_id INT ," +
                     "username_id INT NOT NULL," +
                     "storage_id INT NOT NULL," +
-                    "total_qty INT ," +
-                    "total decimal ," +
-                    "deposit decimal ," +
-                    "balance decimal ," +
-                    "deposit_pay_method VARCHAR ( 50 ) ," +
-                    "balance_pay_method VARCHAR ( 50 ) ," +
+                    "total_qty INT NOT NULL," +
+                    "total decimal NOT NULL," +
+                    "deposit decimal NOT NULL," +
+                    "balance decimal NOT NULL," +
+                    "deposit_pay_method VARCHAR ( 50 ) NOT NULL," +
+                    "balance_pay_method VARCHAR ( 50 ) NOT NULL," +
+                    "pay_terms VARCHAR ( 50 ) NOT NULL," +
                     "comment VARCHAR ( 50 )," +
                     "upload_date TIMESTAMP ," +
                     "created_on TIMESTAMP NOT NULL)");
@@ -510,33 +511,27 @@ namespace ADIONSYS.Plugin.Setting
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.status (" +
                     "status_id bigserial PRIMARY KEY," +
                     "status_name VARCHAR (255) UNIQUE NOT NULL)");
-                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.salesinvoice_status (" +
-                    "invoice_id INT NOT NULL," +
-                    "status_id INT NOT NULL," +
-                    "grant_date TIMESTAMP," +
-                    "upload_date TIMESTAMP," +
-                    "state boolean NOT NULL," +
-                    "PRIMARY KEY (invoice_id, status_id)," +
-                    "FOREIGN KEY (invoice_id)REFERENCES salesinvoice.salesinvoicesum (invoice_id)," +
-                    "FOREIGN KEY (status_id) REFERENCES salesinvoice.status (status_id))");
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.pay_status (" +
                     "pay_status_id bigserial PRIMARY KEY," +
                     "pay_status_name VARCHAR (255) UNIQUE NOT NULL)");
-                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.pay_salesinvoice_status (" +
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS salesinvoice.salesinvoice_status (" +
                     "invoice_id INT NOT NULL," +
                     "status_id INT NOT NULL," +
+                    "pay_status_id INT NOT NULL," +
                     "grant_date TIMESTAMP," +
                     "upload_date TIMESTAMP," +
                     "state boolean NOT NULL," +
-                    "PRIMARY KEY (invoice_id, status_id)," +
+                    "PRIMARY KEY (invoice_id, status_id, pay_status_id)," +
                     "FOREIGN KEY (invoice_id)REFERENCES salesinvoice.salesinvoicesum (invoice_id)," +
+                    "FOREIGN KEY (pay_status_id)REFERENCES salesinvoice.pay_status (pay_status_id)," +
                     "FOREIGN KEY (status_id) REFERENCES salesinvoice.status (status_id))");
+
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('normal')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('shipping')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('void')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('booking')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('paid ')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('unpaid')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('PAID ')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('UNPAID')");
             }
         }
         private void AlterProduct()

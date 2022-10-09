@@ -142,7 +142,6 @@ namespace ADIONSYS.Plugin.POS.Warehose.Management.Purchese
                 {
                     int listCount = list.Count;
                     int count = 0;
-                    Console.WriteLine(listCount);
                     foreach (TextBox text in CompLayoutPanel.Controls.OfType<TextBox>())
                     {
                         if (count == listCount)

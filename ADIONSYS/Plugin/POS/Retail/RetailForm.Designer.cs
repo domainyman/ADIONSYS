@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.LBTop = new System.Windows.Forms.Label();
@@ -91,10 +91,13 @@
             this.textpayterms = new System.Windows.Forms.Label();
             this.texttotalamount = new System.Windows.Forms.Label();
             this.LBSubTotal = new System.Windows.Forms.Label();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.Pay_Method_1 = new System.Windows.Forms.TableLayoutPanel();
             this.textDeposit = new System.Windows.Forms.TextBox();
             this.lbdeposit = new System.Windows.Forms.Label();
+            this.PayMethod_First = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbTextTerms = new System.Windows.Forms.ComboBox();
+            this.ChangePayTerms = new System.Windows.Forms.Label();
             this.BtnClear = new System.Windows.Forms.Button();
             this.BtnPrint = new System.Windows.Forms.Button();
             this.BtnEnter = new System.Windows.Forms.Button();
@@ -103,6 +106,7 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.LBbalance = new System.Windows.Forms.Label();
             this.textBalance = new System.Windows.Forms.TextBox();
+            this.PayMethod_S = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -112,7 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ConfirmGridView1)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
+            this.Pay_Method_1.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.SuspendLayout();
@@ -132,7 +136,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.LBinvoiceitem, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 1, 10);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 1, 11);
+            this.tableLayoutPanel1.Controls.Add(this.Pay_Method_1, 1, 11);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel8, 1, 13);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel10, 1, 12);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -447,6 +451,7 @@
             this.textQty.PlaceholderText = "Qty (Enter To Confirm)";
             this.textQty.Size = new System.Drawing.Size(174, 25);
             this.textQty.TabIndex = 47;
+            this.textQty.TextChanged += new System.EventHandler(this.textQty_TextChanged);
             // 
             // textBarCode
             // 
@@ -612,36 +617,36 @@
             this.SearchGridView.AllowUserToAddRows = false;
             this.SearchGridView.AllowUserToDeleteRows = false;
             this.SearchGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(89)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(135)))), ((int)(((byte)(212)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.SearchGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(89)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(135)))), ((int)(((byte)(212)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.SearchGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.SearchGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.SearchGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
             this.SearchGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.SearchGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.SearchGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.SearchGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.SearchGridView.ColumnHeadersHeight = 45;
             this.SearchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(75)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(135)))), ((int)(((byte)(212)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.SearchGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(75)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(135)))), ((int)(((byte)(212)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.SearchGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.SearchGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.SearchGridView.EnableHeadersVisualStyles = false;
@@ -651,14 +656,14 @@
             this.SearchGridView.Name = "SearchGridView";
             this.SearchGridView.ReadOnly = true;
             this.SearchGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.SearchGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.SearchGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.SearchGridView.RowHeadersVisible = false;
             this.SearchGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.SearchGridView.RowTemplate.Height = 25;
@@ -674,36 +679,36 @@
             this.ConfirmGridView1.AllowUserToAddRows = false;
             this.ConfirmGridView1.AllowUserToDeleteRows = false;
             this.ConfirmGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(89)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(135)))), ((int)(((byte)(212)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
-            this.ConfirmGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(89)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(135)))), ((int)(((byte)(212)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.ConfirmGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.ConfirmGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ConfirmGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
             this.ConfirmGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ConfirmGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.ConfirmGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ConfirmGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ConfirmGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.ConfirmGridView1.ColumnHeadersHeight = 45;
             this.ConfirmGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(75)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(135)))), ((int)(((byte)(212)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ConfirmGridView1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(75)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(135)))), ((int)(((byte)(212)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ConfirmGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             this.ConfirmGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ConfirmGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.ConfirmGridView1.EnableHeadersVisualStyles = false;
@@ -713,14 +718,14 @@
             this.ConfirmGridView1.Name = "ConfirmGridView1";
             this.ConfirmGridView1.ReadOnly = true;
             this.ConfirmGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ConfirmGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ConfirmGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.ConfirmGridView1.RowHeadersVisible = false;
             this.ConfirmGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.ConfirmGridView1.RowTemplate.Height = 25;
@@ -1001,6 +1006,7 @@
             this.texttotalamount.Size = new System.Drawing.Size(196, 23);
             this.texttotalamount.TabIndex = 5;
             this.texttotalamount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.texttotalamount.TextChanged += new System.EventHandler(this.texttotalamount_TextChanged);
             // 
             // LBSubTotal
             // 
@@ -1014,22 +1020,23 @@
             this.LBSubTotal.Text = "Sub Total : ";
             this.LBSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel9
+            // Pay_Method_1
             // 
-            this.tableLayoutPanel9.ColumnCount = 3;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Controls.Add(this.textDeposit, 2, 0);
-            this.tableLayoutPanel9.Controls.Add(this.lbdeposit, 1, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(23, 731);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(1281, 31);
-            this.tableLayoutPanel9.TabIndex = 86;
+            this.Pay_Method_1.ColumnCount = 3;
+            this.Pay_Method_1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Pay_Method_1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.Pay_Method_1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.Pay_Method_1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Pay_Method_1.Controls.Add(this.textDeposit, 2, 0);
+            this.Pay_Method_1.Controls.Add(this.lbdeposit, 1, 0);
+            this.Pay_Method_1.Controls.Add(this.PayMethod_First, 0, 0);
+            this.Pay_Method_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pay_Method_1.Location = new System.Drawing.Point(23, 731);
+            this.Pay_Method_1.Name = "Pay_Method_1";
+            this.Pay_Method_1.RowCount = 1;
+            this.Pay_Method_1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Pay_Method_1.Size = new System.Drawing.Size(1281, 31);
+            this.Pay_Method_1.TabIndex = 86;
             // 
             // textDeposit
             // 
@@ -1058,12 +1065,23 @@
             this.lbdeposit.Text = "Deposit :";
             this.lbdeposit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // PayMethod_First
+            // 
+            this.PayMethod_First.ColumnCount = 1;
+            this.PayMethod_First.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PayMethod_First.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PayMethod_First.Location = new System.Drawing.Point(3, 3);
+            this.PayMethod_First.Name = "PayMethod_First";
+            this.PayMethod_First.RowCount = 1;
+            this.PayMethod_First.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PayMethod_First.Size = new System.Drawing.Size(975, 25);
+            this.PayMethod_First.TabIndex = 48;
+            // 
             // tableLayoutPanel8
             // 
-            this.tableLayoutPanel8.ColumnCount = 11;
+            this.tableLayoutPanel8.ColumnCount = 10;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1072,11 +1090,13 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel8.Controls.Add(this.BtnClear, 7, 0);
-            this.tableLayoutPanel8.Controls.Add(this.BtnPrint, 6, 0);
-            this.tableLayoutPanel8.Controls.Add(this.BtnEnter, 8, 0);
-            this.tableLayoutPanel8.Controls.Add(this.LBpaymentstatus, 9, 0);
-            this.tableLayoutPanel8.Controls.Add(this.textstatus, 10, 0);
+            this.tableLayoutPanel8.Controls.Add(this.cmbTextTerms, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.ChangePayTerms, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.BtnClear, 6, 0);
+            this.tableLayoutPanel8.Controls.Add(this.BtnPrint, 5, 0);
+            this.tableLayoutPanel8.Controls.Add(this.BtnEnter, 7, 0);
+            this.tableLayoutPanel8.Controls.Add(this.LBpaymentstatus, 8, 0);
+            this.tableLayoutPanel8.Controls.Add(this.textstatus, 9, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(23, 806);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -1084,6 +1104,32 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(1281, 33);
             this.tableLayoutPanel8.TabIndex = 85;
+            // 
+            // cmbTextTerms
+            // 
+            this.cmbTextTerms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cmbTextTerms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbTextTerms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTextTerms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbTextTerms.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbTextTerms.ForeColor = System.Drawing.Color.White;
+            this.cmbTextTerms.FormattingEnabled = true;
+            this.cmbTextTerms.Location = new System.Drawing.Point(103, 3);
+            this.cmbTextTerms.Name = "cmbTextTerms";
+            this.cmbTextTerms.Size = new System.Drawing.Size(294, 26);
+            this.cmbTextTerms.TabIndex = 74;
+            // 
+            // ChangePayTerms
+            // 
+            this.ChangePayTerms.AutoSize = true;
+            this.ChangePayTerms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChangePayTerms.Location = new System.Drawing.Point(3, 3);
+            this.ChangePayTerms.Margin = new System.Windows.Forms.Padding(3);
+            this.ChangePayTerms.Name = "ChangePayTerms";
+            this.ChangePayTerms.Size = new System.Drawing.Size(94, 27);
+            this.ChangePayTerms.TabIndex = 12;
+            this.ChangePayTerms.Text = "Pay Terms :";
+            this.ChangePayTerms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BtnClear
             // 
@@ -1166,6 +1212,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel10.Controls.Add(this.LBbalance, 1, 0);
             this.tableLayoutPanel10.Controls.Add(this.textBalance, 2, 0);
+            this.tableLayoutPanel10.Controls.Add(this.PayMethod_S, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(23, 768);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -1197,10 +1244,23 @@
             this.textBalance.Location = new System.Drawing.Point(1084, 3);
             this.textBalance.Name = "textBalance";
             this.textBalance.PlaceholderText = "Balance";
+            this.textBalance.ReadOnly = true;
             this.textBalance.Size = new System.Drawing.Size(194, 25);
             this.textBalance.TabIndex = 48;
             this.textBalance.TextChanged += new System.EventHandler(this.textBalance_TextChanged);
             this.textBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBalance_KeyPress);
+            // 
+            // PayMethod_S
+            // 
+            this.PayMethod_S.ColumnCount = 1;
+            this.PayMethod_S.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PayMethod_S.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PayMethod_S.Location = new System.Drawing.Point(3, 3);
+            this.PayMethod_S.Name = "PayMethod_S";
+            this.PayMethod_S.RowCount = 1;
+            this.PayMethod_S.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PayMethod_S.Size = new System.Drawing.Size(975, 26);
+            this.PayMethod_S.TabIndex = 49;
             // 
             // RetailForm
             // 
@@ -1230,8 +1290,8 @@
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel9.PerformLayout();
+            this.Pay_Method_1.ResumeLayout(false);
+            this.Pay_Method_1.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
@@ -1311,5 +1371,10 @@
         private Label texrmethod;
         private Label textmethod;
         private CheckBox CheckBShipping;
+        private TableLayoutPanel Pay_Method_1;
+        private TableLayoutPanel PayMethod_First;
+        private TableLayoutPanel PayMethod_S;
+        private ComboBox cmbTextTerms;
+        private Label ChangePayTerms;
     }
 }
