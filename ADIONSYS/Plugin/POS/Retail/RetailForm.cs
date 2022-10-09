@@ -868,7 +868,7 @@ namespace ADIONSYS.Plugin.POS.Retail
             try
             {
 
-                123131
+              
                 if (SQLConnect.Instance.ConnectState() == true)
                 {
                     List<string> KeyList = DicKeyName();

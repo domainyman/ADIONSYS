@@ -535,8 +535,8 @@ namespace ADIONSYS.Plugin.Setting
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('shipping')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('void')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('booking')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(status_name) VALUES('paid ')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(status_name) VALUES('unpaid')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('paid ')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('unpaid')");
             }
         }
         private void AlterProduct()
