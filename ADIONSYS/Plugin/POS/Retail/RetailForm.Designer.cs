@@ -81,6 +81,7 @@
             this.CheckBShipping = new System.Windows.Forms.CheckBox();
             this.LBinvoiceitem = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.texttotalamount = new System.Windows.Forms.TextBox();
             this.textmethod = new System.Windows.Forms.Label();
             this.texttax = new System.Windows.Forms.Label();
             this.LBTax = new System.Windows.Forms.Label();
@@ -89,7 +90,6 @@
             this.LBTotalQty = new System.Windows.Forms.Label();
             this.texttotalqty = new System.Windows.Forms.Label();
             this.textpayterms = new System.Windows.Forms.Label();
-            this.texttotalamount = new System.Windows.Forms.Label();
             this.LBSubTotal = new System.Windows.Forms.Label();
             this.Pay_Method_1 = new System.Windows.Forms.TableLayoutPanel();
             this.textDeposit = new System.Windows.Forms.TextBox();
@@ -102,7 +102,7 @@
             this.BtnPrint = new System.Windows.Forms.Button();
             this.BtnEnter = new System.Windows.Forms.Button();
             this.LBpaymentstatus = new System.Windows.Forms.Label();
-            this.textstatus = new System.Windows.Forms.Label();
+            this.textstatus = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.LBbalance = new System.Windows.Forms.Label();
             this.textBalance = new System.Windows.Forms.TextBox();
@@ -451,7 +451,6 @@
             this.textQty.PlaceholderText = "Qty (Enter To Confirm)";
             this.textQty.Size = new System.Drawing.Size(174, 25);
             this.textQty.TabIndex = 47;
-            this.textQty.TextChanged += new System.EventHandler(this.textQty_TextChanged);
             // 
             // textBarCode
             // 
@@ -886,6 +885,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel7.Controls.Add(this.texttotalamount, 9, 0);
             this.tableLayoutPanel7.Controls.Add(this.textmethod, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.texttax, 7, 0);
             this.tableLayoutPanel7.Controls.Add(this.LBTax, 6, 0);
@@ -894,7 +894,6 @@
             this.tableLayoutPanel7.Controls.Add(this.LBTotalQty, 4, 0);
             this.tableLayoutPanel7.Controls.Add(this.texttotalqty, 5, 0);
             this.tableLayoutPanel7.Controls.Add(this.textpayterms, 3, 0);
-            this.tableLayoutPanel7.Controls.Add(this.texttotalamount, 9, 0);
             this.tableLayoutPanel7.Controls.Add(this.LBSubTotal, 8, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(23, 696);
@@ -904,14 +903,29 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1281, 29);
             this.tableLayoutPanel7.TabIndex = 84;
             // 
+            // texttotalamount
+            // 
+            this.texttotalamount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.texttotalamount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.texttotalamount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.texttotalamount.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.texttotalamount.ForeColor = System.Drawing.Color.White;
+            this.texttotalamount.Location = new System.Drawing.Point(1082, 3);
+            this.texttotalamount.Name = "texttotalamount";
+            this.texttotalamount.PlaceholderText = "Amount";
+            this.texttotalamount.ReadOnly = true;
+            this.texttotalamount.Size = new System.Drawing.Size(196, 25);
+            this.texttotalamount.TabIndex = 75;
+            this.texttotalamount.TextChanged += new System.EventHandler(this.texttotalamount_TextChanged);
+            // 
             // textmethod
             // 
             this.textmethod.AutoSize = true;
             this.textmethod.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textmethod.Location = new System.Drawing.Point(69, 3);
+            this.textmethod.Location = new System.Drawing.Point(3, 3);
             this.textmethod.Margin = new System.Windows.Forms.Padding(3);
             this.textmethod.Name = "textmethod";
-            this.textmethod.Size = new System.Drawing.Size(191, 23);
+            this.textmethod.Size = new System.Drawing.Size(1, 23);
             this.textmethod.TabIndex = 9;
             this.textmethod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -942,10 +956,10 @@
             // 
             this.LBmethod.AutoSize = true;
             this.LBmethod.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LBmethod.Location = new System.Drawing.Point(3, 3);
+            this.LBmethod.Location = new System.Drawing.Point(9, 3);
             this.LBmethod.Margin = new System.Windows.Forms.Padding(3);
             this.LBmethod.Name = "LBmethod";
-            this.LBmethod.Size = new System.Drawing.Size(60, 23);
+            this.LBmethod.Size = new System.Drawing.Size(211, 23);
             this.LBmethod.TabIndex = 0;
             this.LBmethod.Text = "Method : ";
             this.LBmethod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -954,7 +968,7 @@
             // 
             this.LBPay_term.AutoSize = true;
             this.LBPay_term.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LBPay_term.Location = new System.Drawing.Point(266, 3);
+            this.LBPay_term.Location = new System.Drawing.Point(226, 3);
             this.LBPay_term.Margin = new System.Windows.Forms.Padding(3);
             this.LBPay_term.Name = "LBPay_term";
             this.LBPay_term.Size = new System.Drawing.Size(53, 23);
@@ -966,7 +980,7 @@
             // 
             this.LBTotalQty.AutoSize = true;
             this.LBTotalQty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LBTotalQty.Location = new System.Drawing.Point(522, 3);
+            this.LBTotalQty.Location = new System.Drawing.Point(502, 3);
             this.LBTotalQty.Margin = new System.Windows.Forms.Padding(3);
             this.LBTotalQty.Name = "LBTotalQty";
             this.LBTotalQty.Size = new System.Drawing.Size(67, 23);
@@ -978,10 +992,10 @@
             // 
             this.texttotalqty.AutoSize = true;
             this.texttotalqty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.texttotalqty.Location = new System.Drawing.Point(595, 3);
+            this.texttotalqty.Location = new System.Drawing.Point(575, 3);
             this.texttotalqty.Margin = new System.Windows.Forms.Padding(3);
             this.texttotalqty.Name = "texttotalqty";
-            this.texttotalqty.Size = new System.Drawing.Size(191, 23);
+            this.texttotalqty.Size = new System.Drawing.Size(211, 23);
             this.texttotalqty.TabIndex = 4;
             this.texttotalqty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -989,24 +1003,12 @@
             // 
             this.textpayterms.AutoSize = true;
             this.textpayterms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textpayterms.Location = new System.Drawing.Point(325, 3);
+            this.textpayterms.Location = new System.Drawing.Point(285, 3);
             this.textpayterms.Margin = new System.Windows.Forms.Padding(3);
             this.textpayterms.Name = "textpayterms";
-            this.textpayterms.Size = new System.Drawing.Size(191, 23);
+            this.textpayterms.Size = new System.Drawing.Size(211, 23);
             this.textpayterms.TabIndex = 6;
             this.textpayterms.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // texttotalamount
-            // 
-            this.texttotalamount.AutoSize = true;
-            this.texttotalamount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.texttotalamount.Location = new System.Drawing.Point(1082, 3);
-            this.texttotalamount.Margin = new System.Windows.Forms.Padding(3);
-            this.texttotalamount.Name = "texttotalamount";
-            this.texttotalamount.Size = new System.Drawing.Size(196, 23);
-            this.texttotalamount.TabIndex = 5;
-            this.texttotalamount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.texttotalamount.TextChanged += new System.EventHandler(this.texttotalamount_TextChanged);
             // 
             // LBSubTotal
             // 
@@ -1076,6 +1078,7 @@
             this.PayMethod_First.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.PayMethod_First.Size = new System.Drawing.Size(975, 25);
             this.PayMethod_First.TabIndex = 48;
+            this.PayMethod_First.EnabledChanged += new System.EventHandler(this.PayMethod_First_EnabledChanged);
             // 
             // tableLayoutPanel8
             // 
@@ -1195,14 +1198,17 @@
             // 
             // textstatus
             // 
-            this.textstatus.AutoSize = true;
+            this.textstatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textstatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textstatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textstatus.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textstatus.ForeColor = System.Drawing.Color.White;
             this.textstatus.Location = new System.Drawing.Point(1084, 3);
-            this.textstatus.Margin = new System.Windows.Forms.Padding(3);
             this.textstatus.Name = "textstatus";
-            this.textstatus.Size = new System.Drawing.Size(194, 27);
-            this.textstatus.TabIndex = 11;
-            this.textstatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textstatus.PlaceholderText = "Status";
+            this.textstatus.ReadOnly = true;
+            this.textstatus.Size = new System.Drawing.Size(194, 25);
+            this.textstatus.TabIndex = 75;
             // 
             // tableLayoutPanel10
             // 
@@ -1342,7 +1348,6 @@
         private Label LBPay_term;
         private Label LBSubTotal;
         private Label LBTotalQty;
-        private Label texttotalamount;
         private Label texttotalqty;
         private Label textpayterms;
         private Button BtnAddDescription;
@@ -1358,7 +1363,6 @@
         private TextBox textDeposit;
         private Label lbdeposit;
         private Label LBpaymentstatus;
-        private Label textstatus;
         private TableLayoutPanel tableLayoutPanel10;
         private Label LBbalance;
         private TextBox textBalance;
@@ -1376,5 +1380,7 @@
         private TableLayoutPanel PayMethod_S;
         private ComboBox cmbTextTerms;
         private Label ChangePayTerms;
+        private TextBox texttotalamount;
+        private TextBox textstatus;
     }
 }

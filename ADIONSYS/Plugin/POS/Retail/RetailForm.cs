@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Windows.Graphics.Printing;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace ADIONSYS.Plugin.POS.Retail
 {
@@ -35,6 +36,7 @@ namespace ADIONSYS.Plugin.POS.Retail
             ShowStorage();
             ShowUser();
             LoadTable();
+            StartupTable();
             SetupConfirmdataTable();
             AddComponentFirst();
             AddComponentS();
@@ -75,7 +77,7 @@ namespace ADIONSYS.Plugin.POS.Retail
                     }
                 }
                 SearchGridView.DataSource = ProductSUM;
-                StartupTable();
+               
             }
         }
 
@@ -173,6 +175,10 @@ namespace ADIONSYS.Plugin.POS.Retail
             textpayterms.Text = ShowTerms();
             textmethod.Text = ShowMethod();
             ChangeTerms();
+            Firstclick();
+
+
+
         }
 
         private void ChangeTerms()
@@ -435,6 +441,7 @@ namespace ADIONSYS.Plugin.POS.Retail
                                     decimal total = Amount + tax;
                                     texttotalamount.Text = Amount.ToString();
                                     texttotalqty.Text = ShowQty().ToString();
+                                    
                                 }
                             }
                             else
@@ -525,7 +532,19 @@ namespace ADIONSYS.Plugin.POS.Retail
             ConfirmdataTable.Clear();
             SearchGridView.Update();
             SearchGridView.Refresh();
+            LoadTable();
             SNDic.Clear();
+            CommentList = string.Empty;
+            textBalance.Text = string.Empty;
+            texttotalamount.Text = string.Empty;
+            textDeposit.Text = string.Empty;
+            textstatus.Text = string.Empty;
+            ClearMethod_S();
+            ClearMethod();
+            //LBClientID.Text = string.Empty;
+            CMBClient.SelectedIndex = -1;
+            cmbTextTerms.SelectedIndex = -1;
+
         }
 
         private int Reuser_id()
@@ -658,67 +677,7 @@ namespace ADIONSYS.Plugin.POS.Retail
             }
         }
 
-        private void textDeposit_TextChanged(object sender, EventArgs e)
-        {
-            if (texttotalamount.Text != string.Empty && textDeposit.Text != string.Empty)
-            {
-                if (Convert.ToDecimal(textDeposit.Text) > Convert.ToDecimal(texttotalamount.Text))
-                {
-                    textBalance.Text = "0";
-                    textDeposit.Text = texttotalamount.Text;
-                    MessageInfo MessageBox_text = new MessageInfo("Over Payment Amount!");
-                    MessageBox_text.ShowDialog();
-                }
-                else if (Convert.ToDecimal(textDeposit.Text) < Convert.ToDecimal(texttotalamount.Text))
-                {
-                    PayMethod_S.Enabled =true;
-                    decimal balance = Convert.ToDecimal(texttotalamount.Text) - Convert.ToDecimal(textDeposit.Text);
-                    textBalance.Text = balance.ToString();
-                }
-                else if (Convert.ToDecimal(textDeposit.Text) == Convert.ToDecimal(texttotalamount.Text))
-                {
-                    PayMethod_S.Enabled = false;
-                    decimal balance = Convert.ToDecimal(texttotalamount.Text) - Convert.ToDecimal(textDeposit.Text);
-                    textBalance.Text = balance.ToString();
-                }
-            }
-        }
 
-        private bool CheckUnpayComBox()
-        {
-            foreach (CheckBox checkbox in PayMethod_First.Controls.OfType<CheckBox>())
-            {
-
-                if (checkbox.Checked && checkbox.Text == "UNPAY")
-                {
-                    return true;
-                }
-                else
-                {
-                    continue;
-                }
-
-            }
-            return false;
-        }
-
-        private bool CheckUnpay_SComBox()
-        {
-            foreach (CheckBox checkbox in PayMethod_S.Controls.OfType<CheckBox>())
-            {
-
-                if (checkbox.Checked && checkbox.Text == "UNPAY")
-                {
-                    return true;
-                }
-                else
-                {
-                    continue;
-                }
-
-            }
-            return false;
-        }
 
         private void textDeposit_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -754,8 +713,17 @@ namespace ADIONSYS.Plugin.POS.Retail
             }
         }
 
+        public string CommentList { set; get; }
+
         private void BtnAddDescription_Click(object sender, EventArgs e)
         {
+            Description Description = new();
+            Description.ShowDialog();
+            if(Description.List != null && Description.List.Any())
+            {
+                CommentList = string.Join(",",Description.List.ToArray());
+            }
+
 
         }
 
@@ -1026,7 +994,7 @@ namespace ADIONSYS.Plugin.POS.Retail
                     int Storage_id = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT storage_id FROM productstorage.storage WHERE storage_name='" + textStorage.Text + "'");
                     int salesman_id = SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT user_id FROM username.accounts WHERE username='" + ApplicationSetting.Default.User + "'");
                     int shipping_id = 0;
-                    string comment = string.Empty;
+                    string comment = CommentList;
                     string created_on = ConvertType.GetTimeStamp();
                     int status = 1;
                     decimal total = Convert.ToDecimal(texttotalamount.Text);
@@ -1052,7 +1020,7 @@ namespace ADIONSYS.Plugin.POS.Retail
                     }
                     bool state = true;
 
-                    if (codenumber != string.Empty && CheckINV(codenumber) == true &&  deposit_pay_method != string.Empty && balance_pay_method != string.Empty && payTerms != string.Empty && (textstatus.Text == "PAID" || textstatus.Text == "UNPAID" ))
+                    if (codenumber != string.Empty && CheckINV(codenumber) == true &&  deposit_pay_method != string.Empty  && payTerms != string.Empty && (textstatus.Text == "PAID" || textstatus.Text == "UNPAID" ))
                     {
                         
                         if (CheckDicKeyGroup() == true && CheckDicSNGroup() == true)
@@ -1071,12 +1039,11 @@ namespace ADIONSYS.Plugin.POS.Retail
                                     MessageInfo MessageBox_text = new MessageInfo("Saved");
                                     MessageBox_text.ShowDialog();
                                     ClearAll();
+                                    
                                 }
                             }
 
                         }
-
-
                     }
                     else
                     {
@@ -1164,26 +1131,13 @@ namespace ADIONSYS.Plugin.POS.Retail
             UNPay_method.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
             UNPay_method.CheckedChanged += new EventHandler(CheckBox_Depositzore);
             PayMethod_First.Enabled = false;
+            
+
 
         }
 
-        private void CheckBox_Depositzore(object sender, EventArgs e)
-        {
-            CheckBox Check = (CheckBox)sender;
-            if (Check.Checked)
-            {
-                textDeposit.Text = "0";
-                textBalance.Text = texttotalamount.Text;
-                textBalance.ReadOnly = true;
-                textstatus.Text = "UNPAID";
-                PayMethod_S.Enabled = false;
-            }
-            else
-            {
-                textstatus.Text = "";
-               
-            }
-        }
+
+
         private void AddComponentS()
         {
             List<string> result_paymethod_name = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT paymethod_name FROM storagemember.paymethod");
@@ -1240,10 +1194,6 @@ namespace ADIONSYS.Plugin.POS.Retail
                 
                 textstatus.Text = "UNPAID";
             }
-            else
-            {
-                textstatus.Text = "";
-            }
         }
 
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1252,15 +1202,12 @@ namespace ADIONSYS.Plugin.POS.Retail
             foreach (CheckBox checkbox in PayMethod_First.Controls.OfType<CheckBox>())
             {
 
-                if (checkbox.Name == Check.Name)
-                {
-                    continue;
-                }
-                else
+                if (checkbox.Name != Check.Name)
                 {
                     checkbox.Checked = false;
                 }
             }
+            CheckOrderStatus();
         }
 
         private void CheckBox_S_CheckedChanged(object sender, EventArgs e)
@@ -1269,13 +1216,40 @@ namespace ADIONSYS.Plugin.POS.Retail
             foreach (CheckBox checkbox in PayMethod_S.Controls.OfType<CheckBox>())
             {
 
-                if (checkbox.Name == Check.Name)
-                {
-                    continue;
-                }
-                else
+                if (checkbox.Name != Check.Name)
                 {
                     checkbox.Checked = false;
+                }
+            }
+            CheckOrderStatus();
+        }
+
+        private void CheckOrderStatus()
+        {
+            if (textDeposit.Text != string.Empty && CheckMethod() == true && CheckUnpayComBox()==false && PayMethod_S.Enabled == false)
+            {
+                textDeposit.Text = texttotalamount.Text;
+                textBalance.Text = "0";
+                textstatus.Text = "PAID";
+            }
+            else if(textDeposit.Text != string.Empty && CheckMethod() == true  && CheckMethod_S() ==true &&  CheckUnpayComBox() == false && CheckUnpay_SComBox() == false && PayMethod_S.Enabled == true)
+            {
+                textstatus.Text = "PAID";
+            }
+            else if (textDeposit.Text != string.Empty && CheckMethod() == true && CheckMethod_S() == false && CheckUnpayComBox() == false && CheckUnpay_SComBox() == false && PayMethod_S.Enabled == true)
+            {
+                textstatus.Text = string.Empty;
+            }
+        }
+
+        private void Firstclick()
+        {
+            string result_pay_method = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT pay_method FROM storagemember.member WHERE member_id=" + LBClientID.Text + "");
+            foreach (CheckBox checkbox in PayMethod_First.Controls.OfType<CheckBox>())
+            {
+                if (checkbox.Text == result_pay_method)
+                {
+                    checkbox.Checked = true;
                 }
             }
         }
@@ -1285,35 +1259,7 @@ namespace ADIONSYS.Plugin.POS.Retail
             ClearAll();
         }
 
-        private void textBalance_TextChanged(object sender, EventArgs e)
-        {
-            if (CheckUnpayComBox() == true || CheckUnpay_SComBox() == true)
-            {
-                textstatus.Text = "UNPAID";
-            }
-            else
-            {
-                decimal Deposit = Convert.ToDecimal(textDeposit.Text);
-                decimal Balance = Convert.ToDecimal(textBalance.Text);
-                decimal amount = Convert.ToDecimal(texttotalamount.Text);
-                decimal testamount = Deposit + Balance;
-                if (testamount == amount)
-                {
-                    textstatus.Text = "PAID";
-                }
-                else
-                {
-                    textstatus.Text = "UNPAID";
-                }
-            }
 
-                
-        }
-
-        private void textQty_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void texttotalamount_TextChanged(object sender, EventArgs e)
         {
@@ -1323,9 +1269,167 @@ namespace ADIONSYS.Plugin.POS.Retail
                 if(amount > 0)
                 {
                     PayMethod_First.Enabled = true;
+
                     
                 }
             }
         }
+
+        private bool CheckUnpayComBox()
+        {
+            foreach (CheckBox checkbox in PayMethod_First.Controls.OfType<CheckBox>())
+            {
+
+                if (checkbox.Checked && checkbox.Text == "UNPAY")
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        private bool CheckUnpay_SComBox()
+        {
+            foreach (CheckBox checkbox in PayMethod_S.Controls.OfType<CheckBox>())
+            {
+
+                if (checkbox.Checked && checkbox.Text == "UNPAY")
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        private void CheckBox_Depositzore(object sender, EventArgs e)
+        {
+            CheckBox Check = (CheckBox)sender;
+            if (Check.Checked)
+            {
+                textDeposit.Text = "0";
+                textBalance.Text = texttotalamount.Text;
+                textstatus.Text = "UNPAID";
+                PayMethod_S.Enabled = false;
+            }
+        }
+
+        private bool CheckMethod_S()
+        {
+            List<bool> bools = new List<bool>();
+            foreach (CheckBox checkbox in PayMethod_S.Controls.OfType<CheckBox>())
+            {
+
+                if (checkbox.Checked)
+                {
+                    bools.Add(true);
+                }
+                else
+                {
+                    bools.Add(false);
+                }
+
+            }
+            if (bools.Contains(true))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool CheckMethod()
+        {
+            List<bool> bools = new List<bool>();
+            foreach (CheckBox checkbox in PayMethod_First.Controls.OfType<CheckBox>())
+            {
+
+                if (checkbox.Checked)
+                {
+                    bools.Add(true);
+                }
+                else
+                {
+                    bools.Add(false);
+                }
+
+            }
+            if (bools.Contains(true))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private void textDeposit_TextChanged(object sender, EventArgs e)
+        {
+            if (texttotalamount.Text != string.Empty && textDeposit.Text != string.Empty)
+            {
+                if (Convert.ToDecimal(textDeposit.Text) > Convert.ToDecimal(texttotalamount.Text))
+                {
+                    textBalance.Text = "0";
+                    textDeposit.Text = texttotalamount.Text;
+                    MessageInfo MessageBox_text = new MessageInfo("Over Payment Amount!");
+                    MessageBox_text.ShowDialog();
+                }
+                else if (Convert.ToDecimal(textDeposit.Text) < Convert.ToDecimal(texttotalamount.Text))
+                {
+                    PayMethod_S.Enabled = true;
+                    decimal balance = Convert.ToDecimal(texttotalamount.Text) - Convert.ToDecimal(textDeposit.Text);
+                    textBalance.Text = balance.ToString();
+                    CheckOrderStatus();
+                }
+                else if (Convert.ToDecimal(textDeposit.Text) == Convert.ToDecimal(texttotalamount.Text))
+                {
+                    PayMethod_S.Enabled = false;
+                    decimal balance = Convert.ToDecimal(texttotalamount.Text) - Convert.ToDecimal(textDeposit.Text);
+                    textBalance.Text = balance.ToString();
+                    CheckOrderStatus();
+                }
+            }
+        }
+
+        private void PayMethod_First_EnabledChanged(object sender, EventArgs e)
+        {
+            if(PayMethod_First.Enabled == true)
+            {
+                Firstclick();
+            }
+        }
+
+        private void textstatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBalance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearMethod_S()
+        {
+            List<bool> bools = new List<bool>();
+            foreach (CheckBox checkbox in PayMethod_S.Controls.OfType<CheckBox>())
+            {
+
+                checkbox.Checked = false;
+            }
+        }
+        private void ClearMethod()
+        {
+            List<bool> bools = new List<bool>();
+            foreach (CheckBox checkbox in PayMethod_First.Controls.OfType<CheckBox>())
+            {
+
+                checkbox.Checked = false;
+            }
+        }
+
+
     }
 }

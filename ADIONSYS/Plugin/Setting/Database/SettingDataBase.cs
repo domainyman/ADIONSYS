@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -466,7 +467,7 @@ namespace ADIONSYS.Plugin.Setting
                     "pay_comment,pay_terms,pay_method,state,upload_date,created_on) VALUES('WALKIN','WALK IN','" + block + "','" + block + "','" + block + "','" + block + "','" + block + "','" + block + "','" + block + "'," +
                     "'" + block + "','" + block + "','" + block + "','" + block + "'," +
                     "'" + block + "','" + block + "','" + block + "','" + block + "','" + block + "'," +
-                    "'" + block + "','" + block + "','" + block + "','true','" + data + "','" + data + "')");
+                    "'" + block + "','" + "CASH ON DELIVERY" + "','" + "CASH" + "','true','" + data + "','" + data + "')");
             }
         }
 
