@@ -1082,24 +1082,24 @@
             // 
             // tableLayoutPanel8
             // 
-            this.tableLayoutPanel8.ColumnCount = 10;
+            this.tableLayoutPanel8.ColumnCount = 8;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.Controls.Add(this.cmbTextTerms, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.ChangePayTerms, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.BtnClear, 6, 0);
-            this.tableLayoutPanel8.Controls.Add(this.BtnPrint, 5, 0);
-            this.tableLayoutPanel8.Controls.Add(this.BtnEnter, 7, 0);
-            this.tableLayoutPanel8.Controls.Add(this.LBpaymentstatus, 8, 0);
-            this.tableLayoutPanel8.Controls.Add(this.textstatus, 9, 0);
+            this.tableLayoutPanel8.Controls.Add(this.BtnClear, 4, 0);
+            this.tableLayoutPanel8.Controls.Add(this.BtnPrint, 3, 0);
+            this.tableLayoutPanel8.Controls.Add(this.BtnEnter, 5, 0);
+            this.tableLayoutPanel8.Controls.Add(this.LBpaymentstatus, 6, 0);
+            this.tableLayoutPanel8.Controls.Add(this.textstatus, 7, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(23, 806);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";

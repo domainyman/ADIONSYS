@@ -471,6 +471,8 @@ namespace ADIONSYS.Plugin.Setting
             }
         }
 
+
+
         private void TableSalesinvoice()
         {
             List<string> result = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT nspname FROM pg_catalog.pg_namespace");
@@ -533,6 +535,53 @@ namespace ADIONSYS.Plugin.Setting
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('booking')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('PAID ')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('UNPAID')");
+            }
+        }
+
+        private void TableStorageShipping()
+        {
+            List<string> result = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT nspname FROM pg_catalog.pg_namespace");
+            if (result.Contains("invoiceshipping"))
+            {
+                MessageInfo MessageInfo = new MessageInfo("DataBase-Shipping Library already exists .");
+                MessageInfo.ShowDialog();
+            }
+            else
+            {
+                SQLConnect.Instance.PgSQL_Command("CREATE SCHEMA IF NOT EXISTS invoiceshipping");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagetransfer.transfer (" +
+                    "transfer_id bigserial PRIMARY KEY," +
+                    "transfer_number VARCHAR ( 50 ) UNIQUE NOT NULL," +
+                    "transferitem_id INT NOT NULL," +
+                    "from_storage INT NOT NULL," +
+                    "to_storage INT NOT NULL," +
+                    "username VARCHAR ( 50 ) NOT NULL," +
+                    "state boolean NOT NULL," +
+                    "comment VARCHAR ( 50 )," +
+                    "created_on TIMESTAMP NOT NULL)");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagetransfer.transferitem (" +
+                    "transfer_id bigserial PRIMARY KEY," +
+                    "transfer_number VARCHAR (255) UNIQUE NOT NULL," +
+                    "created_on TIMESTAMP NOT NULL," +
+                    "state boolean NOT NULL," +
+                    "product_id_1 INT ," +
+                    "item_id_1 INT ," +
+                    "item_sn_1 VARCHAR (255))");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS invoiceshipping.status (" +
+                    "status_id bigserial PRIMARY KEY," +
+                    "status_name VARCHAR (255) UNIQUE NOT NULL)");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagetransfer.transfer_status (" +
+                    "transfer_id INT NOT NULL," +
+                    "status_id INT NOT NULL," +
+                    "grant_date TIMESTAMP," +
+                    "upload_date TIMESTAMP," +
+                    "PRIMARY KEY (transfer_id, status_id)," +
+                    "FOREIGN KEY (transfer_id)REFERENCES storagetransfer.transfer (transfer_id)," +
+                    "FOREIGN KEY (status_id) REFERENCES storagetransfer.status (status_id))");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('normal')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('transfer')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('done')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('cancel')");
             }
         }
         private void AlterProduct()

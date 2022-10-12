@@ -37,6 +37,9 @@
     <Compile Update="Plugin\POS\Retail\RetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Plugin\POS\Retail\ShippingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Plugin\POS\Warehose\Management\Purchese\BatchImport.cs">
       <SubType>Form</SubType>
     </Compile>

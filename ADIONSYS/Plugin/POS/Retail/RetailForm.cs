@@ -260,10 +260,6 @@ namespace ADIONSYS.Plugin.POS.Retail
             ConfirmGridView1.Columns.Add(btn);
         }
 
-        private void BtnShippingInsert_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private int Check_qty(int prod_id)
         {
@@ -536,12 +532,13 @@ namespace ADIONSYS.Plugin.POS.Retail
             SNDic.Clear();
             CommentList = string.Empty;
             textBalance.Text = string.Empty;
-            texttotalamount.Text = string.Empty;
+            texttotalqty.Text = string.Empty;
+            texttotalamount.Text = "0";
             textDeposit.Text = string.Empty;
             textstatus.Text = string.Empty;
             ClearMethod_S();
             ClearMethod();
-            //LBClientID.Text = string.Empty;
+            LBClientID.Text = string.Empty;
             CMBClient.SelectedIndex = -1;
             cmbTextTerms.SelectedIndex = -1;
 
@@ -1427,6 +1424,25 @@ namespace ADIONSYS.Plugin.POS.Retail
             {
 
                 checkbox.Checked = false;
+            }
+        }
+
+        public List<string> Shipping_info = new List<string>();
+
+        private void BtnShippingInsert_Click(object sender, EventArgs e)
+        {
+            if(LBClientID.Text != string.Empty && CMBClient.Text != string.Empty)
+            {
+                int Clientid = Convert.ToInt32(LBClientID.Text);
+
+                ShippingForm ShippingForm = new(Clientid);
+                if(ShippingForm.ShowDialog() == DialogResult.Cancel)
+                {
+                    if(ShippingForm.Shipping != null)
+                    {
+                        Shipping_info = ShippingForm.Shipping;
+                    }
+                }
             }
         }
 
