@@ -2,6 +2,7 @@
 using ADIONSYS.Plugin.POS.Member.Add;
 using ADIONSYS.Plugin.POS.Retail;
 using ADIONSYS.Plugin.POS.Warehose;
+using ADIONSYS.Plugin.POS.Shipping;
 using ADIONSYS.Plugin.POS.Warehose.Product;
 using ADIONSYS.StartLoading;
 using System;
@@ -99,6 +100,13 @@ namespace ADIONSYS.Plugin.POS
             hidemeun();
             MemberForm MemberForm = new();
             ShowForm(MemberForm);
+        }
+
+        private void BtnTransport_Click(object sender, EventArgs e)
+        {
+            hidemeun();
+            ShippinginvForm ShippinginvForm = new();
+            ShowForm(ShippinginvForm); 
         }
     }
     

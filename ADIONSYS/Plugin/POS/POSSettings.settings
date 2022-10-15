@@ -23,5 +23,8 @@
     <Setting Name="RMANumber" Type="System.String" Scope="User">
       <Value Profile="(Default)">RMA-0000001</Value>
     </Setting>
+    <Setting Name="TransportNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TP-00000001</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

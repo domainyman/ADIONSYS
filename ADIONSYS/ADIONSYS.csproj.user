@@ -40,6 +40,39 @@
     <Compile Update="Plugin\POS\Retail\ShippingForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Plugin\POS\Shipping\Inquiry\CommentEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\Inquiry\ShippingDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\Inquiry\TransportSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\Manager\Setting\Method\Create\CreateMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\Manager\Setting\Method\Delete\DeleteMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\Manager\Setting\Method\Edit\EditMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\Manager\Setting\SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\Manager\Setting\Status\Create\CreateStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\Manager\Setting\Status\Delete\DeleteStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\Manager\Setting\Status\Edit\EditStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Plugin\POS\Shipping\ShippinginvForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Plugin\POS\Warehose\Management\Purchese\BatchImport.cs">
       <SubType>Form</SubType>
     </Compile>

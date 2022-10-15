@@ -97,5 +97,17 @@ namespace ADIONSYS.Plugin.POS {
                 this["RMANumber"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("TP-00000001")]
+        public string TransportNumber {
+            get {
+                return ((string)(this["TransportNumber"]));
+            }
+            set {
+                this["TransportNumber"] = value;
+            }
+        }
     }
 }

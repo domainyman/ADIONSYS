@@ -95,5 +95,35 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductSet.Brand.Delete
                 CMBoxList.DataSource = result;
             }
         }
+
+        private void LBCategory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LBtop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LBMessageBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CMBoxList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

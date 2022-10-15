@@ -65,6 +65,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(607, 249);
             this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // LBCategory
             // 
@@ -79,6 +80,7 @@
             this.LBCategory.TabIndex = 1;
             this.LBCategory.Text = "Brand  Name: ";
             this.LBCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LBCategory.Click += new System.EventHandler(this.LBCategory_Click);
             // 
             // LBtop
             // 
@@ -95,6 +97,7 @@
             this.LBtop.TabIndex = 7;
             this.LBtop.Text = "Delete Brand Category";
             this.LBtop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LBtop.Click += new System.EventHandler(this.LBtop_Click);
             // 
             // LBMessageBox
             // 
@@ -108,6 +111,7 @@
             this.LBMessageBox.Size = new System.Drawing.Size(232, 77);
             this.LBMessageBox.TabIndex = 3;
             this.LBMessageBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LBMessageBox.Click += new System.EventHandler(this.LBMessageBox_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -123,6 +127,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(318, 81);
             this.tableLayoutPanel2.TabIndex = 2;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // BtnEnter
             // 
@@ -169,6 +174,7 @@
             this.CMBoxList.Name = "CMBoxList";
             this.CMBoxList.Size = new System.Drawing.Size(318, 26);
             this.CMBoxList.TabIndex = 8;
+            this.CMBoxList.SelectedIndexChanged += new System.EventHandler(this.CMBoxList_SelectedIndexChanged);
             // 
             // DeleteBrand
             // 

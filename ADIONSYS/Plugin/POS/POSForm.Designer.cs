@@ -159,6 +159,7 @@
             this.BtnTransport.Text = "Transport";
             this.BtnTransport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnTransport.UseVisualStyleBackColor = true;
+            this.BtnTransport.Click += new System.EventHandler(this.BtnTransport_Click);
             // 
             // BtnAccount
             // 

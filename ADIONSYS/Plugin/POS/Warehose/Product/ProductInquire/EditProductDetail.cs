@@ -65,14 +65,22 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductInquire
             this.textCreateDate.Text = result_DateTime[3].ToString();
             this.LBStatus_transf.Text = StatusName;
 
-            if (result_DateTime[0].ToString() == "1111-11-11 11:11:11")
+            if (result_DateTime[0].ToString() == "11/11/1111 11:11:11")
             {
                 this.textReservationDate.Text = "";
             }
+            else
+            {
+                this.textReservationDate.Text = result_DateTime[0].ToString();
+            }
 
-            if (result_DateTime[2].ToString() == "1111-11-11 11:11:11")
+            if (result_DateTime[2].ToString() == "11/11/1111 11:11:11")
             {
                 this.textSellDate.Text = "";
+            }
+            else
+            {
+                this.textSellDate.Text = result_DateTime[2].ToString(); 
             }
             if (state == true)
             {

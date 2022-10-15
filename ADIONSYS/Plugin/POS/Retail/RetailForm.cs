@@ -1,6 +1,7 @@
 ﻿using ADIONSYS.ConvertFunction;
 using ADIONSYS.Plugin.POS.Warehose.Storage.Transfer;
 using ADIONSYS.Tool;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ using System.Windows.Forms;
 using Windows.Graphics.Printing;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Reflection.Metadata.BlobBuilder;
+using static System.Windows.Forms.AxHost;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ADIONSYS.Plugin.POS.Retail
 {
@@ -948,9 +951,11 @@ namespace ADIONSYS.Plugin.POS.Retail
         }
 
 
-        private bool Upload_item_status()
+        private bool Upload_item_status(string inv)
         {
             bool done = false;
+            string invoice = inv;
+            string created_on = ConvertType.GetTimeStamp();
             try
             {
                 int status = 4;
@@ -964,7 +969,7 @@ namespace ADIONSYS.Plugin.POS.Retail
                         string schemaname = "productlibrary";
                         string droptablename = "\"" + schemaname + "\"" + "." + "\"" + result_hash_name + "\"";
 
-                        SQLConnect.Instance.PgSQL_Command("UPDATE " + droptablename + " SET status='" + status + "' WHERE sn='" + ListVal[q] + "'");
+                        SQLConnect.Instance.PgSQL_Command("UPDATE " + droptablename + " SET status='" + status + "',selling_no='"+ invoice + "',selling_day='" + created_on + "' WHERE sn='" + ListVal[q] + "'");
                     }
                 }
                 done = true;
@@ -1000,7 +1005,6 @@ namespace ADIONSYS.Plugin.POS.Retail
                     int qty_total = Convert.ToInt32(texttotalqty.Text);
                     string deposit_pay_method = paymethod_First();
                     string balance_pay_method = paymethod_S();
-                    //fix it 
                     int pay_status_id = 0;
                     string payTerms = cmbTextTerms.Text;
                     if (CheckBShipping.Checked)
@@ -1030,13 +1034,22 @@ namespace ADIONSYS.Plugin.POS.Retail
                                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.salesinvoicesum(invoice_number,invoiceitem_id,client_id,shipping_id,username_id,storage_id,total_qty,total,deposit,balance,deposit_pay_method,balance_pay_method,pay_terms,comment,upload_date,created_on) VALUES " +
                                     "('" + codenumber + "','" + result_transferitem_id + "','" + client_id + "','" + shipping_id + "','" + salesman_id + "','" +
                                     "" + Storage_id + "','" + qty_total + "','" + total + "','" + Deposit + "','" + Balance + "','" + deposit_pay_method + "','" + balance_pay_method + "','" + payTerms + "','" + comment + "','" + created_on + "','" + created_on + "')");
-                                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.salesinvoice_status (invoice_id,status_id,pay_status_id,grant_date,upload_date,state) VALUES ((SELECT invoice_id FROM salesinvoice.salesinvoicesum WHERE invoice_number= '" + codenumber + "'),'" + status + "','" + pay_status_id + "','" + created_on + "','" + created_on + "','" + state +  "')");
-                                if (Upload_item_status() == true)
+                                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.salesinvoice_status (invoice_id,status_id,pay_status_id,grant_date,upload_date,state) VALUES ((SELECT invoice_id FROM salesinvoice.salesinvoicesum " +
+                                    "WHERE invoice_number= '" + codenumber + "'),'" + status + "','" + pay_status_id + "','" + created_on + "','" + created_on + "','" + state +  "')");
+                                if (Upload_item_status(codenumber) == true)
                                 {
-                                    MessageInfo MessageBox_text = new MessageInfo("Saved");
-                                    MessageBox_text.ShowDialog();
-                                    ClearAll();
-                                    
+                                    if(ShippingTransport() == true && Insertshipping(client_id, salesman_id, codenumber) == true)
+                                    {
+                                        MessageInfo MessageBox_text = new MessageInfo("Saved");
+                                        MessageBox_text.ShowDialog();
+                                        ClearAll();
+                                    }
+                                    else
+                                    {
+                                        MessageInfo MessageBox_text = new MessageInfo("Saved Without Shipping");
+                                        MessageBox_text.ShowDialog();
+                                        ClearAll();
+                                    }
                                 }
                             }
 
@@ -1059,6 +1072,88 @@ namespace ADIONSYS.Plugin.POS.Retail
             }
 
 
+        }
+
+        private string AutoTPNumber()
+        {
+            string Tp_number = SQLConnect.Instance.PgSQL_SELECTDataStringsinglel("SELECT ship_number FROM invoiceshipping.shippinginv ORDER BY created_on DESC LIMIT 1");
+            string result;
+            if (Tp_number == null || Tp_number == string.Empty)
+            {
+                result = POSSettings.Default.TransportNumber;
+                return result;
+            }
+            else
+            {
+                string[] sArray = Tp_number.Split('-');
+                int number = int.Parse(sArray[1]);
+                int retnumber = number + 1;
+                result = sArray[0] + "-" + retnumber.ToString();
+                return result;
+            }
+
+        }
+
+        private bool Insertshipping(int client_id,int user,string invoice)
+        {
+            try 
+            {
+                if (SQLConnect.Instance.ConnectState() == true)
+                {
+                    List<string> result_member = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT ship_company,ship_person,ship_address,ship_tel,ship_comment FROM storagemember.member WHERE member_id = '" + client_id + "'");
+                    string Company = "";
+                    string Parson = "";
+                    string Tel = "";
+                    string Address = "";
+                    string ship_comment = "";
+                    string Ship_details = "";
+                    string Tpnumber = AutoTPNumber();
+                    int status =  SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT status_id FROM invoiceshipping.status WHERE status_name = 'NORMAL'");
+                    bool state = true;
+                    string data = ConvertType.GetTimeStamp();
+                    string comment = "";
+                    if (Shipping_info != null )
+                    {
+                        Company = Shipping_info[0];
+                        Parson = Shipping_info[1];
+                        Tel = Shipping_info[2];
+                        Address = Shipping_info[3];
+                        ship_comment = Shipping_info[4];
+                    }
+                    else
+                    {
+                        Company = result_member[0];
+                        Parson = result_member[1];
+                        Tel = result_member[2];
+                        Address = result_member[3];
+                        ship_comment = result_member[4];
+                    }
+                    SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.shippinginv (invoice,username,ship_details,ship_number,ship_company,ship_person,ship_address,ship_tel,ship_comment,comment,upload_date,created_on) " +
+                        "VALUES ('" + invoice + "','" + user + "','" + Ship_details + "','" + Tpnumber + "','" + Company + "','" + Parson + "','" + Tel + "','" + Address + "','" + ship_comment + "','" + comment + "','" + data + "','" + data + "')");
+                    SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.shipping_status (shippinginv_id,status_id,grant_date,upload_date,state) " +
+                         "VALUES ((SELECT shippinginv_id FROM invoiceshipping.shippinginv WHERE invoice = '" + invoice + "'),'" + status + "','" + data + "','" + data + "','" + state + "')");
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageInfo MessageBox_text = new MessageInfo(ex.Message);
+                MessageBox_text.ShowDialog();
+                return false;
+            }
+        }
+
+        private bool ShippingTransport()
+        {
+            if(CheckBShipping.Checked)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private string paymethod_First()

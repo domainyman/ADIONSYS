@@ -74,6 +74,7 @@ namespace ADIONSYS.Plugin.Setting
             TableStorageTransfer();
             TableStorageMember();
             TableSalesinvoice();
+            TableStorageShipping();
             AlterProduct();
 
 
@@ -529,10 +530,10 @@ namespace ADIONSYS.Plugin.Setting
                     "FOREIGN KEY (pay_status_id)REFERENCES salesinvoice.pay_status (pay_status_id)," +
                     "FOREIGN KEY (status_id) REFERENCES salesinvoice.status (status_id))");
 
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('normal')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('shipping')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('void')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('booking')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('NORMAL')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('SIPPING')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('VOID')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.status(status_name) VALUES('BOOKING')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('PAID ')");
                 SQLConnect.Instance.PgSQL_Command("INSERT INTO salesinvoice.pay_status(pay_status_name) VALUES('UNPAID')");
             }
@@ -549,39 +550,44 @@ namespace ADIONSYS.Plugin.Setting
             else
             {
                 SQLConnect.Instance.PgSQL_Command("CREATE SCHEMA IF NOT EXISTS invoiceshipping");
-                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagetransfer.transfer (" +
-                    "transfer_id bigserial PRIMARY KEY," +
-                    "transfer_number VARCHAR ( 50 ) UNIQUE NOT NULL," +
-                    "transferitem_id INT NOT NULL," +
-                    "from_storage INT NOT NULL," +
-                    "to_storage INT NOT NULL," +
-                    "username VARCHAR ( 50 ) NOT NULL," +
-                    "state boolean NOT NULL," +
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS invoiceshipping.shippinginv (" +
+                    "shippinginv_id bigserial PRIMARY KEY," +
+                    "invoice VARCHAR ( 50 ) UNIQUE NOT NULL," +
+                    "username int NOT NULL," +
+                    "ship_method INT ," +
+                    "ship_details VARCHAR ( 50 )," +
+                    "ship_number VARCHAR ( 50 ) NOT NULL," +
+                    "ship_company VARCHAR ( 50 )," +
+                    "ship_person VARCHAR ( 50 )," +
+                    "ship_address VARCHAR ( 50 )," +
+                    "ship_tel VARCHAR ( 50 )," +
+                    "ship_comment VARCHAR ( 50 )," +
                     "comment VARCHAR ( 50 )," +
+                    "upload_date TIMESTAMP," +
                     "created_on TIMESTAMP NOT NULL)");
-                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagetransfer.transferitem (" +
-                    "transfer_id bigserial PRIMARY KEY," +
-                    "transfer_number VARCHAR (255) UNIQUE NOT NULL," +
-                    "created_on TIMESTAMP NOT NULL," +
-                    "state boolean NOT NULL," +
-                    "product_id_1 INT ," +
-                    "item_id_1 INT ," +
-                    "item_sn_1 VARCHAR (255))");
                 SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS invoiceshipping.status (" +
                     "status_id bigserial PRIMARY KEY," +
                     "status_name VARCHAR (255) UNIQUE NOT NULL)");
-                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS storagetransfer.transfer_status (" +
-                    "transfer_id INT NOT NULL," +
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS invoiceshipping.method (" +
+                    "method_id bigserial PRIMARY KEY," +
+                    "method_name VARCHAR (255) UNIQUE NOT NULL)");
+                SQLConnect.Instance.PgSQL_Command("CREATE TABLE IF NOT EXISTS invoiceshipping.shipping_status (" +
+                    "shippinginv_id INT NOT NULL," +
                     "status_id INT NOT NULL," +
                     "grant_date TIMESTAMP," +
                     "upload_date TIMESTAMP," +
-                    "PRIMARY KEY (transfer_id, status_id)," +
-                    "FOREIGN KEY (transfer_id)REFERENCES storagetransfer.transfer (transfer_id)," +
-                    "FOREIGN KEY (status_id) REFERENCES storagetransfer.status (status_id))");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('normal')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('transfer')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('done')");
-                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('cancel')");
+                    "state boolean NOT NULL," +
+                    "PRIMARY KEY (shippinginv_id, status_id)," +
+                    "FOREIGN KEY (shippinginv_id)REFERENCES invoiceshipping.shippinginv (shippinginv_id)," +
+                    "FOREIGN KEY (status_id) REFERENCES invoiceshipping.status (status_id))");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('OTHER')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('NORMAL')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('WAIT')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('TRANSFER')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('DONE')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.status(status_name) VALUES('CANCEL')");
+                SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.method(method_name) VALUES('OTHER')");
+
             }
         }
         private void AlterProduct()
@@ -591,6 +597,8 @@ namespace ADIONSYS.Plugin.Setting
             Storagecenum();
             usercenum();
             transfer();
+            shipping();
+        
         }
 
         private void Productcenum()
@@ -624,6 +632,10 @@ namespace ADIONSYS.Plugin.Setting
             SQLConnect.Instance.PgSQL_Command("ALTER TABLE storagetransfer.transfer ADD CONSTRAINT fk_transfer_status FOREIGN KEY (transferitem_id) REFERENCES storagetransfer.transferitem (transfer_id)");
         }
 
+        private void shipping()
+        {
+            SQLConnect.Instance.PgSQL_Command("ALTER TABLE invoiceshipping.shippinginv ADD CONSTRAINT fk_shippinginv_method FOREIGN KEY (ship_method) REFERENCES invoiceshipping.method (method_id)");
+        }
 
         private void PlugFolder()
         {
