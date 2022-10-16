@@ -43,6 +43,9 @@
     <Compile Update="Plugin\POS\Shipping\Inquiry\CommentEdit.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Plugin\POS\Shipping\Inquiry\Invinfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Plugin\POS\Shipping\Inquiry\ShippingDetails.cs">
       <SubType>Form</SubType>
     </Compile>
