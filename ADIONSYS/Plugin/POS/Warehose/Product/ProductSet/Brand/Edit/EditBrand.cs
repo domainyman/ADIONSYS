@@ -57,8 +57,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductSet.Brand.Edit
                                 MessageContinue MessageContinue = new MessageContinue("Brand is currently using!");
                                 if (MessageContinue.ShowDialog() == DialogResult.Continue)
                                 {
-                                    Task SQL = Task.Run(() => SQLConnect.Instance.PgSQL_Command("UPDATE productbrand.brand SET brand_name='" + newname + "' WHERE brand_id='" + result_brand_id[0] + "'"));
-                                    Task.WaitAll(SQL);
+                                    SQLConnect.Instance.PgSQL_Command("UPDATE productbrand.brand SET brand_name='" + newname + "' WHERE brand_id='" + result_brand_id[0] + "'");
                                     Startup();
                                     savelabel();
                                     textBrandName.Text = string.Empty;
@@ -118,6 +117,7 @@ namespace ADIONSYS.Plugin.POS.Warehose.Product.ProductSet.Brand.Edit
             {
                 List<string> result = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT brand_name FROM productbrand.brand");
                 CMBoxList.DataSource = result;
+                CMBoxList.SelectedIndex = -1;
             }
         }
     }

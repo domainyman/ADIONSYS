@@ -70,7 +70,11 @@ namespace ADIONSYS.Plugin.POS.Shipping.Inquiry
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-
+            EditStatus editStatus = new EditStatus(shippinginv_id);
+            if (editStatus.ShowDialog() == DialogResult.Cancel)
+            {
+                ShowForm();
+            }
         }
 
         private void BtnComment_Click(object sender, EventArgs e)

@@ -576,7 +576,7 @@ namespace ADIONSYS.Plugin.Setting
                     "shippinginv_id INT NOT NULL," +
                     "status_id INT NOT NULL," +
                     "grant_date TIMESTAMP," +
-                    "upload_date TIMESTAMP," +
+                    "cc TIMESTAMP," +
                     "state boolean NOT NULL," +
                     "PRIMARY KEY (shippinginv_id, status_id)," +
                     "FOREIGN KEY (shippinginv_id)REFERENCES invoiceshipping.shippinginv (shippinginv_id)," +

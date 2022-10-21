@@ -1100,33 +1100,48 @@ namespace ADIONSYS.Plugin.POS.Retail
             {
                 if (SQLConnect.Instance.ConnectState() == true)
                 {
-                    List<string> result_member = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT ship_company,ship_person,ship_address,ship_tel,ship_comment FROM storagemember.member WHERE member_id = '" + client_id + "'");
-                    string Company = "";
-                    string Parson = "";
-                    string Tel = "";
-                    string Address = "";
-                    string ship_comment = "";
-                    string Ship_details = "";
+                    string Company = string.Empty;
+                    string Parson = string.Empty;
+                    string Tel = string.Empty;
+                    string Address = string.Empty;
+                    string ship_comment = string.Empty;
+                    string Ship_details = string.Empty;
+                    string comment = string.Empty;
                     string Tpnumber = AutoTPNumber();
                     int status =  SQLConnect.Instance.PgSQL_SELECTDataintsingle("SELECT status_id FROM invoiceshipping.status WHERE status_name = 'NORMAL'");
                     bool state = true;
                     string data = ConvertType.GetTimeStamp();
-                    string comment = "";
-                    if (Shipping_info != null )
+                
+                    if (Shipping_info == null )
+                    {
+                        Company = " ";
+                        Parson = " ";
+                        Tel = " ";
+                        Address = " ";
+                        ship_comment = " ";
+                        Ship_details = " ";
+                        comment = " ";
+                    }
+                    else if(Shipping_info != null)
                     {
                         Company = Shipping_info[0];
                         Parson = Shipping_info[1];
                         Tel = Shipping_info[2];
                         Address = Shipping_info[3];
                         ship_comment = Shipping_info[4];
+                        Ship_details = " ";
+                        comment = " ";
                     }
                     else
                     {
+                        List<string> result_member = SQLConnect.Instance.PgSQL_SELECTDataString("SELECT ship_company,ship_person,ship_address,ship_tel,ship_comment FROM storagemember.member WHERE member_id = '" + client_id + "'");
                         Company = result_member[0];
                         Parson = result_member[1];
                         Tel = result_member[2];
                         Address = result_member[3];
                         ship_comment = result_member[4];
+                        Ship_details = " ";
+                        comment = " ";
                     }
                     SQLConnect.Instance.PgSQL_Command("INSERT INTO invoiceshipping.shippinginv (invoice,username,ship_details,ship_number,ship_company,ship_person,ship_address,ship_tel,ship_comment,comment,upload_date,created_on) " +
                         "VALUES ('" + invoice + "','" + user + "','" + Ship_details + "','" + Tpnumber + "','" + Company + "','" + Parson + "','" + Tel + "','" + Address + "','" + ship_comment + "','" + comment + "','" + data + "','" + data + "')");

@@ -45,7 +45,7 @@ namespace ADIONSYS.Plugin.POS.Shipping.Inquiry
             if (ProductGridView.ColumnCount > 0)
             {
                 ProductGridView.Columns[0].HeaderText = "Status";
-                ProductGridView.Columns[0].FillWeight = 60;
+                ProductGridView.Columns[0].FillWeight = 100;
                 ProductGridView.Columns[1].HeaderText = "INVOICE Number";
                 ProductGridView.Columns[2].HeaderText = "Transport Number";
                 ProductGridView.Columns[3].HeaderText = "Transport Name";
